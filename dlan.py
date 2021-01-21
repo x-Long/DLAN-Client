@@ -101,7 +101,7 @@ class Ui_Form(object):
                 iconLabel = "self.iconLabel"+"_pushButton"+"_"+str(i)
                 textLabel = "self.textLabel"+"_pushButton"+"_"+str(i)
                 myLayout = "self.myLayout"+"_pushButton"+"_"+str(i)
-                self.side_bar_button_layout(iconLabel, textLabel, myLayout, key)
+                self.side_bar_button_layout(iconLabel, textLabel, myLayout, key,30)
                 eval("self.pushButton"+"_"+str(i)).setLayout(eval(myLayout))
 
                 for j in range(len(self.side_bar_info[i][key])):
@@ -114,7 +114,7 @@ class Ui_Form(object):
                         iconLabel = "self.iconLabel" + "_pushButton"+"_"+str(i)+"_"+str(j)
                         textLabel = "self.textLabel" + "_pushButton"+"_"+str(i)+"_"+str(j)
                         myLayout = "self.myLayout" + "_pushButton"+"_"+str(i)+"_"+str(j)
-                        self.side_bar_button_layout(iconLabel, textLabel, myLayout, key1)
+                        self.side_bar_button_layout(iconLabel, textLabel, myLayout, key1,50)
                         eval("self.pushButton"+"_"+str(i)+"_" +str(j)).setLayout(eval(myLayout))
 
                         for k in range(len(self.side_bar_info[i][key][j][key1])):
@@ -126,13 +126,13 @@ class Ui_Form(object):
                             iconLabel = "self.iconLabel"+"_pushButton" + "_"+str(i)+"_"+str(j)+"_"+str(k)
                             textLabel = "self.textLabel"+"_pushButton" + "_"+str(i)+"_"+str(j)+"_"+str(k)
                             myLayout = "self.myLayout"+"_pushButton" + "_"+str(i)+"_"+str(j)+"_"+str(k)
-                            self.side_bar_button_layout(iconLabel, textLabel, myLayout, self.side_bar_info[i][key][j][key1][k])
+                            self.side_bar_button_layout(iconLabel, textLabel, myLayout, self.side_bar_info[i][key][j][key1][k],70)
                             eval("self.pushButton"+"_"+str(i)+"_"+str(j)+"_"+str(k)).setLayout(eval(myLayout))
                         self.item_flag = self.item_flag+1
 
         self.status_bar()
 
-    def side_bar_button_layout(self, iconLabel, textLabel, myLayout, text):
+    def side_bar_button_layout(self, iconLabel, textLabel, myLayout, text,spacing):
         exec(iconLabel+"= QtWidgets.QLabel()")
         exec(textLabel+"= QtWidgets.QLabel()")
         eval(iconLabel).setFixedSize(25, 30)
@@ -142,7 +142,7 @@ class Ui_Form(object):
         exec(myLayout+"= QtWidgets.QHBoxLayout()")
         eval(myLayout).setContentsMargins(0, 0, 0, 0)
         eval(myLayout).setSpacing(0)
-        eval(myLayout).addSpacing(50)
+        eval(myLayout).addSpacing(spacing)
         eval(myLayout).addWidget(eval(iconLabel))
         eval(myLayout).addSpacing(0)
         eval(myLayout).addWidget(eval(textLabel))
