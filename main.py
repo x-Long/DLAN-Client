@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 # Author:XXX
 
-# from ui import Ui_Form
 from dlan import Ui_Form
 from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import partial
@@ -49,7 +48,6 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
             temp.append(low_level_frame)
             self.side_bar_widgets.append(temp)
 
-        
         for k in range(len(self.side_bar_widgets)):
             self.high_level_button_event(k)
             for h in self.side_bar_widgets[k][1]:
