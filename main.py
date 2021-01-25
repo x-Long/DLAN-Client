@@ -56,7 +56,12 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
                 print(self.side_bar_widgets[k][2][f])
                 self.low_level_button_event(k,f)
     
-        
+    def resizeEvent(self, event):#更新窗体大小事件
+        self.message="窗口大小调整为：QSize({0},{1})".format(event.size().width(),event.size().height())
+        self.frame_dingji.setMaximumHeight(event.size().height()-30)
+        self.update()
+
+
     def high_level_button_event(self,k):
         print("self.side_bar_widgets[k][0]",self.side_bar_widgets[k][0])
         eval(self.side_bar_widgets[k][0]).clicked.connect(lambda: self.high_frame_res(self.side_bar_widgets[k][1],k))
@@ -88,6 +93,7 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
             # iconLabel.setPixmap(QtGui.QPixmap("./icon/close.png"))
             # eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).addWidget(iconLabel)
         else:
+            
             self.change_arrows("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:],"./icon/open.png")
             # iconLabel= QtWidgets.QLabel()
             # iconLabel.setFixedSize(25, 30)
@@ -142,5 +148,7 @@ if __name__ == '__main__':
     main_window = Main_window()
     main_window.setWindowIcon(QtGui.QIcon('logo.png'))
     main_window.setWindowTitle("帝岚科技计算机终端保密检查系统")
+    print(main_window.width())
+    # main_window.resize(main_window.width(),main_window.width()*0.6)
     main_window.show()
     app.exec()

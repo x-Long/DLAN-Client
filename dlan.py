@@ -12,7 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(1113, 621)
+        # Form.resize(1113, 730)
+        Form.setMinimumHeight(800)
         Form.setStyleSheet("QPushButton{\n"
                            "border:0px;\n"
                            "color: #FFFFFF;\n"
