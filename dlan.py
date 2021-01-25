@@ -52,40 +52,59 @@ class Ui_Form(object):
         self.side_bar_info = [
             {
                 "常规检查": [
-                    {"终端基本信息": ["主机信息", "硬盘信息", "主机信息", "硬盘信息",
-                                "主机信息", "硬盘信息", "主机信息", "硬盘信息", ]},
-                    {"USB设备检查": ["存储设备", "其他设备"]},
-                    {"终端基本信息": ["主机信息", "硬盘信息"]},
-                    {"USB设备检查": ["存储设备", "其他设备"]},
-                    {"终端基本信息": ["主机信息", "硬盘信息"]},
-                    {"USB设备检查": ["存储设备", "其他设备"]},
-                    {"终端基本信息": ["主机信息", "硬盘信息"]},
-                    {"USB设备检查": ["存储设备", "其他设备"]},
+                    {"终端基本信息": ["主机信息", "硬盘信息", "操作系统","身份鉴别",  ]},
+                    {"USB设备检查": ["存储设备", "其他设备",]},
+                    {"联网设备检查": ["浏览器记录", "cookies记录","上网软件记录","邮件收发记录","终端外联状态"]},
+                    {"软件安装检查": ["软件系统", "邮件客户端","虚拟机软件","杀毒软件信息","反取证软件检查"]},
+                    {"其他辅助检查": ["文件使用记录", "开关机记录"]},
                 ]
             },
             {
                 "安全检查": [
-                    {"系统安全检查": ["系统共享安全", "无线通信模块"]},
-                    {"安全配置检查": ["安全审计配置", "账户安全配置"]},
+                    {"系统安全检查": ["三合一”客户端", "系统共享安全 ", "无线通信模块", "音频视频模块", "操作系统补丁","系统进程信息 " ]},
+                    {"安全配置检查": ["安全审计配置", "账户安全配置", "账户权限配置", "系统服务配置", "系统端口配置", ]},
                 ]
             },
+            {
+                "文件检查": [
+                    {"常规文件": ["常规文件检查 ", ]},
+                    {"图片文件": ["图片文件检查", ]},
+                ]
+            },
+            {
+                "深度检查": [
+                    {"使用记录检查": ["USB设备记录 ","历史上网记录","文件操作记录" ]},
+                    {"文件恢复检查": ["删除文件恢复", "文件碎片恢复"]},
+                ]
+            },           
+            {
+                "本机报告": [
+                    {"总体检查报告": []},
+                    {"文件检查报告": []},
+                    {"人工检查报告": []},
+                    {"详细检查报告": []},
+                    {"二维码报告": []},
+                ]
+            },     
         ]
         self.pushButton_icon = {
-            "常规检查": "./Vector.png",
-            "终端基本信息": "./Vector.png",
-            "主机信息": "./Vector.png",
-            "硬盘信息": "./Vector.png",
-            "USB设备检查": "./Vector.png",
-            "存储设备": "./Vector.png",
-            "其他设备": "./Vector.png",
-            "安全检查": "./Vector.png",
-            "系统安全检查": "./Vector.png",
-            "系统共享安全": "./Vector.png",
-            "无线通信模块": "./Vector.png",
-            "安全配置检查": "./Vector.png",
-            "安全审计配置": "./Vector.png",
-            "账户安全配置": "./Vector.png",
-            "default": "default.png"
+            "常规检查": "./icon/1.png",
+            "终端基本信息": "./icon/two.png",
+            "USB设备检查": "./icon/two.png",
+            "联网设备检查": "./icon/two.png",
+            "软件安装检查": "./icon/two.png",
+            "其他辅助检查": "./icon/two.png",
+            "安全检查": "./icon/2.png",
+            "系统安全检查": "./icon/two.png",
+            "安全配置检查": "./icon/two.png",
+            "文件检查": "./icon/3.png",
+            "常规文件": "./icon/two.png",
+            "图片文件": "./icon/two.png",
+            "深度检查": "./icon/4.png",
+            "使用记录检查": "./icon/two.png",
+            "文件恢复检查": "./icon/two.png",
+            "本机报告": "./icon/5.png",
+            "default": "./icon/Vector.png"
         }
 
         for i in range(len(self.side_bar_info)):
@@ -104,6 +123,11 @@ class Ui_Form(object):
                 self.side_bar_button_layout(iconLabel, textLabel, myLayout, key,30)
                 eval("self.pushButton"+"_"+str(i)).setLayout(eval(myLayout))
 
+                arrow = QtWidgets.QLabel()
+                arrow.setFixedSize(25, 30)
+                arrow.setPixmap(QtGui.QPixmap("./icon/close.png"))
+                eval(myLayout).addWidget(arrow)
+
                 for j in range(len(self.side_bar_info[i][key])):
                     for key1 in self.side_bar_info[i][key][j]:
                         if key1 in self.pushButton_icon:
@@ -117,6 +141,12 @@ class Ui_Form(object):
                         self.side_bar_button_layout(iconLabel, textLabel, myLayout, key1,50)
                         eval("self.pushButton"+"_"+str(i)+"_" +str(j)).setLayout(eval(myLayout))
 
+
+                        arrow = QtWidgets.QLabel()
+                        arrow.setFixedSize(25, 30)
+                        arrow.setPixmap(QtGui.QPixmap("./icon/open.png"))
+                        eval(myLayout).addWidget(arrow)
+
                         for k in range(len(self.side_bar_info[i][key][j][key1])):
                             if self.side_bar_info[i][key][j][key1][k] in self.pushButton_icon:
                                 self.icon_src = self.pushButton_icon[self.side_bar_info[i][key][j][key1][k]]
@@ -128,6 +158,7 @@ class Ui_Form(object):
                             myLayout = "self.myLayout"+"_pushButton" + "_"+str(i)+"_"+str(j)+"_"+str(k)
                             self.side_bar_button_layout(iconLabel, textLabel, myLayout, self.side_bar_info[i][key][j][key1][k],70)
                             eval("self.pushButton"+"_"+str(i)+"_"+str(j)+"_"+str(k)).setLayout(eval(myLayout))
+
                         self.item_flag = self.item_flag+1
 
         self.status_bar()
@@ -135,10 +166,15 @@ class Ui_Form(object):
     def side_bar_button_layout(self, iconLabel, textLabel, myLayout, text,spacing):
         exec(iconLabel+"= QtWidgets.QLabel()")
         exec(textLabel+"= QtWidgets.QLabel()")
-        eval(iconLabel).setFixedSize(25, 30)
-        eval(textLabel).setFixedWidth(150)
+
+        eval(iconLabel).setFixedSize(25, 20)
+
+        eval(textLabel).setFixedWidth(100)
+
         eval(iconLabel).setPixmap(QtGui.QPixmap(self.icon_src))
+
         eval(textLabel).setText(text)
+
         exec(myLayout+"= QtWidgets.QHBoxLayout()")
         eval(myLayout).setContentsMargins(0, 0, 0, 0)
         eval(myLayout).setSpacing(0)
@@ -146,6 +182,7 @@ class Ui_Form(object):
         eval(myLayout).addWidget(eval(iconLabel))
         eval(myLayout).addSpacing(0)
         eval(myLayout).addWidget(eval(textLabel))
+
         eval(myLayout).addStretch()
 
     def create_high_frame(self, frame, verticalLayout, pushButton):
@@ -165,7 +202,7 @@ class Ui_Form(object):
         eval(pushButton).setMinimumSize(QtCore.QSize(0, 40))
         eval(pushButton).setStyleSheet("background: #17376A;\n"
                                        "border-bottom: 1px solid #29407C;\n"
-                                       "font-family: PingFang SC;\n"
+                                       "font-family: Microsoft YaHei;\n"
                                        "font-style: normal;\n"
                                        "font-weight: 600;\n"
                                        "font-size: 14px;\n"
@@ -197,7 +234,7 @@ class Ui_Form(object):
         exec(pushButton+" = QtWidgets.QPushButton("+frame+")")
         # eval(pushButton) = QtWidgets.QPushButton(eval(frame))
         eval(pushButton).setMinimumSize(QtCore.QSize(0, 30))
-        eval(pushButton).setStyleSheet("font-family: PingFang SC;\n"
+        eval(pushButton).setStyleSheet("font-family: Microsoft YaHei;\n"
                                        "font-style: normal;\n"
                                        "font-weight: 500;\n"
                                        "font-size: 13px;\n"
@@ -233,7 +270,7 @@ class Ui_Form(object):
         exec(pushButton+"=QtWidgets.QPushButton(   self.frame_" +
              i+'_'+j+'_' + str_item_flag+")")
         eval(pushButton).setMinimumSize(QtCore.QSize(0, 25))
-        eval(pushButton).setStyleSheet("font-family: PingFang SC;\n"
+        eval(pushButton).setStyleSheet("font-family: Microsoft YaHei;\n"
                                        "font-style: normal;\n"
                                        "font-weight: 300;\n"
                                        "font-size: 12px;\n"
@@ -272,12 +309,12 @@ class Ui_Form(object):
         self.frame_zhuangtai.setSizePolicy(sizePolicy)
         self.frame_zhuangtai.setMinimumSize(QtCore.QSize(0, 30))
         self.frame_zhuangtai.setStyleSheet("background: #112853;\n"
-                                           "font-family: PingFang SC;\n"
+                                           "font-family: Microsoft YaHei;\n"
                                            "font-style: normal;\n"
                                            "font-weight: 300;\n"
                                            "font-size: 12px;\n"
                                            "line-height: 17px;\n"
-                                           "color: rgba(255, 255, 255, 0.8);\n"
+                                           "color: rgba(255, 255, 255, 1);\n"
                                            "")
         self.frame_zhuangtai.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_zhuangtai.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -322,8 +359,8 @@ class Ui_Form(object):
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_2.addWidget(self.label_6)
         self.verticalLayout.addWidget(self.frame_zhuangtai)
-        self.label_2.setText("版权所有：帝岚科技计算机终端保密检查系统")
-        self.label_3.setText("电话：029-999987656")
-        self.label_5.setText("本机用户名：administration")
-        self.label_4.setText("IP地址：198.888.111.09")
-        self.label_6.setText("计算机密级：涉密计算机（秘密）")
+        self.label_2.setText("版权所有：帝岚科技 ")
+        self.label_3.setText("电话：029-999987656 ")
+        self.label_5.setText("本机用户名：administration ")
+        self.label_4.setText("IP地址：198.888.111.09 ")
+        self.label_6.setText("计算机密级：涉密计算机（秘密） ")

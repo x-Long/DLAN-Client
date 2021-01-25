@@ -55,38 +55,82 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
             for f in range(len(self.side_bar_widgets[k][2])):
                 print(self.side_bar_widgets[k][2][f])
                 self.low_level_button_event(k,f)
+    
         
     def high_level_button_event(self,k):
-        eval(self.side_bar_widgets[k][0]).clicked.connect(lambda: self.high_frame_res(self.side_bar_widgets[k][1]))
+        print("self.side_bar_widgets[k][0]",self.side_bar_widgets[k][0])
+        eval(self.side_bar_widgets[k][0]).clicked.connect(lambda: self.high_frame_res(self.side_bar_widgets[k][1],k))
+
     def hide_frame(self,h):
         eval(h).setVisible(False)
     def low_level_button_event(self,k,f):
-        eval(self.side_bar_widgets[k][2][f]).clicked.connect(lambda: self.low_frame_res(self.side_bar_widgets[k][3][f]))
+        eval(self.side_bar_widgets[k][2][f]).clicked.connect(lambda: self.low_frame_res(self.side_bar_widgets[k][3][f],k,f))
 
-    def high_frame_res(self, frame_items):
+    def change_arrows(self,wid,status_icon):
+        eval(wid).itemAt(eval(wid).count()-1).widget().deleteLater()
+        iconLabel = QtWidgets.QLabel()
+        iconLabel.setFixedSize(25, 30)
+        iconLabel.setPixmap(QtGui.QPixmap(status_icon))
+        eval(wid).addWidget(iconLabel)
+
+
+    def high_frame_res(self, frame_items,k):
+        # print(eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).count())
+        # for i in range(eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).count()):
+        #     print(eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).itemAt(i).widget().deleteLater(),11111111111111111)
+
+        # eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).itemAt(eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).count()-1).widget().deleteLater()
+
+        if eval(frame_items[0]).isVisible():
+            self.change_arrows("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:],"./icon/close.png")
+            # iconLabel = QtWidgets.QLabel()
+            # iconLabel.setFixedSize(25, 30)
+            # iconLabel.setPixmap(QtGui.QPixmap("./icon/close.png"))
+            # eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).addWidget(iconLabel)
+        else:
+            self.change_arrows("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:],"./icon/open.png")
+            # iconLabel= QtWidgets.QLabel()
+            # iconLabel.setFixedSize(25, 30)
+            # iconLabel.setPixmap(QtGui.QPixmap("./icon/open.png"))
+            # eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).addWidget(iconLabel)
+
         count_clear_istrue=0
         for frame in frame_items:
             if eval(frame).isVisible():
+
                 eval(frame).setVisible(False)
                 for item in self.is_hide:
                     eval(item).setVisible(True)
+                    self.change_arrows("self.myLayout_pushButton_"+item[11:14],"./icon/open.png")
             else:
                 if count_clear_istrue==0:
                     for is_true_item in self.is_display:
                         eval(is_true_item).setVisible(False)  
+                        print(self.is_display,2222222222222222222222)
+                        print(frame)
+                    if len(self.is_display)!=0:
+                        self.change_arrows("self.myLayout_pushButton_"+self.is_display[0][11],"./icon/close.png")
                     self.is_display.clear()
                     count_clear_istrue=count_clear_istrue+1
+
                 eval(frame).setVisible(True)
+                self.change_arrows("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:],"./icon/open.png")
+
                 self.is_display.append(frame)
                 for item in self.is_hide:
+                    print("item",item)
                     eval(item).setVisible(True)
+                    self.change_arrows("self.myLayout_pushButton_"+item[11:14],"./icon/open.png")
 
-    def low_frame_res(self, frame):
+    def low_frame_res(self, frame,k,f):
 
+        eval("self.myLayout"+"_"+self.side_bar_widgets[k][2][f][5:]).itemAt(eval("self.myLayout"+"_"+self.side_bar_widgets[k][2][f][5:]).count()-1).widget().deleteLater()
         if eval(frame).isVisible():
+            self.change_arrows("self.myLayout"+"_"+self.side_bar_widgets[k][2][f][5:],"./icon/close.png")
             eval(frame).setVisible(False)
             self.is_hide.append(frame)
         else:
+            self.change_arrows("self.myLayout"+"_"+self.side_bar_widgets[k][2][f][5:],"./icon/open.png")
             eval(frame).setVisible(True)
             self.is_hide.remove(frame)
 
@@ -97,5 +141,6 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     main_window = Main_window()
     main_window.setWindowIcon(QtGui.QIcon('logo.png'))
+    main_window.setWindowTitle("帝岚科技计算机终端保密检查系统")
     main_window.show()
     app.exec()
