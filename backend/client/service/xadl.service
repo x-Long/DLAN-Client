@@ -1,0 +1,14 @@
+[Unit]
+Description=audit-client maintenance service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Restart=on-failure
+RestartSec=5s
+ExecStart=/opt/audit/audit-srv
+ExecReload=/opt/audit/audit-srv
+
+[Install]
+WantedBy=multi-user.target

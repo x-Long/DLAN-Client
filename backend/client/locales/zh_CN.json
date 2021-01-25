@@ -1,0 +1,9 @@
+{
+  "not encrypted": "未加密",
+  "offline reconnect after {} seconds": "已掉线，稍后{}秒后自动重连",
+  "failed reconnect {} times, sleep {} seconds before reconnect automatically": "已经尝试{}次重连失败，休眠 {} 秒后自动重连服务器",
+  "has logged in": "已登录",
+  "can not connect to server": "无法连接到服务器",
+  "Key Content": "关键内容",
+  "failed connect to remote server": "无法连接到远程服务器"
+}
