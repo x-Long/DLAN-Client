@@ -74,6 +74,18 @@ class ReportEvent:
         _text += md.to_text()
         return _text
 
+    def http_result(self):
+        md = self.get_one_match_detail()
+        return {
+            "filepath": self.file_path,
+            "filesize": self.file_size_in_bytes,
+            "keyword_details": {
+                "keyword": md.keyword.word,
+                "offset": md.offset,
+                "context": md.context
+            }
+        }
+
     def to_json(self):
         return dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 

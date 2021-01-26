@@ -125,6 +125,7 @@ class KeywordsManager:
         self.remove_duplicate_words()
         self.keywords_list.sort(key=lambda x: x.rank)
         self.compile_re_pattern()
+        self.dump_to_file()
 
     def load_from_list(self, keywords_list):
         self.keywords_list.clear()
