@@ -6,6 +6,21 @@ import json
 from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import partial
 import sys
+import time
+
+
+class Runthread(QtCore.QThread):
+
+    _signal = pyqtSignal(list,dict)
+
+    def __init__(self,parent=None):
+        super(Runthread, self).__init__(parent)
+
+    def run(self):
+        print("run")
+        net_info=json.loads(requests.get("http://localhost/v1.0/pc/network").content)
+        com_info=json.loads(requests.get("http://localhost/v1.0/pc/info").content)
+        self._signal.emit(net_info,com_info); # 信号发送
 
 # page 参考
 # self.page_2 = QtWidgets.QWidget()
@@ -19,11 +34,25 @@ class Stacked_page_1(object):
     def set_up_stacked_page_1(self):
 
         self.stacked_page_1_ui()
-        self.stacked_page_1_func()
 
-    def stacked_page_1_func(self):
-        self.create_com_info()
-        self.create_net_info()
+        # 界面开始打开线程加载主机信息
+        self.thread_get_com_net_info()
+
+        # 点击主机信息按钮后打开线程加载主机信息，加载完记得在thread_get_com_net_info解除绑定，避免重复加载
+        # self.pushButton_0_0_0.clicked.connect(self.thread_get_com_net_info)
+
+
+    def thread_get_com_net_info(self):
+
+        self.thread = Runthread() # 创建线程
+        self.thread._signal.connect(self.stacked_page_1_func) # 连接信号
+        # self.pushButton_0_0_0.clicked.disconnect(self.thread_get_com_net_info)
+        self.thread.start() # 开始线程
+
+    def stacked_page_1_func(self,net_info,com_info):
+
+        self.create_com_info(com_info)
+        self.create_net_info(net_info)
 
     def info_frame_res(self,frame):
 
@@ -32,31 +61,25 @@ class Stacked_page_1(object):
         else:
             frame.setVisible(True)
 
-    def create_net_info(self):
+    def create_net_info(self, net_info):
 
-        res = requests.get("http://localhost/v1.0/pc/network")
-        content=json.loads(res.content)
-
-        for info in content:
+        for info in net_info:
             self.computer_net_info_frame("self.verticalLayout_19","名称", info.get("name"))
             self.computer_net_info_frame("self.verticalLayout_19","MAC地址", info.get("mac"))
             self.computer_net_info_frame("self.verticalLayout_19","IP地址", info.get("ip"))
 
-    def create_com_info(self):
-
-        res = requests.get("http://localhost/v1.0/pc/info")
-        content=json.loads(res.content)
+    def create_com_info(self,com_info):
        
-        self.computer_net_info_frame("self.verticalLayout_11","电脑类型", content.get("pc_type"))
-        self.computer_net_info_frame("self.verticalLayout_11","电脑用户名", content.get("pc_name"))
-        self.computer_net_info_frame("self.verticalLayout_11","主板型号", content.get("mother_board_model"))
-        if len(content.get("cd_drive"))!=0:
-            for item in content.get("cd_drive"):
+        self.computer_net_info_frame("self.verticalLayout_11","电脑类型", com_info.get("pc_type"))
+        self.computer_net_info_frame("self.verticalLayout_11","电脑用户名", com_info.get("pc_name"))
+        self.computer_net_info_frame("self.verticalLayout_11","主板型号", com_info.get("mother_board_model"))
+        if len(com_info.get("cd_drive"))!=0:
+            for item in com_info.get("cd_drive"):
                 self.computer_net_info_frame("self.verticalLayout_11","光驱信息", item.get("model")+" "+item.get("size")+" mount_dir:"+item.get("mount_dir"))
         else:
             self.computer_net_info_frame("self.verticalLayout_11","光驱信息", "-")
-        self.computer_net_info_frame("self.verticalLayout_11","内存信息", content.get("ram_info"))
-        self.computer_net_info_frame("self.verticalLayout_11","处理器信息", content.get("processor_info"))
+        self.computer_net_info_frame("self.verticalLayout_11","内存信息", com_info.get("ram_info"))
+        self.computer_net_info_frame("self.verticalLayout_11","处理器信息", com_info.get("processor_info"))
 
     def computer_net_info_frame(self, layout, item_name, v):
 
