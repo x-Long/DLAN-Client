@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'DLAN-2.ui'
+# Form implementation generated from reading ui file 'DLAN-2-page_1.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.Qt import * 
 
 
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        # Form.resize(1113, 730)
-        Form.setMinimumHeight(800)
+        Form.resize(1234, 804)
         Form.setStyleSheet("QPushButton{\n"
                            "border:0px;\n"
                            "color: #FFFFFF;\n"
@@ -34,10 +32,12 @@ class Ui_Form(object):
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.frame_dingji = QtWidgets.QFrame(self.frame_main)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.frame_dingji.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.frame_dingji.sizePolicy().hasHeightForWidth())
         self.frame_dingji.setSizePolicy(sizePolicy)
         self.frame_dingji.setMinimumSize(QtCore.QSize(250, 0))
         self.frame_dingji.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -50,336 +50,208 @@ class Ui_Form(object):
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
-
-        self.side_bar_info = [
-            {
-                "常规检查": [
-                    {"终端基本信息": ["主机信息", "硬盘信息", "操作系统","身份鉴别",  ]},
-                    {"USB设备检查": ["存储设备", "其他设备",]},
-                    {"联网设备检查": ["浏览器记录", "cookies记录","上网软件记录","邮件收发记录","终端外联状态"]},
-                    {"软件安装检查": ["软件系统", "邮件客户端","虚拟机软件","杀毒软件信息","反取证软件检查"]},
-                    {"其他辅助检查": ["文件使用记录", "开关机记录"]},
-                ]
-            },
-            {
-                "安全检查": [
-                    {"系统安全检查": ["三合一”客户端", "系统共享安全 ", "无线通信模块", "音频视频模块", "操作系统补丁","系统进程信息 " ]},
-                    {"安全配置检查": ["安全审计配置", "账户安全配置", "账户权限配置", "系统服务配置", "系统端口配置", ]},
-                ]
-            },
-            {
-                "文件检查": [
-                    {"常规文件": ["常规文件检查 ", ]},
-                    {"图片文件": ["图片文件检查", ]},
-                ]
-            },
-            {
-                "深度检查": [
-                    {"使用记录检查": ["USB设备记录 ","历史上网记录","文件操作记录" ]},
-                    {"文件恢复检查": ["删除文件恢复", "文件碎片恢复"]},
-                ]
-            },           
-            {
-                "本机报告": [
-                    {"总体检查报告": []},
-                    {"文件检查报告": []},
-                    {"人工检查报告": []},
-                    {"详细检查报告": []},
-                    {"二维码报告": []},
-                ]
-            },     
-        ]
-        self.pushButton_icon = {
-            "常规检查": "./icon/1.png",
-            "终端基本信息": "./icon/two.png",
-            "USB设备检查": "./icon/two.png",
-            "联网设备检查": "./icon/two.png",
-            "软件安装检查": "./icon/two.png",
-            "其他辅助检查": "./icon/two.png",
-            "安全检查": "./icon/2.png",
-            "系统安全检查": "./icon/two.png",
-            "安全配置检查": "./icon/two.png",
-            "文件检查": "./icon/3.png",
-            "常规文件": "./icon/two.png",
-            "图片文件": "./icon/two.png",
-            "深度检查": "./icon/4.png",
-            "使用记录检查": "./icon/two.png",
-            "文件恢复检查": "./icon/two.png",
-            "本机报告": "./icon/5.png",
-            "default": "./icon/Vector.png"
-        }
-
-        for i in range(len(self.side_bar_info)):
-            for key in self.side_bar_info[i]:
-                print(key, i)
-                self.create_high_frame("self.frame"+"_"+str(i), "self.verticalLayout"+"_"+str(i), "self.pushButton"+"_"+str(i))
-                self.item_flag = 0
-                if key in self.pushButton_icon:
-                    self.icon_src = self.pushButton_icon[key]
-                else:
-                    self.icon_src = self.pushButton_icon["default"]
-
-                iconLabel = "self.iconLabel"+"_pushButton"+"_"+str(i)
-                textLabel = "self.textLabel"+"_pushButton"+"_"+str(i)
-                myLayout = "self.myLayout"+"_pushButton"+"_"+str(i)
-                self.side_bar_button_layout(iconLabel, textLabel, myLayout, key,30)
-                eval("self.pushButton"+"_"+str(i)).setLayout(eval(myLayout))
-
-                arrow = QtWidgets.QLabel()
-                arrow.setFixedSize(25, 30)
-                arrow.setPixmap(QtGui.QPixmap("./icon/close.png"))
-                eval(myLayout).addWidget(arrow)
-
-                for j in range(len(self.side_bar_info[i][key])):
-                    for key1 in self.side_bar_info[i][key][j]:
-                        if key1 in self.pushButton_icon:
-                            self.icon_src = self.pushButton_icon[key1]
-                        else:
-                            self.icon_src = self.pushButton_icon["default"]
-                        self.create_med_frame("self.frame"+"_"+str(i)+"_"+str(j), "self.verticalLayout"+"_"+str(i)+"_"+str(j), "self.pushButton"+"_"+str(i)+"_"+str(j), str(i))
-                        iconLabel = "self.iconLabel" + "_pushButton"+"_"+str(i)+"_"+str(j)
-                        textLabel = "self.textLabel" + "_pushButton"+"_"+str(i)+"_"+str(j)
-                        myLayout = "self.myLayout" + "_pushButton"+"_"+str(i)+"_"+str(j)
-                        self.side_bar_button_layout(iconLabel, textLabel, myLayout, key1,50)
-                        eval("self.pushButton"+"_"+str(i)+"_" +str(j)).setLayout(eval(myLayout))
-
-
-                        arrow = QtWidgets.QLabel()
-                        arrow.setFixedSize(25, 30)
-                        arrow.setPixmap(QtGui.QPixmap("./icon/open.png"))
-                        eval(myLayout).addWidget(arrow)
-
-                        for k in range(len(self.side_bar_info[i][key][j][key1])):
-                            if self.side_bar_info[i][key][j][key1][k] in self.pushButton_icon:
-                                self.icon_src = self.pushButton_icon[self.side_bar_info[i][key][j][key1][k]]
-                            else:
-                                self.icon_src = self.pushButton_icon["default"]
-                            self.create_low_frame("self.pushButton"+"_"+str(i)+"_"+str(j)+"_"+str(k), str(i), str(j))
-                            iconLabel = "self.iconLabel"+"_pushButton" + "_"+str(i)+"_"+str(j)+"_"+str(k)
-                            textLabel = "self.textLabel"+"_pushButton" + "_"+str(i)+"_"+str(j)+"_"+str(k)
-                            myLayout = "self.myLayout"+"_pushButton" + "_"+str(i)+"_"+str(j)+"_"+str(k)
-                            self.side_bar_button_layout(iconLabel, textLabel, myLayout, self.side_bar_info[i][key][j][key1][k],70)
-                            eval("self.pushButton"+"_"+str(i)+"_"+str(j)+"_"+str(k)).setLayout(eval(myLayout))
-
-                        self.item_flag = self.item_flag+1
-
-        self.status_bar()
-        self.stackedWidgets()
-
-    def side_bar_button_layout(self, iconLabel, textLabel, myLayout, text,spacing):
-        exec(iconLabel+"= QtWidgets.QLabel()")
-        exec(textLabel+"= QtWidgets.QLabel()")
-
-        eval(iconLabel).setFixedSize(25, 20)
-
-        eval(textLabel).setFixedWidth(100)
-
-        eval(iconLabel).setPixmap(QtGui.QPixmap(self.icon_src))
-
-        eval(textLabel).setText(text)
-
-        exec(myLayout+"= QtWidgets.QHBoxLayout()")
-        eval(myLayout).setContentsMargins(0, 0, 0, 0)
-        eval(myLayout).setSpacing(0)
-        eval(myLayout).addSpacing(spacing)
-        eval(myLayout).addWidget(eval(iconLabel))
-        eval(myLayout).addSpacing(0)
-        eval(myLayout).addWidget(eval(textLabel))
-
-        eval(myLayout).addStretch()
-
-    def create_high_frame(self, frame, verticalLayout, pushButton):
-        exec(frame+" = QtWidgets.QFrame(self.frame_dingji)")
-        eval(frame).setFrameShape(QtWidgets.QFrame.NoFrame)
-        eval(frame).setFrameShadow(QtWidgets.QFrame.Raised)
-        eval(frame).setLineWidth(0)
-        eval(frame).setObjectName(frame[5:])
-        self.verticalLayout_8.addWidget(eval(frame))
-
-        exec(verticalLayout+"= QtWidgets.QVBoxLayout(" + frame + "  )")
-        eval(verticalLayout).setContentsMargins(0, 0, 0, 0)
-        eval(verticalLayout).setSpacing(0)
-        eval(verticalLayout).setObjectName(verticalLayout[5:])
-
-        exec(pushButton+"= QtWidgets.QPushButton("+frame+")")
-        eval(pushButton).setMinimumSize(QtCore.QSize(0, 40))
-        eval(pushButton).setStyleSheet("background: #17376A;\n"
-                                       "border-bottom: 1px solid #29407C;\n"
-                                       "font-family: Microsoft YaHei;\n"
-                                       "font-style: normal;\n"
-                                       "font-weight: 600;\n"
-                                       "font-size: 14px;\n"
-                                       "line-height: 20px;\n"
-                                       "\n"
-                                       "color: #FFFFFF;\n"
-                                       "")
-        eval(pushButton).setAutoDefault(False)
-        eval(pushButton).setFlat(False)
-        eval(pushButton).setObjectName(pushButton[5:])
-        eval(verticalLayout).addWidget(eval(pushButton))
-
-    def create_med_frame(self, frame, verticalLayout, pushButton, i):
-        str_med_frame = 'self.frame'+'_'+i
-        exec(frame+" = QtWidgets.QFrame( "+str_med_frame+"  )")
-        # eval(frame) = QtWidgets.QFrame(self.frame_1_1)
-        eval(frame).setFrameShape(QtWidgets.QFrame.NoFrame)
-        eval(frame).setFrameShadow(QtWidgets.QFrame.Raised)
-        eval(frame).setLineWidth(0)
-        eval(frame).setObjectName(frame[5:])
-        eval("self.verticalLayout"+"_"+str(i)).addWidget(eval(frame))
-
-        exec(verticalLayout+" = QtWidgets.QVBoxLayout("+frame+")")
-        # eval(verticalLayout)  = QtWidgets.QVBoxLayout(eval(frame))
-        eval(verticalLayout).setContentsMargins(0, 0, 0, 0)
-        eval(verticalLayout).setSpacing(0)
-        eval(verticalLayout).setObjectName(verticalLayout[5:])
-
-        exec(pushButton+" = QtWidgets.QPushButton("+frame+")")
-        # eval(pushButton) = QtWidgets.QPushButton(eval(frame))
-        eval(pushButton).setMinimumSize(QtCore.QSize(0, 30))
-        eval(pushButton).setStyleSheet("font-family: Microsoft YaHei;\n"
-                                       "font-style: normal;\n"
-                                       "font-weight: 500;\n"
-                                       "font-size: 13px;\n"
-                                       "line-height: 20px;\n"
-                                       "color: #FFFFFF;")
-        eval(pushButton).setFlat(False)
-        eval(pushButton).setObjectName(pushButton[5:])
-        eval(verticalLayout).addWidget(eval(pushButton))
-
-        str_item_flag = str(self.item_flag)
-        str_med_frame = frame+"_" + str_item_flag + \
-            " = QtWidgets.QFrame("+frame+")"
-        exec(str_med_frame)
-        eval(frame+"_"+str(self.item_flag)
-             ).setFrameShape(QtWidgets.QFrame.NoFrame)
-        eval(frame+"_"+str(self.item_flag)
-             ).setFrameShadow(QtWidgets.QFrame.Raised)
-        eval(frame+"_"+str(self.item_flag)).setLineWidth(0)
-        eval(frame+"_"+str(self.item_flag)
-             ).setObjectName((frame+"_"+str(self.item_flag))[5:])
-        eval(verticalLayout).addWidget(eval(frame+"_"+str(self.item_flag)))
-        exec(verticalLayout+"_" + str_item_flag +
-             " = QtWidgets.QVBoxLayout("+frame+'_'+str_item_flag+")")
-        eval(verticalLayout+"_"+str(self.item_flag)
-             ).setContentsMargins(0, 0, 0, 0)
-        eval(verticalLayout+"_"+str(self.item_flag)).setSpacing(0)
-        eval(verticalLayout+"_"+str(self.item_flag)
-             ).setObjectName((verticalLayout+"_"+str(self.item_flag))[5:])
-
-    def create_low_frame(self, pushButton, i, j):
-
-        str_item_flag = str(self.item_flag)
-        exec(pushButton+"=QtWidgets.QPushButton(   self.frame_" +
-             i+'_'+j+'_' + str_item_flag+")")
-        eval(pushButton).setMinimumSize(QtCore.QSize(0, 25))
-        eval(pushButton).setStyleSheet("font-family: Microsoft YaHei;\n"
-                                       "font-style: normal;\n"
-                                       "font-weight: 300;\n"
-                                       "font-size: 12px;\n"
-                                       "line-height: 17px;\n"
-                                       "color: rgba(255, 255, 255, 0.7);")
-        eval(pushButton).setFlat(False)
-        eval(pushButton).setObjectName(pushButton[5:])
-        eval("self.verticalLayout"+"_"+str(i)+"_"+str(j)+"_" +
-             str(self.item_flag)).addWidget(eval(pushButton))
-
-    def status_bar(self):
-
+        self.frame_1_1 = QtWidgets.QFrame(self.frame_dingji)
+        self.frame_1_1.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_1_1.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_1_1.setLineWidth(0)
+        self.frame_1_1.setObjectName("frame_1_1")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.frame_1_1)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.pushButton_1_1 = QtWidgets.QPushButton(self.frame_1_1)
+        self.pushButton_1_1.setMinimumSize(QtCore.QSize(0, 40))
+        font = QtGui.QFont()
+        font.setFamily("PingFang SC")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.pushButton_1_1.setFont(font)
+        self.pushButton_1_1.setStyleSheet("background: #17376A;\n"
+                                          "border-bottom: 1px solid #29407C;\n"
+                                          "font-family: PingFang SC;\n"
+                                          "font-style: normal;\n"
+                                          "font-weight: 600;\n"
+                                          "font-size: 14px;\n"
+                                          "line-height: 20px;\n"
+                                          "\n"
+                                          "color: #FFFFFF;\n"
+                                          "")
+        self.pushButton_1_1.setAutoDefault(False)
+        self.pushButton_1_1.setFlat(False)
+        self.pushButton_1_1.setObjectName("pushButton_1_1")
+        self.verticalLayout_4.addWidget(self.pushButton_1_1)
+        self.frame_1_2 = QtWidgets.QFrame(self.frame_1_1)
+        self.frame_1_2.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_1_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_1_2.setLineWidth(0)
+        self.frame_1_2.setObjectName("frame_1_2")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_1_2)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.pushButton_1_2 = QtWidgets.QPushButton(self.frame_1_2)
+        self.pushButton_1_2.setMinimumSize(QtCore.QSize(0, 30))
+        self.pushButton_1_2.setStyleSheet("font-family: PingFang SC;\n"
+                                          "font-style: normal;\n"
+                                          "font-weight: 500;\n"
+                                          "font-size: 14px;\n"
+                                          "line-height: 20px;\n"
+                                          "color: #FFFFFF;")
+        self.pushButton_1_2.setFlat(False)
+        self.pushButton_1_2.setObjectName("pushButton_1_2")
+        self.verticalLayout_3.addWidget(self.pushButton_1_2)
+        self.frame_1_3 = QtWidgets.QFrame(self.frame_1_2)
+        self.frame_1_3.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_1_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_1_3.setLineWidth(0)
+        self.frame_1_3.setObjectName("frame_1_3")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame_1_3)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.pushButton_1_3_1 = QtWidgets.QPushButton(self.frame_1_3)
+        self.pushButton_1_3_1.setMinimumSize(QtCore.QSize(0, 25))
+        self.pushButton_1_3_1.setStyleSheet("font-family: PingFang SC;\n"
+                                            "font-style: normal;\n"
+                                            "font-weight: 300;\n"
+                                            "font-size: 12px;\n"
+                                            "line-height: 17px;\n"
+                                            "color: rgba(255, 255, 255, 0.7);")
+        self.pushButton_1_3_1.setFlat(False)
+        self.pushButton_1_3_1.setObjectName("pushButton_1_3_1")
+        self.verticalLayout_2.addWidget(self.pushButton_1_3_1)
+        self.pushButton_1_3_2 = QtWidgets.QPushButton(self.frame_1_3)
+        self.pushButton_1_3_2.setMinimumSize(QtCore.QSize(0, 25))
+        self.pushButton_1_3_2.setStyleSheet("font-family: PingFang SC;\n"
+                                            "font-style: normal;\n"
+                                            "font-weight: 300;\n"
+                                            "font-size: 12px;\n"
+                                            "line-height: 17px;\n"
+                                            "color: rgba(255, 255, 255, 0.7);")
+        self.pushButton_1_3_2.setFlat(False)
+        self.pushButton_1_3_2.setObjectName("pushButton_1_3_2")
+        self.verticalLayout_2.addWidget(self.pushButton_1_3_2)
+        self.pushButton_1_3_3 = QtWidgets.QPushButton(self.frame_1_3)
+        self.pushButton_1_3_3.setMinimumSize(QtCore.QSize(0, 25))
+        self.pushButton_1_3_3.setStyleSheet("font-family: PingFang SC;\n"
+                                            "font-style: normal;\n"
+                                            "font-weight: 300;\n"
+                                            "font-size: 12px;\n"
+                                            "line-height: 17px;\n"
+                                            "color: rgba(255, 255, 255, 0.7);")
+        self.pushButton_1_3_3.setObjectName("pushButton_1_3_3")
+        self.verticalLayout_2.addWidget(self.pushButton_1_3_3)
+        self.pushButton_1_3_4 = QtWidgets.QPushButton(self.frame_1_3)
+        self.pushButton_1_3_4.setMinimumSize(QtCore.QSize(0, 25))
+        self.pushButton_1_3_4.setStyleSheet("font-family: PingFang SC;\n"
+                                            "font-style: normal;\n"
+                                            "font-weight: 300;\n"
+                                            "font-size: 12px;\n"
+                                            "line-height: 17px;\n"
+                                            "color: rgba(255, 255, 255, 0.7);")
+        self.pushButton_1_3_4.setObjectName("pushButton_1_3_4")
+        self.verticalLayout_2.addWidget(self.pushButton_1_3_4)
+        self.verticalLayout_3.addWidget(self.frame_1_3)
+        self.verticalLayout_4.addWidget(self.frame_1_2)
+        self.verticalLayout_8.addWidget(self.frame_1_1)
+        self.frame_2_1 = QtWidgets.QFrame(self.frame_dingji)
+        self.frame_2_1.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_2_1.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2_1.setLineWidth(0)
+        self.frame_2_1.setObjectName("frame_2_1")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.frame_2_1)
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_5.setSpacing(0)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.pushButton_2_1 = QtWidgets.QPushButton(self.frame_2_1)
+        self.pushButton_2_1.setMinimumSize(QtCore.QSize(0, 40))
+        self.pushButton_2_1.setStyleSheet("background: #17376A;\n"
+                                          "border-bottom: 1px solid #29407C;\n"
+                                          "font-family: PingFang SC;\n"
+                                          "font-style: normal;\n"
+                                          "font-weight: 600;\n"
+                                          "font-size: 14px;\n"
+                                          "line-height: 20px;\n"
+                                          "\n"
+                                          "color: #FFFFFF;")
+        self.pushButton_2_1.setObjectName("pushButton_2_1")
+        self.verticalLayout_5.addWidget(self.pushButton_2_1)
+        self.frame_2_2 = QtWidgets.QFrame(self.frame_2_1)
+        self.frame_2_2.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_2_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2_2.setLineWidth(0)
+        self.frame_2_2.setObjectName("frame_2_2")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.frame_2_2)
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.pushButton_2_2 = QtWidgets.QPushButton(self.frame_2_2)
+        self.pushButton_2_2.setMinimumSize(QtCore.QSize(0, 30))
+        self.pushButton_2_2.setObjectName("pushButton_2_2")
+        self.verticalLayout_6.addWidget(self.pushButton_2_2)
+        self.frame_2_3 = QtWidgets.QFrame(self.frame_2_2)
+        self.frame_2_3.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_2_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2_3.setLineWidth(0)
+        self.frame_2_3.setObjectName("frame_2_3")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.frame_2_3)
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_7.setSpacing(0)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.pushButton_2_3_1 = QtWidgets.QPushButton(self.frame_2_3)
+        self.pushButton_2_3_1.setMinimumSize(QtCore.QSize(0, 25))
+        self.pushButton_2_3_1.setStyleSheet("font-family: PingFang SC;\n"
+                                            "font-style: normal;\n"
+                                            "font-weight: 300;\n"
+                                            "font-size: 12px;\n"
+                                            "line-height: 17px;\n"
+                                            "color: rgba(255, 255, 255, 0.7);")
+        self.pushButton_2_3_1.setObjectName("pushButton_2_3_1")
+        self.verticalLayout_7.addWidget(self.pushButton_2_3_1)
+        self.pushButton_2_3_2 = QtWidgets.QPushButton(self.frame_2_3)
+        self.pushButton_2_3_2.setMinimumSize(QtCore.QSize(0, 25))
+        self.pushButton_2_3_2.setStyleSheet("font-family: PingFang SC;\n"
+                                            "font-style: normal;\n"
+                                            "font-weight: 300;\n"
+                                            "font-size: 12px;\n"
+                                            "line-height: 17px;\n"
+                                            "color: rgba(255, 255, 255, 0.7);")
+        self.pushButton_2_3_2.setObjectName("pushButton_2_3_2")
+        self.verticalLayout_7.addWidget(self.pushButton_2_3_2)
+        self.pushButton_2_3_3 = QtWidgets.QPushButton(self.frame_2_3)
+        self.pushButton_2_3_3.setMinimumSize(QtCore.QSize(0, 25))
+        self.pushButton_2_3_3.setStyleSheet("font-family: PingFang SC;\n"
+                                            "font-style: normal;\n"
+                                            "font-weight: 300;\n"
+                                            "font-size: 12px;\n"
+                                            "line-height: 17px;\n"
+                                            "color: rgba(255, 255, 255, 0.7);")
+        self.pushButton_2_3_3.setObjectName("pushButton_2_3_3")
+        self.verticalLayout_7.addWidget(self.pushButton_2_3_3)
+        self.pushButton_2_3_4 = QtWidgets.QPushButton(self.frame_2_3)
+        self.pushButton_2_3_4.setMinimumSize(QtCore.QSize(0, 25))
+        self.pushButton_2_3_4.setStyleSheet("font-family: PingFang SC;\n"
+                                            "font-style: normal;\n"
+                                            "font-weight: 300;\n"
+                                            "font-size: 12px;\n"
+                                            "line-height: 17px;\n"
+                                            "color: rgba(255, 255, 255, 0.7);")
+        self.pushButton_2_3_4.setObjectName("pushButton_2_3_4")
+        self.verticalLayout_7.addWidget(self.pushButton_2_3_4)
+        self.verticalLayout_6.addWidget(self.frame_2_3)
+        self.verticalLayout_5.addWidget(self.frame_2_2)
+        self.verticalLayout_8.addWidget(self.frame_2_1)
         spacerItem = QtWidgets.QSpacerItem(
             20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-
-
         self.verticalLayout_8.addItem(spacerItem)
         self.horizontalLayout.addWidget(self.frame_dingji)
 
 
 
 
-        # self.stackedWidget = QtWidgets.QStackedWidget(self.frame_main)
-        # self.stackedWidget.setFrameShadow(QtWidgets.QFrame.Raised)
-        # self.stackedWidget.setLineWidth(0)
-        # self.stackedWidget.setObjectName("stackedWidget")
-        # self.page = QtWidgets.QWidget()
-        # self.page.setObjectName("page")
-        # self.stackedWidget.addWidget(self.page)
-        # self.page_2 = QtWidgets.QWidget()
-        # self.page_2.setObjectName("page_2")
-        # self.stackedWidget.addWidget(self.page_2)
-        # self.horizontalLayout.addWidget(self.stackedWidget)
 
-
-
-        self.verticalLayout.addWidget(self.frame_main)
-        self.frame_zhuangtai = QtWidgets.QFrame()
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.frame_zhuangtai.sizePolicy().hasHeightForWidth())
-        self.frame_zhuangtai.setSizePolicy(sizePolicy)
-        self.frame_zhuangtai.setMinimumSize(QtCore.QSize(0, 30))
-        self.frame_zhuangtai.setStyleSheet("background: #112853;\n"
-                                           "font-family: Microsoft YaHei;\n"
-                                           "font-style: normal;\n"
-                                           "font-weight: 300;\n"
-                                           "font-size: 12px;\n"
-                                           "line-height: 17px;\n"
-                                           "color: rgba(255, 255, 255, 1);\n"
-                                           "")
-        self.frame_zhuangtai.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.frame_zhuangtai.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_zhuangtai.setObjectName("frame_zhuangtai")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_zhuangtai)
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_2.setSpacing(0)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.label = QtWidgets.QLabel(self.frame_zhuangtai)
-        self.label.setMinimumSize(QtCore.QSize(255, 0))
-        self.label.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.label.setText("")
-        self.label.setObjectName("label")
-        self.horizontalLayout_2.addWidget(self.label)
-        self.label_2 = QtWidgets.QLabel(self.frame_zhuangtai)
-        self.label_2.setAlignment(
-            QtCore.Qt.AlignJustify | QtCore.Qt.AlignVCenter)
-        self.label_2.setObjectName("label_2")
-        self.horizontalLayout_2.addWidget(self.label_2)
-        spacerItem1 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem1)
-        self.label_3 = QtWidgets.QLabel(self.frame_zhuangtai)
-        self.label_3.setObjectName("label_3")
-        self.horizontalLayout_2.addWidget(self.label_3)
-        spacerItem2 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem2)
-        self.label_5 = QtWidgets.QLabel(self.frame_zhuangtai)
-        self.label_5.setObjectName("label_5")
-        self.horizontalLayout_2.addWidget(self.label_5)
-        spacerItem3 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem3)
-        self.label_4 = QtWidgets.QLabel(self.frame_zhuangtai)
-        self.label_4.setObjectName("label_4")
-        self.horizontalLayout_2.addWidget(self.label_4)
-        spacerItem4 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem4)
-        self.label_6 = QtWidgets.QLabel(self.frame_zhuangtai)
-        self.label_6.setObjectName("label_6")
-        self.horizontalLayout_2.addWidget(self.label_6)
-        self.verticalLayout.addWidget(self.frame_zhuangtai)
-        self.label_2.setText("版权所有：帝岚科技 ")
-        self.label_3.setText("电话：029-999987656 ")
-        self.label_5.setText("本机用户名：administration ")
-        self.label_4.setText("IP地址：198.888.111.09 ")
-        self.label_6.setText("计算机密级：涉密计算机（秘密） ")
-
-
-
-    def stackedWidgets(self):
         self.stackedWidget = QtWidgets.QStackedWidget(self.frame_main)
         self.stackedWidget.setFrameShadow(QtWidgets.QFrame.Raised)
         self.stackedWidget.setLineWidth(0)
@@ -524,7 +396,7 @@ class Ui_Form(object):
         self.scrollArea_content.setObjectName("scrollArea_content")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
         self.scrollAreaWidgetContents_3.setGeometry(
-            QtCore.QRect(0, 0, 919, 696))
+            QtCore.QRect(0, 0, 960, 696))
         self.scrollAreaWidgetContents_3.setObjectName(
             "scrollAreaWidgetContents_3")
         self.verticalLayout_16 = QtWidgets.QVBoxLayout(
@@ -573,8 +445,28 @@ class Ui_Form(object):
         self.label_9 = QtWidgets.QLabel(self.frame_2)
         self.label_9.setObjectName("label_9")
         self.horizontalLayout_3.addWidget(self.label_9)
+        self.label_11 = QtWidgets.QLabel(self.frame_2)
+        self.label_11.setStyleSheet("color:rgba(86, 86, 86, 0.2);\n"
+                                    "font-size: 20px;\n"
+                                    "")
+        self.label_11.setObjectName("label_11")
+        self.horizontalLayout_3.addWidget(self.label_11)
+        self.label_22 = QtWidgets.QLabel(self.frame_2)
+        self.label_22.setObjectName("label_22")
+        self.horizontalLayout_3.addWidget(self.label_22)
+        self.label_23 = QtWidgets.QLabel(self.frame_2)
+        self.label_23.setStyleSheet("color:rgba(86, 86, 86, 0.2);\n"
+                                    "font-size: 20px;\n"
+                                    "")
+        self.label_23.setObjectName("label_23")
+        self.horizontalLayout_3.addWidget(self.label_23)
+        self.label_24 = QtWidgets.QLabel(self.frame_2)
+        self.label_24.setObjectName("label_24")
+        self.horizontalLayout_3.addWidget(self.label_24)
         self.horizontalLayout_3.setStretch(0, 1)
-        self.horizontalLayout_3.setStretch(2, 1)
+        self.horizontalLayout_3.setStretch(2, 2)
+        self.horizontalLayout_3.setStretch(4, 3)
+        self.horizontalLayout_3.setStretch(6, 1)
         self.verticalLayout_10.addWidget(self.frame_2)
 
         self.pushButton_computer_info = QtWidgets.QToolButton(self.frame)
@@ -597,11 +489,9 @@ class Ui_Form(object):
                                                     "text-align : left;"
                                                     )
         self.pushButton_computer_info.setObjectName("pushButton_computer_info")
-
-
-
-
         self.verticalLayout_10.addWidget(self.pushButton_computer_info)
+
+
         self.frame_computer_info = QtWidgets.QFrame(self.frame)
         self.frame_computer_info.setMinimumSize(QtCore.QSize(0, 0))
         self.frame_computer_info.setStyleSheet("font-family: Microsoft YaHei;\n"
@@ -619,9 +509,11 @@ class Ui_Form(object):
         self.frame_computer_info.setObjectName("frame_computer_info")
         self.verticalLayout_11 = QtWidgets.QVBoxLayout(
             self.frame_computer_info)
-        self.verticalLayout_11.setContentsMargins(30, 0, 0, 0)
+        self.verticalLayout_11.setContentsMargins(20, 0, 0, 0)
         self.verticalLayout_11.setSpacing(0)
         self.verticalLayout_11.setObjectName("verticalLayout_11")
+
+
         self.frame_4 = QtWidgets.QFrame(self.frame_computer_info)
         self.frame_4.setMaximumSize(QtCore.QSize(16777215, 30))
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -631,13 +523,43 @@ class Ui_Form(object):
         self.horizontalLayout_4.setContentsMargins(0, 2, 0, 2)
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+
         self.label_12 = QtWidgets.QLabel(self.frame_4)
         self.label_12.setObjectName("label_12")
         self.horizontalLayout_4.addWidget(self.label_12)
+
         self.label_10 = QtWidgets.QLabel(self.frame_4)
         self.label_10.setObjectName("label_10")
         self.horizontalLayout_4.addWidget(self.label_10)
+
+        self.label_25 = QtWidgets.QLabel(self.frame_4)
+        self.label_25.setObjectName("label_25")
+        self.horizontalLayout_4.addWidget(self.label_25)
+
+        self.label_26 = QtWidgets.QLabel(self.frame_4)
+        self.label_26.setStyleSheet("font-family: Microsoft YaHei;\n"
+                                    "font-style: normal;\n"
+                                    "font-weight: 800;\n"
+                                    "font-size: 14px;\n"
+                                    "line-height: 20px;\n"
+                                    "/* identical to box height */\n"
+                                    "\n"
+                                    "\n"
+                                    "color: #256CDD;\n"
+                                    "")
+        self.label_26.setObjectName("label_26")
+        self.horizontalLayout_4.addWidget(self.label_26)
+
+        self.horizontalLayout_4.setStretch(0, 1)
+        self.horizontalLayout_4.setStretch(1, 2)
+        self.horizontalLayout_4.setStretch(2, 3)
+        self.horizontalLayout_4.setStretch(3, 1)
+
         self.verticalLayout_11.addWidget(self.frame_4)
+
+
+
+
         self.frame_5 = QtWidgets.QFrame(self.frame_computer_info)
         self.frame_5.setMaximumSize(QtCore.QSize(16777215, 30))
         self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -653,6 +575,17 @@ class Ui_Form(object):
         self.label_15 = QtWidgets.QLabel(self.frame_5)
         self.label_15.setObjectName("label_15")
         self.horizontalLayout_5.addWidget(self.label_15)
+        self.label_27 = QtWidgets.QLabel(self.frame_5)
+        self.label_27.setObjectName("label_27")
+        self.horizontalLayout_5.addWidget(self.label_27)
+        self.label_28 = QtWidgets.QLabel(self.frame_5)
+        self.label_28.setStyleSheet("")
+        self.label_28.setObjectName("label_28")
+        self.horizontalLayout_5.addWidget(self.label_28)
+        self.horizontalLayout_5.setStretch(0, 1)
+        self.horizontalLayout_5.setStretch(1, 2)
+        self.horizontalLayout_5.setStretch(2, 3)
+        self.horizontalLayout_5.setStretch(3, 1)
         self.verticalLayout_11.addWidget(self.frame_5)
         self.frame_6 = QtWidgets.QFrame(self.frame_computer_info)
         self.frame_6.setMaximumSize(QtCore.QSize(16777215, 30))
@@ -669,6 +602,17 @@ class Ui_Form(object):
         self.label_16 = QtWidgets.QLabel(self.frame_6)
         self.label_16.setObjectName("label_16")
         self.horizontalLayout_6.addWidget(self.label_16)
+        self.label_29 = QtWidgets.QLabel(self.frame_6)
+        self.label_29.setObjectName("label_29")
+        self.horizontalLayout_6.addWidget(self.label_29)
+        self.label_30 = QtWidgets.QLabel(self.frame_6)
+        self.label_30.setStyleSheet("")
+        self.label_30.setObjectName("label_30")
+        self.horizontalLayout_6.addWidget(self.label_30)
+        self.horizontalLayout_6.setStretch(0, 1)
+        self.horizontalLayout_6.setStretch(1, 2)
+        self.horizontalLayout_6.setStretch(2, 3)
+        self.horizontalLayout_6.setStretch(3, 1)
         self.verticalLayout_11.addWidget(self.frame_6)
         self.frame_7 = QtWidgets.QFrame(self.frame_computer_info)
         self.frame_7.setMaximumSize(QtCore.QSize(16777215, 30))
@@ -685,6 +629,17 @@ class Ui_Form(object):
         self.label_18 = QtWidgets.QLabel(self.frame_7)
         self.label_18.setObjectName("label_18")
         self.horizontalLayout_7.addWidget(self.label_18)
+        self.label_31 = QtWidgets.QLabel(self.frame_7)
+        self.label_31.setObjectName("label_31")
+        self.horizontalLayout_7.addWidget(self.label_31)
+        self.label_32 = QtWidgets.QLabel(self.frame_7)
+        self.label_32.setStyleSheet("")
+        self.label_32.setObjectName("label_32")
+        self.horizontalLayout_7.addWidget(self.label_32)
+        self.horizontalLayout_7.setStretch(0, 1)
+        self.horizontalLayout_7.setStretch(1, 2)
+        self.horizontalLayout_7.setStretch(2, 3)
+        self.horizontalLayout_7.setStretch(3, 1)
         self.verticalLayout_11.addWidget(self.frame_7)
         self.frame_8 = QtWidgets.QFrame(self.frame_computer_info)
         self.frame_8.setMaximumSize(QtCore.QSize(16777215, 30))
@@ -701,11 +656,20 @@ class Ui_Form(object):
         self.label_20 = QtWidgets.QLabel(self.frame_8)
         self.label_20.setObjectName("label_20")
         self.horizontalLayout_8.addWidget(self.label_20)
+        self.label_33 = QtWidgets.QLabel(self.frame_8)
+        self.label_33.setObjectName("label_33")
+        self.horizontalLayout_8.addWidget(self.label_33)
+        self.label_34 = QtWidgets.QLabel(self.frame_8)
+        self.label_34.setStyleSheet("")
+        self.label_34.setObjectName("label_34")
+        self.horizontalLayout_8.addWidget(self.label_34)
+        self.horizontalLayout_8.setStretch(0, 1)
+        self.horizontalLayout_8.setStretch(1, 2)
+        self.horizontalLayout_8.setStretch(2, 3)
+        self.horizontalLayout_8.setStretch(3, 1)
         self.verticalLayout_11.addWidget(self.frame_8)
         self.verticalLayout_10.addWidget(self.frame_computer_info)
-
-
-
+       
         self.pushButton_net_info = QtWidgets.QToolButton(self.frame)
         self.pushButton_net_info.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
         self.pushButton_net_info.setSizePolicy(QSizePolicy.Preferred,QSizePolicy.Fixed)
@@ -727,6 +691,7 @@ class Ui_Form(object):
         self.pushButton_net_info.setObjectName("pushButton_net_info")
 
         self.verticalLayout_10.addWidget(self.pushButton_net_info)
+
         self.frame_net_info = QtWidgets.QFrame(self.frame)
         self.frame_net_info.setMinimumSize(QtCore.QSize(0, 0))
         self.frame_net_info.setStyleSheet("font-family: Microsoft YaHei;\n"
@@ -742,10 +707,12 @@ class Ui_Form(object):
         self.frame_net_info.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_net_info.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_net_info.setObjectName("frame_net_info")
+
         self.verticalLayout_19 = QtWidgets.QVBoxLayout(self.frame_net_info)
-        self.verticalLayout_19.setContentsMargins(30, 0, 0, 0)
+        self.verticalLayout_19.setContentsMargins(20, 0, 0, 0)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName("verticalLayout_19")
+
         self.frame_28 = QtWidgets.QFrame(self.frame_net_info)
         self.frame_28.setMaximumSize(QtCore.QSize(16777215, 30))
         self.frame_28.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -842,43 +809,144 @@ class Ui_Form(object):
         self.verticalLayout_14.setObjectName("verticalLayout_14")
         self.stackedWidget.addWidget(self.page_2)
 
+
         self.horizontalLayout.addWidget(self.stackedWidget)
 
-        # 设置填充信息
-
-        self.label_progress_time.setText("02:00")
-        self.label_21.setText("100%")
-        self.pushButton_pause.setText("暂停检查")
-        self.pushButton_stop.setText("停止检查")
-        self.label_7.setText("         项目")
-        self.label_8.setText("|")
-        self.label_9.setText("  基本信息")
-        self.pushButton_computer_info.setText("计算机信息")
-        self.label_12.setText("电脑类型")
-        self.label_10.setText("VivoBook")
-        self.label_13.setText("主板型号")
-        self.label_15.setText(
-            "ASUST eK COMPUTER INC. - X542UF")
-        self.label_14.setText("光驱信息")
-        self.label_16.setText("无光驱")
-        self.label_17.setText("内存信息")
-        self.label_18.setText("8000MB")
-        self.label_19.setText("处理器")
-        self.label_20.setText(
-            "Inter(R) Core(TM) i7-8550U CPU 1.8GHz")
-        self.pushButton_net_info.setText("网络信息")
-        self.label_54.setText("电脑类型")
-        self.label_55.setText("VivoBook")
-        self.label_56.setText("主板型号")
-        self.label_57.setText(
-            "ASUST eK COMPUTER INC. - X542UF")
-        self.label_58.setText("光驱信息")
-        self.label_59.setText("无光驱")
-        self.label_60.setText("内存信息")
-        self.label_61.setText("8000MB")
-        self.label_62.setText("处理器")
-        self.label_63.setText(
-            "Inter(R) Core(TM) i7-8550U CPU 1.8GHz")
 
 
-        ###############################
+        self.verticalLayout.addWidget(self.frame_main)
+        self.frame_zhuangtai = QtWidgets.QFrame(Form)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.frame_zhuangtai.sizePolicy().hasHeightForWidth())
+        self.frame_zhuangtai.setSizePolicy(sizePolicy)
+        self.frame_zhuangtai.setMinimumSize(QtCore.QSize(0, 30))
+        self.frame_zhuangtai.setStyleSheet("background: #112853;\n"
+                                           "font-family: PingFang SC;\n"
+                                           "font-style: normal;\n"
+                                           "font-weight: 300;\n"
+                                           "font-size: 12px;\n"
+                                           "line-height: 17px;\n"
+                                           "color: rgba(255, 255, 255, 0.8);\n"
+                                           "")
+        self.frame_zhuangtai.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_zhuangtai.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_zhuangtai.setObjectName("frame_zhuangtai")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_zhuangtai)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setSpacing(0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.label = QtWidgets.QLabel(self.frame_zhuangtai)
+        self.label.setMinimumSize(QtCore.QSize(255, 0))
+        self.label.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.label.setText("")
+        self.label.setObjectName("label")
+        self.horizontalLayout_2.addWidget(self.label)
+        self.label_2 = QtWidgets.QLabel(self.frame_zhuangtai)
+        self.label_2.setAlignment(
+            QtCore.Qt.AlignJustify | QtCore.Qt.AlignVCenter)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout_2.addWidget(self.label_2)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem2)
+        self.label_3 = QtWidgets.QLabel(self.frame_zhuangtai)
+        self.label_3.setObjectName("label_3")
+        self.horizontalLayout_2.addWidget(self.label_3)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem3)
+        self.label_5 = QtWidgets.QLabel(self.frame_zhuangtai)
+        self.label_5.setObjectName("label_5")
+        self.horizontalLayout_2.addWidget(self.label_5)
+        spacerItem4 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem4)
+        self.label_4 = QtWidgets.QLabel(self.frame_zhuangtai)
+        self.label_4.setObjectName("label_4")
+        self.horizontalLayout_2.addWidget(self.label_4)
+        spacerItem5 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem5)
+        self.label_6 = QtWidgets.QLabel(self.frame_zhuangtai)
+        self.label_6.setObjectName("label_6")
+        self.horizontalLayout_2.addWidget(self.label_6)
+        self.verticalLayout.addWidget(self.frame_zhuangtai)
+
+        self.retranslateUi(Form)
+        self.stackedWidget.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "帝岚科技计算机终端保密检查系统"))
+        self.pushButton_1_1.setText(_translate("Form", "常规检查"))
+        self.pushButton_1_2.setText(_translate("Form", "终端基本信息"))
+        self.pushButton_1_3_1.setText(_translate("Form", "主机信息"))
+        self.pushButton_1_3_2.setText(_translate("Form", "硬盘信息"))
+        self.pushButton_1_3_3.setText(_translate("Form", "操作系统"))
+        self.pushButton_1_3_4.setText(_translate("Form", "身份鉴别"))
+        self.pushButton_2_1.setText(_translate("Form", "安全检查"))
+        self.pushButton_2_2.setText(_translate("Form", "PushButton"))
+        self.pushButton_2_3_1.setText(_translate("Form", "PushButton"))
+        self.pushButton_2_3_2.setText(_translate("Form", "PushButton"))
+        self.pushButton_2_3_3.setText(_translate("Form", "PushButton"))
+        self.pushButton_2_3_4.setText(_translate("Form", "PushButton"))
+        self.label_progress_time.setText(_translate("Form", "02:00"))
+        self.label_21.setText(_translate("Form", "100%"))
+        self.pushButton_pause.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop.setText(_translate("Form", "停止检查"))
+        self.label_7.setText(_translate("Form", "       项目"))
+        self.label_8.setText(_translate("Form", "|"))
+        self.label_9.setText(_translate("Form", " 基本信息"))
+        self.label_11.setText(_translate("Form", "|"))
+        self.label_22.setText(_translate("Form", " 描述/违规提示"))
+        self.label_23.setText(_translate("Form", "|"))
+        self.label_24.setText(_translate("Form", " 违规参考"))
+        self.pushButton_computer_info.setText(_translate("Form", "  计算机信息"))
+        self.label_12.setText(_translate("Form", "电脑类型"))
+        self.label_10.setText(_translate("Form", "VivoBook"))
+        self.label_25.setText(_translate("Form", "/"))
+        self.label_26.setText(_translate("Form", "违规参考"))
+        self.label_13.setText(_translate("Form", "主板型号"))
+        self.label_15.setText(_translate(
+            "Form", "ASUST eK COMPUTER INC. - X542UF"))
+        self.label_27.setText(_translate("Form", "/"))
+        self.label_28.setText(_translate("Form", "/"))
+        self.label_14.setText(_translate("Form", "光驱信息"))
+        self.label_16.setText(_translate("Form", "无光驱"))
+        self.label_29.setText(_translate("Form", "/"))
+        self.label_30.setText(_translate("Form", "/"))
+        self.label_17.setText(_translate("Form", "内存信息"))
+        self.label_18.setText(_translate("Form", "8000MB"))
+        self.label_31.setText(_translate("Form", "/"))
+        self.label_32.setText(_translate("Form", "/"))
+        self.label_19.setText(_translate("Form", "处理器"))
+        self.label_20.setText(_translate(
+            "Form", "Inter(R) Core(TM) i7-8550U CPU 1.8GHz"))
+        self.label_33.setText(_translate("Form", "/"))
+        self.label_34.setText(_translate("Form", "/"))
+        self.pushButton_net_info.setText(_translate("Form", "  网络信息"))
+        self.label_54.setText(_translate("Form", "电脑类型"))
+        self.label_55.setText(_translate("Form", "VivoBook"))
+        self.label_56.setText(_translate("Form", "主板型号"))
+        self.label_57.setText(_translate(
+            "Form", "ASUST eK COMPUTER INC. - X542UF"))
+        self.label_58.setText(_translate("Form", "光驱信息"))
+        self.label_59.setText(_translate("Form", "无光驱"))
+        self.label_60.setText(_translate("Form", "内存信息"))
+        self.label_61.setText(_translate("Form", "8000MB"))
+        self.label_62.setText(_translate("Form", "处理器"))
+        self.label_63.setText(_translate(
+            "Form", "Inter(R) Core(TM) i7-8550U CPU 1.8GHz"))
+
+
+            
+        self.label_2.setText(_translate("Form", "版权所有：帝岚科技计算机终端保密检查系统"))
+        self.label_3.setText(_translate("Form", "电话：029-999987656"))
+        self.label_5.setText(_translate("Form", "本机用户名：administration"))
+        self.label_4.setText(_translate("Form", "IP地址：198.888.111.09"))
+        self.label_6.setText(_translate("Form", "计算机密级：涉密计算机（秘密）"))
