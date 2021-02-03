@@ -29,7 +29,7 @@ class Ui_Form(Side_bar,Status_bar,Stacked_widget):
         Form.setObjectName("Form")
         Form.resize(1300, 800)
         Form.setMinimumHeight(800)
-        # Form.setMinimumWidth(1200)
+        Form.setMinimumWidth(1200)
         Form.setStyleSheet("QPushButton{\n"
                            "border:0px;\n"
                            "color: #FFFFFF;\n"

@@ -2,7 +2,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.Qt import *
 import requests
 import json
-# from dlan import Ui_Form
 from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import partial
 import sys
@@ -41,6 +40,10 @@ class Stacked_page_1(object):
         # 点击主机信息按钮后打开线程加载主机信息，加载完记得在thread_get_com_net_info解除绑定，避免重复加载
         # self.pushButton_0_0_0.clicked.connect(self.thread_get_com_net_info)
 
+        self.pushButton_0_0_0.clicked.connect(self.switche_com_net_info_page)
+
+    def switche_com_net_info_page(self):
+        self.stackedWidget.setCurrentIndex(0)
 
     def thread_get_com_net_info(self):
 
