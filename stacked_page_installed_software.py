@@ -76,7 +76,7 @@ class Stacked_page_installed_software_4(object):
             add_item(num, 2, item["publisher"])
             add_item(num, 3, item["version"])
             add_item(num, 4, item["install_path"])
-            add_item(num, 4, item["install_date"])
+            add_item(num, 5, item["install_date"])
        
    
 
@@ -90,12 +90,12 @@ class Stacked_page_installed_software_4(object):
         self.tableWidget_4.setShowGrid(False)
         self.tableWidget_4.setWordWrap(True)
         self.tableWidget_4.setObjectName("tableWidget_4")
-        # self.tableWidget_4.verticalHeader().setVisible(True)
+        self.tableWidget_4.verticalHeader().setVisible(False)
 
         self.tableWidget_4.verticalHeader().setSortIndicatorShown(False)
         self.tableWidget_4.verticalHeader().setStretchLastSection(False)
         # self.verticalLayout.addWidget(self.tableWidget_4)
-        self.tableWidget_4.setColumnCount(5)
+        self.tableWidget_4.setColumnCount(6)
 
         # self.tableWidget_4.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.tableWidget_4.setFocusPolicy(Qt.NoFocus)

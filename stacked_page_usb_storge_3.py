@@ -87,7 +87,7 @@ class Stacked_page_usb_storge_3(object):
         self.tableWidget_2.setShowGrid(False)
         self.tableWidget_2.setWordWrap(True)
         self.tableWidget_2.setObjectName("tableWidget_2")
-        # self.tableWidget_2.verticalHeader().setVisible(True)
+        self.tableWidget_2.verticalHeader().setVisible(False)
 
         self.tableWidget_2.verticalHeader().setSortIndicatorShown(False)
         self.tableWidget_2.verticalHeader().setStretchLastSection(False)

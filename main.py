@@ -103,6 +103,9 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         for k,v in file_type.items():
             if eval(k).isChecked():
                 suffix.extend(v)
+
+        for suf in d.lineEdit_2.text().split(" "):
+            suffix.append("."+suf)
         return suffix
 
     def get_config_filesize(self,d):
@@ -123,6 +126,8 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
             src=d.tableWidget.item(i, 1).text()
             # src=src.replace("\\", "\\\\")
             scan_path.append(src)
+        if len(scan_path)==0:
+            scan_path.append("C://Users//long//Desktop//audit")
         return scan_path
 
     def get_info_info(self,d):

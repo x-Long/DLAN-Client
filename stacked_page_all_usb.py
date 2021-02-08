@@ -89,7 +89,7 @@ class Stacked_page_all_usb_4(object):
         self.tableWidget_3.setShowGrid(False)
         self.tableWidget_3.setWordWrap(True)
         self.tableWidget_3.setObjectName("tableWidget_3")
-        # self.tableWidget_3.verticalHeader().setVisible(True)
+        self.tableWidget_3.verticalHeader().setVisible(False)
 
         self.tableWidget_3.verticalHeader().setSortIndicatorShown(False)
         self.tableWidget_3.verticalHeader().setStretchLastSection(False)

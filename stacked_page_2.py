@@ -62,7 +62,7 @@ class Runthread_check_file(QtCore.QThread):
 
             for result in net_info["results"]:
                 self._signal.emit(result,net_info["progress"],net_info["status"],data["task_id"])
-                print(result,net_info["progress"],111111111111111111111111)
+                print(result,net_info["progress"])
             if net_info["status"] == "finished":
                 print('扫描结束')
                 break
@@ -94,7 +94,7 @@ class Runthread_check_file1(QtCore.QThread):
 
             for result in net_info["results"]:
                 self._signal.emit(result,net_info["progress"],net_info["status"],data["task_id"])
-                print(result,net_info["progress"],111111111111111111111111)
+                print(result,net_info["progress"])
             if net_info["status"] == "finished":
                 print('扫描结束')
                 break
@@ -125,11 +125,85 @@ class Stacked_page_2(object):
     def set_up_stacked_page_2(self):
 
         self.stacked_page_2_ui()
+        self.select_file_items=[]
         self.task_id=-1
         self.pushButton_2_0_0.clicked.connect(self.switche_check_file_page)
         self.pushButton_pause_2.clicked.connect(self.pause_check_file)
         self.pushButton_stop_2.clicked.connect(self.stop_check_file)
+        self.comboBox.currentIndexChanged.connect(lambda: self.offset_selection_change("offset_select"))
+        self.comboBox_2.currentIndexChanged.connect(lambda: self.offset_selection_change("file_type_select"))
+        self.comboBox_3.currentIndexChanged.connect(lambda: self.offset_selection_change("is_encrypt_select"))
     
+    def offset_selection_change(self,select_type):
+
+        self.tableWidget.setRowCount(0)
+        self.tableWidget.clearContents()
+
+        def add_select_row(content):
+            print(content[0].isChecked())
+            num = self.tableWidget.rowCount()
+            self.tableWidget.setRowCount(num+1) 
+            # self.tableWidget.setCellWidget(num, 0, content[0])
+            # comBox = QCheckBox()
+            hLayout = QtWidgets.QHBoxLayout()
+            hLayout.addWidget(content[0])
+            hLayout.setAlignment(content[0], Qt.AlignCenter)
+            hLayout.setContentsMargins(0, 0, 0, 0)
+            hLayout.setSpacing(0)
+            widget = QtWidgets.QWidget()
+            widget.setLayout(hLayout)
+            self.tableWidget.setCellWidget(num, 0, widget)
+            self.tableWidget.setItem(num, 1, QtWidgets.QTableWidgetItem(str(num+1)))
+            self.tableWidget.item(num, 1).setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+
+            for i in range(2,9):
+                self.tableWidget.setItem(num, i, QtWidgets.QTableWidgetItem(str(content[i])))
+                self.tableWidget.item(num, i).setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+
+        if select_type=="offset_select":
+            if self.comboBox.currentText()=="不限偏移":
+                for file_item in self.select_file_items: 
+                    add_select_row(file_item)
+            elif self.comboBox.currentText()=="精准":
+                for file_item in self.select_file_items: 
+                    if int(file_item[8])<=10:
+                        add_select_row(file_item)
+            elif self.comboBox.currentText()=="标题":
+                for file_item in self.select_file_items: 
+                    if (file_item[8])<=50:
+                        add_select_row(file_item)
+            elif self.comboBox.currentText()=="概要":
+                for file_item in self.select_file_items: 
+                    if (file_item[8])<=60:
+                        add_select_row(file_item)
+
+        elif select_type=="file_type_select":
+            if self.comboBox_2.currentText()=="全部类型":
+                for file_item in self.select_file_items: 
+                    add_select_row(file_item)
+            if self.comboBox_2.currentText()=="文档":
+                for file_item in self.select_file_items:
+                    if file_item[2][-3:]!="rar" and file_item[2][-3:]!="zip":
+                        add_select_row(file_item)
+            if self.comboBox_2.currentText()=="压缩包":
+                for file_item in self.select_file_items:
+                    if file_item[2][-3:]=="rar" or file_item[2][-3:]=="zip":
+                        add_select_row(file_item)
+            
+        elif select_type=="is_encrypt_select":
+            if self.comboBox_3.currentText()=="不限":
+                for file_item in self.select_file_items: 
+                    add_select_row(file_item)
+            if self.comboBox_3.currentText()=="加密":
+                for file_item in self.select_file_items:
+                    if file_item[5]:
+                        add_select_row(file_item)
+            if self.comboBox_3.currentText()=="未加密":
+                for file_item in self.select_file_items:
+                    if not file_item[5]:
+                        add_select_row(file_item)
+
+
     def stop_check_file(self):
         self.thread.terminate()
         self.count_check_file_time.terminate()
@@ -232,13 +306,14 @@ class Stacked_page_2(object):
 
         add_item(num, 1, num+1)   # 序号
         add_item(num, 2, content["filename"])
-        add_item(num, 6, content["filepath"])
+        add_item(num, 3, hum_convert(content["filesize"]))
         add_item(num, 4, content["keyword_details"]["context"])
         add_item(num, 5, content["is_encrypted"])
+        add_item(num, 6, content["filepath"])
         add_item(num, 7, content["keyword_details"]["keyword"])
         add_item(num, 8, content["keyword_details"]["offset"])
-        # add_item(num, 3, str(content["filesize"]/1024)+"KB")
-        add_item(num, 3, hum_convert(content["filesize"]))
+        select_file_item=[comBox,num+1,content["filename"],hum_convert(content["filesize"]),content["keyword_details"]["context"],content["is_encrypted"],content["filepath"],content["keyword_details"]["keyword"],content["keyword_details"]["offset"]]
+        self.select_file_items.append(select_file_item)
 
     def init_table_widget(self,):
 
@@ -248,7 +323,7 @@ class Stacked_page_2(object):
         self.tableWidget.setShowGrid(False)
         self.tableWidget.setWordWrap(True)
         self.tableWidget.setObjectName("tableWidget")
-        # self.tableWidget.verticalHeader().setVisible(True)
+        self.tableWidget.verticalHeader().setVisible(False)
 
         self.tableWidget.verticalHeader().setSortIndicatorShown(False)
         self.tableWidget.verticalHeader().setStretchLastSection(False)
@@ -359,7 +434,7 @@ class Stacked_page_2(object):
                                        "    font:bold 14px \"微软雅黑\";\n"
                                        "    text-align:right;\n"
                                        "    height:43px;\n"
-                                    #    "    width:23px;"
+                                       "    width:23px;"
                                        "    \n"
                                        "    border:0px;\n"
                                        "\n"
@@ -671,8 +746,8 @@ class Stacked_page_2(object):
         self.comboBox_2.setItemText(2, "压缩包")
         self.label_38.setText(" 是否加密：")
         self.comboBox_3.setItemText(0, "不限")
-        self.comboBox_3.setItemText(1, "加密文件")
-        self.comboBox_3.setItemText(2, "所有文件")
+        self.comboBox_3.setItemText(1, "加密")
+        self.comboBox_3.setItemText(2, "未加密")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab),  "关键词命中文件")
         self.tabWidget.setTabText(
             self.tabWidget.indexOf(self.tab_2),  "疑似标密文件")

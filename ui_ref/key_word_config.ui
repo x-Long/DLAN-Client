@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>873</width>
+    <height>570</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background:white;</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QFrame" name="frame_2">
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>11</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="frame_3">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="styleSheet">
+            <string notr="true">font-family: &quot;微软雅黑&quot;;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 20px;</string>
+           </property>
+           <property name="text">
+            <string>自定义关键词：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_3">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	/* 外边框 */
+	border: 1px solid rgba(86, 86, 86, 0.7);
+	border-radius: 3px;
+	padding: 5 8px;
+	background: white;
+	font-family: &quot;微软雅黑&quot;;
+
+}</string>
+           </property>
+           <property name="text">
+            <string>绝密 机密 秘密</string>
+           </property>
+           <property name="placeholderText">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="styleSheet">
+            <string notr="true">color:white;</string>
+           </property>
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="minimumSize">
+            <size>
+             <width>130</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background:  white;
+font-family: &quot;微软雅黑&quot;;;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+border-radius: 5px;
+color: #256CDD;
+border: 2px solid #256CDD;</string>
+           </property>
+           <property name="text">
+            <string>在关键词库中选择</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: #256CDD;</string>
+           </property>
+           <property name="text">
+            <string>  下载关键词库</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="styleSheet">
+            <string notr="true">color:white;</string>
+           </property>
+           <property name="text">
+            <string>..................</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="tableWidget_2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="statusTip">
+         <string/>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">        QTableView
+{
+    background-color: #FFFFFF;
+    alternate-background-color:#e3edf9;
+    font:14px &quot;微软雅黑&quot;;
+    color:#677483;
+    gridline-color: #ccddf0;  
+
+border: 2px solid rgba(41, 43, 49, 0.2);
+border-top: 5px solid #213E75;
+border-bottom: 3px solid rgba(41, 43, 49, 0.2);
+
+
+border-radius:5px
+
+}
+ 
+QTableView::item
+{  
+    font:20px &quot;微软雅黑&quot;;
+    color:#29414E; 
+	border:0px;   
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+}
+ 
+QTableView::item:selected
+{  
+    color:green;
+}
+ 
+QHeaderView::section { 
+    color: #565656;;
+    font:bold 14px &quot;微软雅黑&quot;;
+    text-align:right;
+    height:43px;
+	
+	border:0px;
+
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+	background: #FFFFFF;
+
+    border-left:none;
+border-left: 1px solid rgba(41, 43, 49, 0.2);
+border-right:1px solid rgba(41, 43, 49, 0.2);
+}
+ 
+// border-left:none;防止中间表头的border重叠
+QHeaderView::section:first
+{
+    border-left:1px solid #8faac9;
+border-radius: 3px;
+}</string>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="autoScroll">
+         <bool>true</bool>
+        </property>
+        <property name="autoScrollMargin">
+         <number>3</number>
+        </property>
+        <property name="dragEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="textElideMode">
+         <enum>Qt::ElideMiddle</enum>
+        </property>
+        <property name="showGrid">
+         <bool>false</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>139</number>
+        </attribute>
+        <attribute name="horizontalHeaderHighlightSections">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderStretchLastSection">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>标记</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>行业</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>公文字号关键词组</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>秘密级关键词组</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>机密级关键词组</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>绝密级关键词组</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
