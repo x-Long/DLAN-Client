@@ -59,14 +59,15 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         self.count_check_file_time._signal.connect(self.show_time)
         self.count_check_file_time.start()
 
-
     def show_time(self,text):
         self.label_progress_time_2.setText(text)
 
     def file_path(self,d):
         
         file_path1=QFileDialog.getExistingDirectory(self, "请选择文件夹路径", "E://demo//")
-        self.add_src1(file_path1,d)       
+        self.add_src1(file_path1,d)   
+        self.di.showMinimized()
+        self.di.showNormal()    
 
     def add_src1(self, item, d):
 
