@@ -13,6 +13,7 @@ class Status_bar(object):
 
         self.status_bar_ui()
         # self.status_bar_func()
+        self.thread_get_status_bar()
 
 
     def status_bar_ui(self):
@@ -83,11 +84,31 @@ class Status_bar(object):
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_2.addWidget(self.label_6)
         self.verticalLayout.addWidget(self.frame_zhuangtai)
-        self.label_2.setText("版权所有：帝岚科技 ")
-        self.label_3.setText("电话：029-999987656 ")
-        self.label_5.setText("本机用户名：administration ")
-        self.label_4.setText("IP地址：198.888.111.09 ")
-        self.label_6.setText("计算机密级：涉密计算机（秘密） ")
 
-        
+    def thread_get_status_bar(self):
+
+        self.thread_status_bar = Runthread_status() # 创建线程
+        self.thread_status_bar._signal_status.connect(self.get_status) # 连接信号
+        self.thread_status_bar.start() # 开始线程
+    def get_status(self,status_bar_info):
+        self.label_2.setText("版权所有："+status_bar_info["copyright"])
+        self.label_3.setText("电话："+status_bar_info["phone_number"])
+        self.label_5.setText("本机用户名："+status_bar_info["current_user"])
+        self.label_4.setText("IP地址："+status_bar_info["ip_addr"])
+        self.label_6.setText("计算机密级："+status_bar_info["security_level"]+"    ")
+
+
+class Runthread_status(QtCore.QThread):
+
+    _signal_status = pyqtSignal(dict)
+
+    def __init__(self,parent=None):
+        super(Runthread_status, self).__init__(parent)
+
+    def run(self):
+        print("run")
+        status_bar_info=json.loads(requests.get("http://localhost/v1.0/app/footer/info").content)
+        self._signal_status.emit(status_bar_info); # 信号发送
+
+
   

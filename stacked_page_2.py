@@ -19,31 +19,34 @@ import os
 import requests
 import json
 import time
+import datetime
+# from main import Count_check_file_time
+from win32process import SuspendThread
 
 
 class Runthread_check_file(QtCore.QThread):
 
-    _signal = pyqtSignal(dict)
+    _signal = pyqtSignal(dict,float,str,int)
 
-    def __init__(self, parent=None):
+    def __init__(self, postdatas,parent=None):
         super(Runthread_check_file, self).__init__(parent)
+        self.post_info=postdatas
+
 
     def get_file_info(self):
-        postdatas = {
-            "scan_path": ["C://Users//long//Desktop//audit", ],
-            "file_suffix": [".wps", ".doc", "docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".xlsx"],
-            "keywords_list": ["秘密", "机密"],
-            "min_filesieze": 1024,
-            "max_filesize": 10240,
-            "switches": {
-                "size_switch": True,
-            }
-        }
+        # postdatas = {
+        #     "scan_path": ["C://Users//long//Desktop//audit", ],
+        #     "file_suffix": [".wps", ".doc", "docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".xlsx"],
+        #     "keywords_list": ["秘密", "机密"],
+        #     "min_filesize": 1024,
+        #     "max_filesize": 1024000000,
+        #     "switches": {
+        #         "size_switch": True,
+        #     }
+        # }
 
-        headers = {"Content-Type": "application/json",
-                   "Accept": "application/json", }
-        dis_task = requests.post('http://localhost/v1.0/pc/files/scan',
-                                 data=json.dumps(postdatas), headers=headers).content
+        headers = {"Content-Type": "application/json","Accept": "application/json", }
+        dis_task = requests.post('http://localhost/v1.0/pc/files/scan',data=json.dumps(self.post_info), headers=headers).content
         dis_task = json.loads(dis_task)
 
         data = {
@@ -52,20 +55,54 @@ class Runthread_check_file(QtCore.QThread):
         }
 
         while True:
-            net_info = requests.get(
-                "http://localhost//v1.0/pc/files/scan/status", params=data).content.decode('unicode-escape')
+            net_info = requests.get("http://localhost/v1.0/files/scan/status?task_id={}&page_size={}".format(data["task_id"],data["page_size"])).content.decode('unicode-escape')
             # 返回结果中含有 \ ,使得json.loads无法解析，所以需要将返回结果中的 \ 替换为 \\
             net_info = net_info.replace("\\", "\\\\")
             net_info = json.loads(net_info)
+
             for result in net_info["results"]:
-                self._signal.emit(result)
-                print(result)
+                self._signal.emit(result,net_info["progress"],net_info["status"],data["task_id"])
+                print(result,net_info["progress"],111111111111111111111111)
             if net_info["status"] == "finished":
                 print('扫描结束')
                 break
 
     def run(self):
         self.get_file_info()
+        pass
+
+class Runthread_check_file1(QtCore.QThread):
+
+    _signal = pyqtSignal(dict,float,str,int)
+
+    def __init__(self,task_id,parent=None):
+        super(Runthread_check_file1, self).__init__(parent)
+        self.task_id=task_id
+
+    def get_file_info(self):
+
+        data = {
+            "task_id": self.task_id,
+            "page_size": 1
+        }
+
+        while True:
+            net_info = requests.get("http://localhost/v1.0/files/scan/status?task_id={}&page_size={}".format(data["task_id"],data["page_size"])).content.decode('unicode-escape')
+            # 返回结果中含有 \ ,使得json.loads无法解析，所以需要将返回结果中的 \ 替换为 \\
+            net_info = net_info.replace("\\", "\\\\")
+            net_info = json.loads(net_info)
+
+            for result in net_info["results"]:
+                self._signal.emit(result,net_info["progress"],net_info["status"],data["task_id"])
+                print(result,net_info["progress"],111111111111111111111111)
+            if net_info["status"] == "finished":
+                print('扫描结束')
+                break
+
+    def run(self):
+        self.get_file_info()
+        pass
+
 
 class menu_file_op(QtCore.QThread):
 
@@ -88,14 +125,57 @@ class Stacked_page_2(object):
     def set_up_stacked_page_2(self):
 
         self.stacked_page_2_ui()
+        self.task_id=-1
         self.pushButton_2_0_0.clicked.connect(self.switche_check_file_page)
+        self.pushButton_pause_2.clicked.connect(self.pause_check_file)
+        self.pushButton_stop_2.clicked.connect(self.stop_check_file)
+    
+    def stop_check_file(self):
+        self.thread.terminate()
+        self.count_check_file_time.terminate()
+        # self.label_35.setText("0%")
+        # self.progressBar_2.setProperty("value", "1")
+        # self.label_progress_time_2.setText("0:00")
+
+
+    def pause_check_file(self):
+        if self.pushButton_pause_2.text()=="暂停检查":
+            self.pushButton_pause_2.setText("恢复检查")
+
+            postdatas = {
+                "task_id": self.task_id,
+                "action": "pause"
+            }
+
+            headers = {"Content-Type": "application/json","Accept": "application/json", }
+            requests.post('http://localhost//v1.0/files/scan/control',data=json.dumps(postdatas), headers=headers)
+
+            self.thread.terminate()
+            self.count_check_file_time.terminate()
+
+        elif self.pushButton_pause_2.text()=="恢复检查":
+            self.pushButton_pause_2.setText("暂停检查")
+            postdatas = {
+                "task_id": self.task_id,
+                "action": "resume"
+            }
+            headers = {"Content-Type": "application/json","Accept": "application/json", }
+            requests.post('http://localhost//v1.0/files/scan/control',data=json.dumps(postdatas), headers=headers)
+            # self.thread.start()
+            
+            self.count_check_file_time.start()
+
+            self.thread=Runthread_check_file1(self.task_id)
+            self.thread._signal.connect(self.add_row)  # 连接信号
+            self.thread.start()  # 
+
 
     def switche_check_file_page(self):
         self.stackedWidget.setCurrentIndex(1)
 
     def thread_get_check_file_info(self):
 
-        self.thread = Runthread_check_file()  # 创建线程
+        self.thread = Runthread_check_file(self.postdatas)  # 创建线程
         self.thread._signal.connect(self.add_row)  # 连接信号
         self.thread.start()  # 开始线程
 
@@ -103,10 +183,19 @@ class Stacked_page_2(object):
 
         self.init_table_widget()
         self.tableWidget.setHorizontalHeaderLabels(["标记", "序号", "文件名称", "文件大小",  "摘要", "是否加密", "文件路径", "关键字", "关键字位置"])
-        self.thread_get_check_file_info()
+        # self.thread_get_check_file_info()
         self.table_style()
 
-    def add_row(self, content):
+    def add_row(self, content,progress,status,task_id):
+        self.task_id=task_id
+        if status=="finished":
+            self.count_check_file_time.terminate()
+            # Count_check_file_time.time_status=1
+        # print(int(self.progressBar_2.value()),int(progress*100-self.progressBar_2.value()),111111111111111111)
+        for i in range(int(self.progressBar_2.value()),int(progress*100)+1):
+            self.label_35.setText(str(i)+"%")
+            self.progressBar_2.setProperty("value", i)
+            time.sleep(0.001)
 
         def hum_convert(value):
             units = ["B", "KB", "MB", "GB", "TB", "PB"]
@@ -145,13 +234,11 @@ class Stacked_page_2(object):
         add_item(num, 2, content["filename"])
         add_item(num, 6, content["filepath"])
         add_item(num, 4, content["keyword_details"]["context"])
-        # add_item(num, 5, content["is_encrypted"])
-        add_item(num, 5, "")
+        add_item(num, 5, content["is_encrypted"])
         add_item(num, 7, content["keyword_details"]["keyword"])
         add_item(num, 8, content["keyword_details"]["offset"])
         # add_item(num, 3, str(content["filesize"]/1024)+"KB")
-        aaa = hum_convert(content["filesize"])
-        add_item(num, 3, aaa)
+        add_item(num, 3, hum_convert(content["filesize"]))
 
     def init_table_widget(self,):
 
@@ -161,12 +248,14 @@ class Stacked_page_2(object):
         self.tableWidget.setShowGrid(False)
         self.tableWidget.setWordWrap(True)
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.verticalHeader().setVisible(True)
+        # self.tableWidget.verticalHeader().setVisible(True)
+
         self.tableWidget.verticalHeader().setSortIndicatorShown(False)
         self.tableWidget.verticalHeader().setStretchLastSection(False)
         # self.verticalLayout.addWidget(self.tableWidget)
         self.tableWidget.setColumnCount(9)
         self.verticalLayout_13.addWidget(self.tableWidget)
+        
 
         # self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.tableWidget.setFocusPolicy(Qt.NoFocus)
@@ -209,24 +298,25 @@ class Stacked_page_2(object):
         item3 = menu.addAction(u"清除文件")
         action = menu.exec_(self.tableWidget.mapToGlobal(pos))
         if action == item1:
-            print('打开文件', self.tableWidget.item(row_num, 3).text())
-            # os.startfile(self.tableWidget.item(row_num, 3).text())
-            file_name = self.tableWidget.item(row_num, 3).text()
+            print('打开文件', self.tableWidget.item(row_num, 6).text())
+            # os.startfile(self.tableWidget.item(row_num, 6).text())
+            file_name = self.tableWidget.item(row_num, 6).text()
+            print(self.tableWidget.item(row_num, 6).text())
             self.menu_file_op = menu_file_op(file_name, "open_filename")
             self.menu_file_op.start()
 
         elif action == item2:
-            print('打开文件夹', self.tableWidget.item(row_num, 3).text())
-            # os.startfile(os.path.dirname(self.tableWidget.item(row_num, 3).text()))
-            dir_name = os.path.dirname(
-                self.tableWidget.item(row_num, 3).text())
+            print('打开文件夹', self.tableWidget.item(row_num, 6).text())
+            # os.startfile(os.path.dirname(self.tableWidget.item(row_num, 6).text()))
+            dir_name = os.path.dirname(self.tableWidget.item(row_num, 6).text())
+            print(self.tableWidget.item(row_num, 6).text())
             self.menu_file_op = menu_file_op(dir_name, "open_dir")
             self.menu_file_op.start()
 
         elif action == item3:
-            print('清除文件', self.tableWidget.item(row_num, 3).text())
-            # os.remove(self.tableWidget.item(row_num, 3).text())
-            del_name = self.tableWidget.item(row_num, 3).text()
+            print('清除文件', self.tableWidget.item(row_num, 6).text())
+            # os.remove(self.tableWidget.item(row_num, 6).text())
+            del_name = self.tableWidget.item(row_num, 6).text()
             self.menu_file_op = menu_file_op(del_name, "del_file")
             self.menu_file_op.start()
         else:
@@ -269,6 +359,7 @@ class Stacked_page_2(object):
                                        "    font:bold 14px \"微软雅黑\";\n"
                                        "    text-align:right;\n"
                                        "    height:43px;\n"
+                                    #    "    width:23px;"
                                        "    \n"
                                        "    border:0px;\n"
                                        "\n"
@@ -382,7 +473,7 @@ class Stacked_page_2(object):
                                          "}\n"
                                          "\n"
                                          " ")
-        self.progressBar_2.setProperty("value", 24)
+        self.progressBar_2.setProperty("value", 0)
         self.progressBar_2.setTextVisible(False)
         self.progressBar_2.setObjectName("progressBar_2")
         self.horizontalLayout_10.addWidget(self.progressBar_2)
@@ -565,8 +656,8 @@ class Stacked_page_2(object):
         self.verticalLayout_12.addWidget(self.tabWidget)
         self.stackedWidget.addWidget(self.page_2)
 
-        self.label_progress_time_2.setText("02:00")
-        self.label_35.setText("100%")
+        self.label_progress_time_2.setText("0:00")
+        self.label_35.setText("0%")
         self.pushButton_pause_2.setText("暂停检查")
         self.pushButton_stop_2.setText("停止检查")
         self.label_36.setText("偏移过滤：")

@@ -8,14 +8,22 @@ from functools import partial
 import sys
 from stacked_page_1 import Stacked_page_1
 from stacked_page_2 import Stacked_page_2
+from stacked_page_usb_storge_3 import Stacked_page_usb_storge_3
+from stacked_page_hard_disk_4 import Stacked_page_hard_disk_4
+from stacked_page_all_usb import Stacked_page_all_usb_4
+from stacked_page_installed_software import Stacked_page_installed_software_4
 
-class Stacked_widget(Stacked_page_1,Stacked_page_2):
+class Stacked_widget(Stacked_page_1,Stacked_page_2,Stacked_page_usb_storge_3,Stacked_page_hard_disk_4,Stacked_page_all_usb_4,Stacked_page_installed_software_4):
 
     def set_up_stacked_widget(self):
 
         self.stacked_widget_ui()
         self.set_up_stacked_page_1()
         self.set_up_stacked_page_2()
+        self.set_up_stacked_page_usb_storge_3()
+        self.set_up_stacked_page_hard_disk_4()
+        self.set_up_stacked_page_all_usb_4()
+        self.set_up_stacked_page_installed_software_4()
 
     def stacked_widget_ui(self):
 
