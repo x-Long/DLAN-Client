@@ -140,14 +140,14 @@ class Stacked_page_2(object):
         self.tableWidget.clearContents()
 
         def add_select_row(content):
-            print(content[0].isChecked())
+            # print(content[0].isChecked())
             num = self.tableWidget.rowCount()
             self.tableWidget.setRowCount(num+1) 
             # self.tableWidget.setCellWidget(num, 0, content[0])
-            # comBox = QCheckBox()
+            comBox = QCheckBox()
             hLayout = QtWidgets.QHBoxLayout()
-            hLayout.addWidget(content[0])
-            hLayout.setAlignment(content[0], Qt.AlignCenter)
+            hLayout.addWidget(comBox)
+            hLayout.setAlignment(comBox, Qt.AlignCenter)
             hLayout.setContentsMargins(0, 0, 0, 0)
             hLayout.setSpacing(0)
             widget = QtWidgets.QWidget()
@@ -564,7 +564,9 @@ class Stacked_page_2(object):
         self.horizontalLayout_10.addWidget(self.label_35)
         self.pushButton_pause_2 = QtWidgets.QPushButton(self.frame_progress_2)
         self.pushButton_pause_2.setMinimumSize(QtCore.QSize(100, 35))
-        self.pushButton_pause_2.setStyleSheet("background: #3A7FED;\n"
+        self.pushButton_pause_2.setStyleSheet(
+                                                "QPushButton{"
+                                                "background: #3A7FED;\n"
                                               "font-family: PingFang SC;\n"
                                               "font-style: normal;\n"
                                               "font-weight: normal;\n"
@@ -572,12 +574,33 @@ class Stacked_page_2(object):
                                               "line-height: 20px;\n"
                                               "border-radius: 3px;\n"
                                               "\n"
-                                              "color: #FFFFFF;")
+                                              "color: #FFFFFF;"
+                                              "}"
+                                                "QPushButton:hover{"
+                                                "background: #007acc;\n"
+                                              "font-family: PingFang SC;\n"
+                                              "font-style: normal;\n"
+                                              "font-weight: normal;\n"
+                                              "font-size: 14px;\n"
+                                              "line-height: 20px;\n"
+                                              "border-radius: 3px;\n"
+                                              "\n"
+                                              "color: #FFFFFF;"
+                                              "}"
+                                              )
+
+
+
+
+
+
         self.pushButton_pause_2.setObjectName("pushButton_pause_2")
         self.horizontalLayout_10.addWidget(self.pushButton_pause_2)
         self.pushButton_stop_2 = QtWidgets.QPushButton(self.frame_progress_2)
         self.pushButton_stop_2.setMinimumSize(QtCore.QSize(100, 35))
-        self.pushButton_stop_2.setStyleSheet("background: #3A7FED;\n"
+        self.pushButton_stop_2.setStyleSheet(
+                                            "QPushButton{"
+                                            "background: #3A7FED;\n"
                                              "font-family: PingFang SC;\n"
                                              "font-style: normal;\n"
                                              "font-weight: normal;\n"
@@ -585,7 +608,20 @@ class Stacked_page_2(object):
                                              "line-height: 20px;\n"
                                              "border-radius: 3px;\n"
                                              "\n"
-                                             "color: #FFFFFF;")
+                                             "color: #FFFFFF;"
+                                             "}"
+                                                           "QPushButton:hover{"
+                                                "background: #007acc;\n"
+                                              "font-family: PingFang SC;\n"
+                                              "font-style: normal;\n"
+                                              "font-weight: normal;\n"
+                                              "font-size: 14px;\n"
+                                              "line-height: 20px;\n"
+                                              "border-radius: 3px;\n"
+                                              "\n"
+                                              "color: #FFFFFF;"
+                                              "}"
+                                             )
         self.pushButton_stop_2.setObjectName("pushButton_stop_2")
         self.horizontalLayout_10.addWidget(self.pushButton_stop_2)
         self.verticalLayout_12.addWidget(self.frame_progress_2)
@@ -662,7 +698,9 @@ class Stacked_page_2(object):
         self.horizontalLayout_11.addItem(spacerItem2)
         self.pushButton = QtWidgets.QPushButton(self.frame_3)
         self.pushButton.setMinimumSize(QtCore.QSize(150, 35))
-        self.pushButton.setStyleSheet("background: #3A7FED;\n"
+        self.pushButton.setStyleSheet(
+                                        "QPushButton{"
+                                        "background: #3A7FED;\n"
                                       "font-family: PingFang SC;\n"
                                       "font-style: normal;\n"
                                       "font-weight: normal;\n"
@@ -670,7 +708,20 @@ class Stacked_page_2(object):
                                       "line-height: 20px;\n"
                                       "border-radius: 3px;\n"
                                       "\n"
-                                      "color: #FFFFFF;")
+                                      "color: #FFFFFF;"
+                                      "}"
+                                    "QPushButton:hover{"
+                                          "background: #007acc;\n"
+                                      "font-family: PingFang SC;\n"
+                                      "font-style: normal;\n"
+                                      "font-weight: normal;\n"
+                                      "font-size: 14px;\n"
+                                      "line-height: 20px;\n"
+                                      "border-radius: 3px;\n"
+                                      "\n"
+                                      "color: #FFFFFF;"
+                                      "}")
+
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout_11.addWidget(self.pushButton)
         self.verticalLayout_12.addWidget(self.frame_3)

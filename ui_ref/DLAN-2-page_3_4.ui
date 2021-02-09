@@ -590,7 +590,7 @@ color: rgba(255, 255, 255, 0.7);</string>
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>5</number>
+         <number>8</number>
         </property>
         <widget class="QWidget" name="page">
          <property name="styleSheet">
@@ -821,8 +821,8 @@ height: 0px;
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>976</width>
-               <height>696</height>
+               <width>972</width>
+               <height>690</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1925,8 +1925,8 @@ height: 0px;
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>976</width>
-               <height>696</height>
+               <width>972</width>
+               <height>690</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -3935,7 +3935,7 @@ border-radius: 3px;
                  <bool>true</bool>
                 </attribute>
                 <attribute name="verticalHeaderVisible">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </attribute>
                 <attribute name="verticalHeaderShowSortIndicator" stdset="0">
                  <bool>false</bool>
@@ -4684,6 +4684,894 @@ border-radius: 3px;
              <attribute name="title">
               <string>Tab 2</string>
              </attribute>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_file_access_records">
+         <layout class="QVBoxLayout" name="verticalLayout_29">
+          <item>
+           <widget class="QFrame" name="frame_progress_8">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_17">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_progress_time_8">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font-family: Metropolis;
+font-size: 18px;
+line-height: 28px;
+font-weight: 800;
+
+color: #565656;</string>
+               </property>
+               <property name="text">
+                <string>02:00</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QProgressBar" name="progressBar_8">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>15</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QProgressBar{
+
+background-color: #DEDEDE; 
+height:12px;
+border-radius: 8px;
+
+
+
+}
+
+
+QProgressBar::chunk{
+background-color: #83C088; 
+border-radius: 6px;
+
+}
+
+ </string>
+               </property>
+               <property name="value">
+                <number>24</number>
+               </property>
+               <property name="textVisible">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_46">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font-family: Metropolis;
+font-size: 18px;
+line-height: 28px;
+font-weight: 800;
+
+color: #565656;</string>
+               </property>
+               <property name="text">
+                <string>100%</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_pause_8">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #3A7FED;
+font-family: PingFang SC;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+border-radius: 3px;
+
+color: #FFFFFF;</string>
+               </property>
+               <property name="text">
+                <string>暂停检查</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_stop_8">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #3A7FED;
+font-family: PingFang SC;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+border-radius: 3px;
+
+color: #FFFFFF;</string>
+               </property>
+               <property name="text">
+                <string>停止检查</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTabWidget" name="tabWidget_6">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTabWidget::pane { /* The tab widget frame */
+    top: -0.01em;
+}
+ 
+QTabWidget::tab-bar {
+    alignment: left;
+	left: 2em;
+}
+
+
+QTabBar::tab {
+	border-top-left-radius: 10px;border-top-right-radius: 10px;
+    background-color: #4094da;
+    font: bold 12px 'Arial';
+    color: white;
+    height:40px;
+	width:200px;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 22px;
+}
+QTabBar::tab:selected {
+    color: white;
+	background: #213E75;
+ }
+
+QTabBar::tab:!selected {
+    background-color: white;
+	color: #565656;;
+}
+</string>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="tab_7">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <attribute name="title">
+              <string>Tab 1</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_28">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QTableWidget" name="tableWidget_6">
+                <property name="statusTip">
+                 <string/>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">        QTableView
+{
+    background-color: #FFFFFF;
+    alternate-background-color:#e3edf9;
+    font:14px &quot;微软雅黑&quot;;
+    color:#677483;
+    gridline-color: #ccddf0;  
+
+border: 2px solid rgba(41, 43, 49, 0.2);
+border-top: 5px solid #213E75;
+border-bottom: 3px solid rgba(41, 43, 49, 0.2);
+
+border-radius:5px
+
+}
+ 
+QTableView::item
+{  
+    font:20px &quot;微软雅黑&quot;;
+    color:#29414E; 
+	border:0px;   
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+ 
+QTableView::item:selected
+{  
+    color:green;
+}
+ 
+QHeaderView::section { 
+    color: #565656;;
+    font:bold 14px &quot;微软雅黑&quot;;
+    text-align:right;
+    height:43px;
+	
+	border:0px;
+
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+	background: #FFFFFF;
+
+    border-left:none;
+}
+ 
+// border-left:none;防止中间表头的border重叠
+QHeaderView::section:first
+{
+    border-left:1px solid #8faac9;
+border-radius: 3px;
+}</string>
+                </property>
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <property name="autoScroll">
+                 <bool>true</bool>
+                </property>
+                <property name="autoScrollMargin">
+                 <number>3</number>
+                </property>
+                <property name="textElideMode">
+                 <enum>Qt::ElideMiddle</enum>
+                </property>
+                <property name="showGrid">
+                 <bool>false</bool>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>true</bool>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+                <attribute name="horizontalHeaderCascadingSectionResizes">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="horizontalHeaderDefaultSectionSize">
+                 <number>139</number>
+                </attribute>
+                <attribute name="horizontalHeaderHighlightSections">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="verticalHeaderStretchLastSection">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                 <property name="foreground">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </brush>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_power_off_records">
+         <layout class="QVBoxLayout" name="verticalLayout_31">
+          <item>
+           <widget class="QFrame" name="frame_progress_9">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_19">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_progress_time_9">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font-family: Metropolis;
+font-size: 18px;
+line-height: 28px;
+font-weight: 800;
+
+color: #565656;</string>
+               </property>
+               <property name="text">
+                <string>02:00</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QProgressBar" name="progressBar_9">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>15</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QProgressBar{
+
+background-color: #DEDEDE; 
+height:12px;
+border-radius: 8px;
+
+
+
+}
+
+
+QProgressBar::chunk{
+background-color: #83C088; 
+border-radius: 6px;
+
+}
+
+ </string>
+               </property>
+               <property name="value">
+                <number>24</number>
+               </property>
+               <property name="textVisible">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_47">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font-family: Metropolis;
+font-size: 18px;
+line-height: 28px;
+font-weight: 800;
+
+color: #565656;</string>
+               </property>
+               <property name="text">
+                <string>100%</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_pause_9">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #3A7FED;
+font-family: PingFang SC;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+border-radius: 3px;
+
+color: #FFFFFF;</string>
+               </property>
+               <property name="text">
+                <string>暂停检查</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_stop_9">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: #3A7FED;
+font-family: PingFang SC;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+border-radius: 3px;
+
+color: #FFFFFF;</string>
+               </property>
+               <property name="text">
+                <string>停止检查</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTabWidget" name="tabWidget_7">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTabWidget::pane { /* The tab widget frame */
+    top: -0.01em;
+}
+ 
+QTabWidget::tab-bar {
+    alignment: left;
+	left: 2em;
+}
+
+
+QTabBar::tab {
+	border-top-left-radius: 10px;border-top-right-radius: 10px;
+    background-color: #4094da;
+    font: bold 12px 'Arial';
+    color: white;
+    height:40px;
+	width:200px;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 22px;
+}
+QTabBar::tab:selected {
+    color: white;
+	background: #213E75;
+ }
+
+QTabBar::tab:!selected {
+    background-color: white;
+	color: #565656;;
+}
+</string>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="tab_8">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <attribute name="title">
+              <string>Tab 1</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_30">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QTableWidget" name="tableWidget_7">
+                <property name="statusTip">
+                 <string/>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">        QTableView
+{
+    background-color: #FFFFFF;
+    alternate-background-color:#e3edf9;
+    font:14px &quot;微软雅黑&quot;;
+    color:#677483;
+    gridline-color: #ccddf0;  
+
+border: 2px solid rgba(41, 43, 49, 0.2);
+border-top: 5px solid #213E75;
+border-bottom: 3px solid rgba(41, 43, 49, 0.2);
+
+border-radius:5px
+
+}
+ 
+QTableView::item
+{  
+    font:20px &quot;微软雅黑&quot;;
+    color:#29414E; 
+	border:0px;   
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+ 
+QTableView::item:selected
+{  
+    color:green;
+}
+ 
+QHeaderView::section { 
+    color: #565656;;
+    font:bold 14px &quot;微软雅黑&quot;;
+    text-align:right;
+    height:43px;
+	
+	border:0px;
+
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+	background: #FFFFFF;
+
+    border-left:none;
+}
+ 
+// border-left:none;防止中间表头的border重叠
+QHeaderView::section:first
+{
+    border-left:1px solid #8faac9;
+border-radius: 3px;
+}</string>
+                </property>
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <property name="autoScroll">
+                 <bool>true</bool>
+                </property>
+                <property name="autoScrollMargin">
+                 <number>3</number>
+                </property>
+                <property name="textElideMode">
+                 <enum>Qt::ElideMiddle</enum>
+                </property>
+                <property name="showGrid">
+                 <bool>false</bool>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>true</bool>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+                <attribute name="horizontalHeaderCascadingSectionResizes">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="horizontalHeaderDefaultSectionSize">
+                 <number>139</number>
+                </attribute>
+                <attribute name="horizontalHeaderHighlightSections">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="verticalHeaderStretchLastSection">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>New Column</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                 <property name="foreground">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </brush>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>
