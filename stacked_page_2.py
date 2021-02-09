@@ -20,9 +20,23 @@ import requests
 import json
 import time
 import datetime
-# from main import Count_check_file_time
-from win32process import SuspendThread
 
+class Count_check_file_time(QtCore.QThread):
+    _signal = pyqtSignal(str,int)
+
+    def __init__(self,last_check_file_all_time, parent=None):
+        super(Count_check_file_time, self).__init__(parent)
+        self.last_check_file_all_time=last_check_file_all_time
+
+    def run(self):
+        start = datetime.datetime.now()
+        while (True):
+            time.sleep(1)
+            end = datetime.datetime.now()
+            count_time=(end-start).seconds+self.last_check_file_all_time
+            text = "%d:%02d" % (count_time/60, count_time % 60)
+            print(text)
+            self._signal.emit(text,count_time)
 
 class Runthread_check_file(QtCore.QThread):
 
@@ -227,6 +241,7 @@ class Stacked_page_2(object):
             self.thread.terminate()
             self.count_check_file_time.terminate()
 
+
         elif self.pushButton_pause_2.text()=="恢复检查":
             self.pushButton_pause_2.setText("暂停检查")
             postdatas = {
@@ -237,6 +252,9 @@ class Stacked_page_2(object):
             requests.post('http://localhost//v1.0/files/scan/control',data=json.dumps(postdatas), headers=headers)
             # self.thread.start()
             
+            # self.count_check_file_time.start()
+            self.count_check_file_time=Count_check_file_time(self.last_check_file_all_time)
+            self.count_check_file_time._signal.connect(self.show_time)
             self.count_check_file_time.start()
 
             self.thread=Runthread_check_file1(self.task_id)

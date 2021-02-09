@@ -14,19 +14,21 @@ import datetime
 import time
 
 class Count_check_file_time(QtCore.QThread):
-    _signal = pyqtSignal(str)
+    _signal = pyqtSignal(str,int)
 
-    def __init__(self, parent=None):
+    def __init__(self,last_check_file_all_time, parent=None):
         super(Count_check_file_time, self).__init__(parent)
+        self.last_check_file_all_time=last_check_file_all_time
 
     def run(self):
         start = datetime.datetime.now()
         while (True):
             time.sleep(1)
             end = datetime.datetime.now()
-            text = "%d:%02d" % ((end-start).seconds/60, (end-start).seconds % 60)
+            count_time=(end-start).seconds+self.last_check_file_all_time
+            text = "%d:%02d" % (count_time/60, count_time % 60)
             print(text)
-            self._signal.emit(text)
+            self._signal.emit(text,count_time)
             
 
 class Main_window(QtWidgets.QWidget, Ui_Form):
@@ -37,6 +39,7 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         self.pushButton.clicked.connect(self.show_dialog)
 
     def show_dialog(self):
+        self.last_check_file_all_time=0
         self.di = QtWidgets.QDialog()
 
         d = dialog.Ui_Dialog()
@@ -55,11 +58,12 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
 
     def count_time(self):
         
-        self.count_check_file_time=Count_check_file_time()
+        self.count_check_file_time=Count_check_file_time(self.last_check_file_all_time)
         self.count_check_file_time._signal.connect(self.show_time)
         self.count_check_file_time.start()
 
-    def show_time(self,text):
+    def show_time(self,text,count_time):
+        self.last_check_file_all_time=count_time
         self.label_progress_time_2.setText(text)
 
     def file_path(self,d):
