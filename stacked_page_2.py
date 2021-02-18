@@ -229,6 +229,8 @@ class Stacked_page_2(object):
     def pause_check_file(self):
         if self.pushButton_pause_2.text()=="暂停检查":
             self.pushButton_pause_2.setText("恢复检查")
+            QtWidgets.QApplication.processEvents()
+            self.pushButton_pause_2.setEnabled(False)
 
             postdatas = {
                 "task_id": self.task_id,
@@ -240,10 +242,14 @@ class Stacked_page_2(object):
 
             self.thread.terminate()
             self.count_check_file_time.terminate()
+            self.pushButton_pause_2.setEnabled(True)
 
 
         elif self.pushButton_pause_2.text()=="恢复检查":
             self.pushButton_pause_2.setText("暂停检查")
+            QtWidgets.QApplication.processEvents()
+            self.pushButton_pause_2.setEnabled(False)
+
             postdatas = {
                 "task_id": self.task_id,
                 "action": "resume"
@@ -260,6 +266,7 @@ class Stacked_page_2(object):
             self.thread=Runthread_check_file1(self.task_id)
             self.thread._signal.connect(self.add_row)  # 连接信号
             self.thread.start()  # 
+            self.pushButton_pause_2.setEnabled(True)
 
 
     def switche_check_file_page(self):
@@ -606,11 +613,6 @@ class Stacked_page_2(object):
                                               "color: #FFFFFF;"
                                               "}"
                                               )
-
-
-
-
-
 
         self.pushButton_pause_2.setObjectName("pushButton_pause_2")
         self.horizontalLayout_10.addWidget(self.pushButton_pause_2)

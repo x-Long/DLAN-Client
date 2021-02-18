@@ -87,16 +87,16 @@ class Ui_Dialog(object):
         self.horizontalLayout_10.setContentsMargins(0, 0, 0, 5)
         self.horizontalLayout_10.setSpacing(0)
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
-        self.all_doc_type_8 = QtWidgets.QCheckBox(self.frame_22)
-        self.all_doc_type_8.setStyleSheet("color:#565656;\n"
+        self.all_micsoft_type = QtWidgets.QCheckBox(self.frame_22)
+        self.all_micsoft_type.setStyleSheet("color:#565656;\n"
 "font-family: \"微软雅黑\";\n"
 "\n"
 "font-weight: 600;\n"
 "font-size: 18px;\n"
 "")
-        self.all_doc_type_8.setChecked(True)
-        self.all_doc_type_8.setObjectName("all_doc_type_8")
-        self.horizontalLayout_10.addWidget(self.all_doc_type_8)
+        self.all_micsoft_type.setChecked(True)
+        self.all_micsoft_type.setObjectName("all_micsoft_type")
+        self.horizontalLayout_10.addWidget(self.all_micsoft_type)
         self.horizontalLayout_10.setStretch(0, 1)
         self.verticalLayout_7.addWidget(self.frame_22)
         self.frame_23 = QtWidgets.QFrame(self.frame_21)
@@ -145,16 +145,16 @@ class Ui_Dialog(object):
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 5)
         self.horizontalLayout_9.setSpacing(0)
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        self.all_doc_type_7 = QtWidgets.QCheckBox(self.frame_19)
-        self.all_doc_type_7.setStyleSheet("color:#565656;\n"
+        self.all_wps_type = QtWidgets.QCheckBox(self.frame_19)
+        self.all_wps_type.setStyleSheet("color:#565656;\n"
 "font-family: \"微软雅黑\";\n"
 "\n"
 "font-weight: 600;\n"
 "font-size: 18px;\n"
 "")
-        self.all_doc_type_7.setChecked(True)
-        self.all_doc_type_7.setObjectName("all_doc_type_7")
-        self.horizontalLayout_9.addWidget(self.all_doc_type_7)
+        self.all_wps_type.setChecked(True)
+        self.all_wps_type.setObjectName("all_wps_type")
+        self.horizontalLayout_9.addWidget(self.all_wps_type)
         self.horizontalLayout_9.setStretch(0, 1)
         self.verticalLayout_6.addWidget(self.frame_19)
         self.frame_20 = QtWidgets.QFrame(self.frame_18)
@@ -169,10 +169,10 @@ class Ui_Dialog(object):
         self.gridLayout_4 = QtWidgets.QGridLayout(self.frame_20)
         self.gridLayout_4.setContentsMargins(-1, 5, -1, 0)
         self.gridLayout_4.setObjectName("gridLayout_4")
-        self.checkBox_et_3 = QtWidgets.QCheckBox(self.frame_20)
-        self.checkBox_et_3.setChecked(True)
-        self.checkBox_et_3.setObjectName("checkBox_et_3")
-        self.gridLayout_4.addWidget(self.checkBox_et_3, 0, 1, 1, 1)
+        self.checkBox_et = QtWidgets.QCheckBox(self.frame_20)
+        self.checkBox_et.setChecked(True)
+        self.checkBox_et.setObjectName("checkBox_et")
+        self.gridLayout_4.addWidget(self.checkBox_et, 0, 1, 1, 1)
         self.checkBox_dps = QtWidgets.QCheckBox(self.frame_20)
         self.checkBox_dps.setChecked(True)
         self.checkBox_dps.setObjectName("checkBox_dps")
@@ -206,16 +206,16 @@ class Ui_Dialog(object):
         self.horizontalLayout_12.setContentsMargins(0, 0, 0, 5)
         self.horizontalLayout_12.setSpacing(0)
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
-        self.all_doc_type_10 = QtWidgets.QCheckBox(self.frame_26)
-        self.all_doc_type_10.setStyleSheet("color:#565656;\n"
+        self.all_compress_type = QtWidgets.QCheckBox(self.frame_26)
+        self.all_compress_type.setStyleSheet("color:#565656;\n"
 "font-family: \"微软雅黑\";\n"
 "\n"
 "font-weight: 600;\n"
 "font-size: 18px;\n"
 "")
-        self.all_doc_type_10.setChecked(True)
-        self.all_doc_type_10.setObjectName("all_doc_type_10")
-        self.horizontalLayout_12.addWidget(self.all_doc_type_10)
+        self.all_compress_type.setChecked(True)
+        self.all_compress_type.setObjectName("all_compress_type")
+        self.horizontalLayout_12.addWidget(self.all_compress_type)
         self.verticalLayout_8.addWidget(self.frame_26)
         self.frame_27 = QtWidgets.QFrame(self.frame_25)
         self.frame_27.setStyleSheet("font-family: \"微软雅黑\";\n"
@@ -255,16 +255,16 @@ class Ui_Dialog(object):
         self.horizontalLayout_13.setContentsMargins(0, 0, 0, 5)
         self.horizontalLayout_13.setSpacing(0)
         self.horizontalLayout_13.setObjectName("horizontalLayout_13")
-        self.all_doc_type_11 = QtWidgets.QCheckBox(self.frame_29)
-        self.all_doc_type_11.setStyleSheet("color:#565656;\n"
+        self.all_expansion_type = QtWidgets.QCheckBox(self.frame_29)
+        self.all_expansion_type.setStyleSheet("color:#565656;\n"
 "font-family: \"微软雅黑\";\n"
 "\n"
 "font-weight: 600;\n"
 "font-size: 18px;\n"
 "")
-        self.all_doc_type_11.setChecked(True)
-        self.all_doc_type_11.setObjectName("all_doc_type_11")
-        self.horizontalLayout_13.addWidget(self.all_doc_type_11)
+        self.all_expansion_type.setChecked(True)
+        self.all_expansion_type.setObjectName("all_expansion_type")
+        self.horizontalLayout_13.addWidget(self.all_expansion_type)
         self.verticalLayout_9.addWidget(self.frame_29)
         self.frame_30 = QtWidgets.QFrame(self.frame_28)
         self.frame_30.setStyleSheet("font-family: \"微软雅黑\";\n"
@@ -787,23 +787,23 @@ class Ui_Dialog(object):
         self.verticalLayout.addWidget(self.frame_3)
 
         self.retranslateUi(Dialog)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.all_doc_type_8.setText(_translate("Dialog", "微软office文档"))
+        self.all_micsoft_type.setText(_translate("Dialog", "微软office文档"))
         self.checkBox_doc.setText(_translate("Dialog", "微软文字文档 (doc;docx)"))
         self.checkBox_ppt.setText(_translate("Dialog", "微软演示文档 (ppt;pptx;ppx）"))
         self.checkBox_xls.setText(_translate("Dialog", "微软图表文档 (xls;xlsx)"))
-        self.all_doc_type_7.setText(_translate("Dialog", "金山wps文档"))
-        self.checkBox_et_3.setText(_translate("Dialog", "金山图表文档 (et)"))
+        self.all_wps_type.setText(_translate("Dialog", "金山wps文档"))
+        self.checkBox_et.setText(_translate("Dialog", "金山图表文档 (et)"))
         self.checkBox_dps.setText(_translate("Dialog", "金山演示文档 (dps)"))
         self.checkBox_9wps.setText(_translate("Dialog", "金山文字文档 (9wps)"))
-        self.all_doc_type_10.setText(_translate("Dialog", "压缩文件"))
+        self.all_compress_type.setText(_translate("Dialog", "压缩文件"))
         self.checkBox_zip.setText(_translate("Dialog", "压缩文件 (在压缩文件zip/rar中查找以上格式)"))
-        self.all_doc_type_11.setText(_translate("Dialog", "拓展文件类型"))
+        self.all_expansion_type.setText(_translate("Dialog", "拓展文件类型"))
         self.lineEdit_2.setPlaceholderText(_translate("Dialog", "例如：ini txt; 文件类型以空格分隔"))
         self.checkBox_is_encrypt.setText(_translate("Dialog", "在选中类型中选择是否加密"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Dialog", "文件类型"))

@@ -258,7 +258,7 @@ class Stacked_page_1(object):
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.page)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
 
-        self.progress_bar_ui()
+        # self.progress_bar_ui()
 
         self.scrollArea_content = QtWidgets.QScrollArea(self.page)
         self.scrollArea_content.setStyleSheet("QScrollArea{\n"

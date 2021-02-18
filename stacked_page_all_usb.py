@@ -76,6 +76,13 @@ class Stacked_page_all_usb_4(object):
             add_item(num, 2, item["manufacture"])
             add_item(num, 3, item["description"])
             add_item(num, 4, item["V_P_ID"])
+        
+
+        # 显示单元格详情
+        # rows11 = self.tableWidget_3.rowCount()
+        # for rows_index in range(rows11):
+        #     #print items[item_index].text()
+        #     self.tableWidget_3.item(rows_index,0).setToolTip("开始")
        
    
 

@@ -45,16 +45,34 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         d = dialog.Ui_Dialog()
         d.setupUi(self.di)
 
-        # self.di.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
         self.di.setWindowIcon(QtGui.QIcon('icon/logo.png'))
         self.di.setWindowTitle("常规文件检查配置")
-        # self.di.setWindowFlags(Qt.FramelessWindowHint)
-        # self.di.setWindowFlags(Qt.WindowContextHelpButtonHint)
  
         self.di.show()
         d.add_com_src.clicked.connect(lambda: self.file_path(d))
         d.com_config.clicked.connect(lambda: self.get_info_info(d))
         d.com_config.clicked.connect(lambda: self.count_time())
+        d.clean_com_src.clicked.connect(lambda: self.clean_dialog_table(d))
+        for all_type in ["d.all_micsoft_type","d.all_wps_type","d.all_compress_type"]:
+            eval(all_type).stateChanged.connect(lambda: self.all_type_state_change(d))
+
+    def clean_dialog_table(self,d):
+        d.tableWidget.setRowCount(0)
+        d.tableWidget.clearContents()
+
+    def all_type_state_change(self,d):
+        file_type = {
+            "d.all_micsoft_type": ["d.checkBox_xls", "d.checkBox_ppt","d.checkBox_doc"],
+            "d.all_wps_type": ["d.checkBox_9wps","d.checkBox_et", "d.checkBox_dps"],
+            "d.all_compress_type": ["d.checkBox_zip"],
+        }
+
+        for k,v in file_type.items():
+            for i in v:
+                if eval(k).isChecked():
+                    eval(i).setChecked(True)
+                else:
+                    eval(i).setChecked(False)
 
     def count_time(self):
         
@@ -68,12 +86,12 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
 
     def file_path(self,d):
         
-        file_path1=QFileDialog.getExistingDirectory(self, "请选择文件夹路径", "E://demo//")
-        self.add_src1(file_path1,d)   
+        file_path1=QFileDialog.getExistingDirectory(self, "请选择检查路径", "C://")
+        self.add_dialog_table_src(file_path1,d)   
         self.di.showMinimized()
         self.di.showNormal()    
 
-    def add_src1(self, item, d):
+    def add_dialog_table_src(self, item, d):
 
         def add_item(row, column, item, d):
 
@@ -163,7 +181,6 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
 
         }
         self.thread_get_check_file_info()
-
         self.di.reject()
 
 
