@@ -15,6 +15,7 @@ from PyQt5.QtWidgets import *
 import sys
 from PyQt5.QtCore import QObject, pyqtSignal
 
+
 import os
 import requests
 import json
@@ -73,6 +74,10 @@ class Runthread_check_file(QtCore.QThread):
             # 返回结果中含有 \ ,使得json.loads无法解析，所以需要将返回结果中的 \ 替换为 \\
             net_info = net_info.replace("\\", "\\\\")
             net_info = json.loads(net_info)
+
+            if len(net_info["results"])==0:
+                self._signal.emit({},net_info["progress"],net_info["status"],data["task_id"])
+                print({},net_info["progress"])
 
             for result in net_info["results"]:
                 self._signal.emit(result,net_info["progress"],net_info["status"],data["task_id"])
@@ -143,7 +148,7 @@ class Stacked_page_2(object):
         self.task_id=-1
         self.pushButton_2_0_0.clicked.connect(self.switche_check_file_page)
         self.pushButton_pause_2.clicked.connect(self.pause_check_file)
-        self.pushButton_stop_2.clicked.connect(self.stop_check_file)
+        self.pushButton_stop_2.clicked.connect(lambda: self.stop_check_file(self.d))
         self.comboBox.currentIndexChanged.connect(lambda: self.offset_selection_change("offset_select"))
         self.comboBox_2.currentIndexChanged.connect(lambda: self.offset_selection_change("file_type_select"))
         self.comboBox_3.currentIndexChanged.connect(lambda: self.offset_selection_change("is_encrypt_select"))
@@ -218,16 +223,82 @@ class Stacked_page_2(object):
                         add_select_row(file_item)
 
 
-    def stop_check_file(self):
-        self.thread.terminate()
-        self.count_check_file_time.terminate()
+    # def stop_check_file(self):
+    #     self.thread.terminate()
+    #     self.count_check_file_time.terminate()
         # self.label_35.setText("0%")
         # self.progressBar_2.setProperty("value", "1")
         # self.label_progress_time_2.setText("0:00")
 
+    def stop_check_file(self,d):
+        # self.thread.terminate()
+        # self.count_check_file_time.terminate()
+        # self.label_35.setText("0%")
+        # self.progressBar_2.setProperty("value", "1")
+        # self.label_progress_time_2.setText("0:00")
+
+        if self.pushButton_stop_2.text()=="开始检查":
+
+            self.postdatas = {
+                "scan_path": self.get_scan_path_in_table(d),
+                "file_suffix": self.get_config_file_suffix(d),
+                "keywords_list": self.get_config_key_word(d),
+                "min_filesize": self.get_config_filesize(d)[0],
+                "max_filesize": self.get_config_filesize(d)[1],
+                "switches": {
+                    "size_switch": self.get_config_switches(d),
+                }
+            }
+            unfinished_config=""
+            if len(self.postdatas["scan_path"])==0:
+                unfinished_config=unfinished_config+" “电脑路径选择” "
+            if len(self.postdatas["file_suffix"])==0:
+                unfinished_config=unfinished_config+" “文件类型” "
+            if len(self.postdatas["keywords_list"])==0:
+                unfinished_config=unfinished_config+" “关键词” "
+            if len(unfinished_config)!=0:
+                msg_box=QMessageBox(QMessageBox.Warning, '警告', "以下配置项为空："+unfinished_config+";\n\n请点击 “常规文件检查配置” 按钮，完善相关配置。")
+                msg_box.exec_()
+                return
+
+            self.pushButton_pause_2.setEnabled(True)
+            self.pushButton_stop_2.setText("停止检查")
+            self.last_check_file_all_time=0
+            QtWidgets.QApplication.processEvents()
+
+            self.label_35.setText("0%")
+            self.progressBar_2.setProperty("value", "1")
+            self.label_progress_time_2.setText("0:00")
+            self.tableWidget.setRowCount(0)
+            self.tableWidget.clearContents()
+
+            self.comboBox.setCurrentIndex(0)
+            self.comboBox_2.setCurrentIndex(0)
+            self.comboBox_3.setCurrentIndex(0)
+
+            self.thread_get_check_file_info()
+            self.count_time()
+
+        elif self.pushButton_stop_2.text()=="停止检查":
+            self.task_id=-1
+            self.pushButton_pause_2.setText("暂停检查")
+
+            self.pushButton_stop_2.setText("开始检查")
+            QtWidgets.QApplication.processEvents()
+
+            self.thread.terminate()
+            self.count_check_file_time.terminate()
+
 
     def pause_check_file(self):
         if self.pushButton_pause_2.text()=="暂停检查":
+
+            if self.task_id==-1:
+                print()
+                msg_box=QMessageBox(QMessageBox.Warning, '警告', "未检测到扫描任务，或扫描任务已经停止，请点击“开始检查”按钮启动扫描任务。")
+                msg_box.exec_()
+                return
+
             self.pushButton_pause_2.setText("恢复检查")
             QtWidgets.QApplication.processEvents()
             self.pushButton_pause_2.setEnabled(False)
@@ -248,7 +319,7 @@ class Stacked_page_2(object):
         elif self.pushButton_pause_2.text()=="恢复检查":
             self.pushButton_pause_2.setText("暂停检查")
             QtWidgets.QApplication.processEvents()
-            self.pushButton_pause_2.setEnabled(False)
+            # self.pushButton_pause_2.setEnabled(False)
 
             postdatas = {
                 "task_id": self.task_id,
@@ -287,10 +358,12 @@ class Stacked_page_2(object):
 
     def add_row(self, content,progress,status,task_id):
         self.task_id=task_id
-        if status=="finished":
-            self.count_check_file_time.terminate()
-            # Count_check_file_time.time_status=1
-        # print(int(self.progressBar_2.value()),int(progress*100-self.progressBar_2.value()),111111111111111111)
+        # if status=="finished":
+        #     self.count_check_file_time.terminate()
+        #     self.pushButton_stop_2.setText("开始检查")
+        #     self.pushButton_pause_2.setEnabled(False)
+        #     QtWidgets.QApplication.processEvents()
+  
         for i in range(int(self.progressBar_2.value()),int(progress*100)+1):
             self.label_35.setText(str(i)+"%")
             self.progressBar_2.setProperty("value", i)
@@ -311,39 +384,51 @@ class Stacked_page_2(object):
             self.tableWidget.item(row, column).setTextAlignment(
                 Qt.AlignHCenter | Qt.AlignVCenter)
 
-        num = self.tableWidget.rowCount()
-        self.tableWidget.setRowCount(num+1)
+        if len(content)!=0:
+            num = self.tableWidget.rowCount()
+            self.tableWidget.setRowCount(num+1)
 
-        comBox = QCheckBox()
-        hLayout = QtWidgets.QHBoxLayout()
-        # 2.在布局里添加checkBox
-        hLayout.addWidget(comBox)
-        # 3.在布局里居中放置comBox
-        hLayout.setAlignment(comBox, Qt.AlignCenter)
-        hLayout.setContentsMargins(0, 0, 0, 0)
-        hLayout.setSpacing(0)
-        # 4.实例化一个QWidget（控件)
-        widget = QtWidgets.QWidget()
-        # 5.在QWidget放置布局
-        widget.setLayout(hLayout)
-        # widget.setFixedHeight(50)
-        self.tableWidget.setCellWidget(num, 0, widget)
+            comBox = QCheckBox()
+            hLayout = QtWidgets.QHBoxLayout()
+            # 2.在布局里添加checkBox
+            hLayout.addWidget(comBox)
+            # 3.在布局里居中放置comBox
+            hLayout.setAlignment(comBox, Qt.AlignCenter)
+            hLayout.setContentsMargins(0, 0, 0, 0)
+            hLayout.setSpacing(0)
+            # 4.实例化一个QWidget（控件)
+            widget = QtWidgets.QWidget()
+            # 5.在QWidget放置布局
+            widget.setLayout(hLayout)
+            # widget.setFixedHeight(50)
+            self.tableWidget.setCellWidget(num, 0, widget)
 
-        add_item(num, 1, num+1)   # 序号
-        add_item(num, 2, content["filename"])
-        add_item(num, 3, hum_convert(content["filesize"]))
-        add_item(num, 4, content["keyword_details"]["context"])
-        add_item(num, 5, content["is_encrypted"])
-        add_item(num, 6, content["filepath"])
-        add_item(num, 7, content["keyword_details"]["keyword"])
-        add_item(num, 8, content["keyword_details"]["offset"])
-        select_file_item=[comBox,num+1,content["filename"],hum_convert(content["filesize"]),content["keyword_details"]["context"],content["is_encrypted"],content["filepath"],content["keyword_details"]["keyword"],content["keyword_details"]["offset"]]
-        self.select_file_items.append(select_file_item)
+            add_item(num, 1, num+1)   # 序号
+            add_item(num, 2, content["filename"])
+            add_item(num, 3, hum_convert(content["filesize"]))
+            add_item(num, 4, content["keyword_details"]["context"])
+            add_item(num, 5, content["is_encrypted"])
+            add_item(num, 6, content["filepath"])
+            add_item(num, 7, content["keyword_details"]["keyword"])
+            add_item(num, 8, content["keyword_details"]["offset"])
+            select_file_item=[comBox,num+1,content["filename"],hum_convert(content["filesize"]),content["keyword_details"]["context"],content["is_encrypted"],content["filepath"],content["keyword_details"]["keyword"],content["keyword_details"]["offset"]]
+            self.select_file_items.append(select_file_item)  
+
+        if status=="finished":
+            self.count_check_file_time.terminate()
+            self.pushButton_stop_2.setText("开始检查")
+            self.pushButton_pause_2.setEnabled(False)
+            QtWidgets.QApplication.processEvents()
+
+            item_num = self.tableWidget.rowCount()
+            msg_box=QMessageBox(QMessageBox.Information, '提示', "扫描任务完成，共获取到"+str(item_num)+"条数据。")
+            msg_box.exec_()
+
 
     def init_table_widget(self,):
 
         self.tableWidget = QtWidgets.QTableWidget(self.tab)
-        self.tableWidget.setSortingEnabled(True)
+        self.tableWidget.setSortingEnabled(False)
         self.tableWidget.setTextElideMode(QtCore.Qt.ElideRight)
         self.tableWidget.setShowGrid(False)
         self.tableWidget.setWordWrap(True)
@@ -805,7 +890,7 @@ class Stacked_page_2(object):
         self.label_progress_time_2.setText("0:00")
         self.label_35.setText("0%")
         self.pushButton_pause_2.setText("暂停检查")
-        self.pushButton_stop_2.setText("停止检查")
+        self.pushButton_stop_2.setText("开始检查")
         self.label_36.setText("偏移过滤：")
         self.comboBox.setItemText(0, "不限偏移")
         self.comboBox.setItemText(1, "精准")

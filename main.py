@@ -12,6 +12,8 @@ import sys
 import dialog
 import datetime
 import time
+import pickle
+import os
 
 class Count_check_file_time(QtCore.QThread):
     _signal = pyqtSignal(str,int)
@@ -36,25 +38,59 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         super().__init__(parent)
 
         self.setupUi(self)
-        self.pushButton.clicked.connect(self.show_dialog)
+        self.init_dialog()
+        self.pushButton.clicked.connect(self.di.show)
 
-    def show_dialog(self):
-        self.last_check_file_all_time=0
+    def init_dialog(self):
+        # self.last_check_file_all_time=0
         self.di = QtWidgets.QDialog()
 
-        d = dialog.Ui_Dialog()
-        d.setupUi(self.di)
+        self.d = dialog.Ui_Dialog()
+        self.d.setupUi(self.di)
 
         self.di.setWindowIcon(QtGui.QIcon('icon/logo.png'))
         self.di.setWindowTitle("常规文件检查配置")
  
-        self.di.show()
-        d.add_com_src.clicked.connect(lambda: self.file_path(d))
-        d.com_config.clicked.connect(lambda: self.get_info_info(d))
-        d.com_config.clicked.connect(lambda: self.count_time())
-        d.clean_com_src.clicked.connect(lambda: self.clean_dialog_table(d))
-        for all_type in ["d.all_micsoft_type","d.all_wps_type","d.all_compress_type"]:
-            eval(all_type).stateChanged.connect(lambda: self.all_type_state_change(d))
+        # self.di.show()
+        self.read_dialog_config(self.d)
+        self.d.add_com_src.clicked.connect(lambda: self.file_path(self.d))
+
+        self.d.com_config.clicked.connect(self.di.reject)
+        # self.d.com_config.clicked.connect(lambda: self.count_time())
+        self.d.com_config.clicked.connect(lambda: self.complete_config(self.d))
+        self.pushButton.clicked.connect(lambda: self.complete_config(self.d))
+        
+        self.d.default_config.clicked.connect(lambda: self.read_dialog_config(self.d))
+        
+        self.d.clean_com_src.clicked.connect(lambda: self.clean_dialog_table(self.d))
+        for all_type in ["self.d.all_micsoft_type","self.d.all_wps_type","self.d.all_compress_type"]:
+            eval(all_type).stateChanged.connect(lambda: self.all_type_state_change(self.d))
+
+    # def show_dialog(self):
+
+    #     self.di.show()
+      
+    def read_dialog_config(self,d):
+        # {'dialog_check_box_list': {'d.all_micsoft_type': True, 'd.checkBox_xls': True, 'd.checkBox_ppt': True, 'd.checkBox_doc': True, 'd.all_wps_type': True, 'd.checkBox_9wps': True, 'd.checkBox_et': True, 'd.checkBox_dps': True, 'd.all_compress_type': True, 'd.checkBox_zip': True, 'd.checkBox_is_encrypt': True},
+        #  'dialog_line_input': {'d.lineEdit_2': '', 'd.min_file_size_str': '0', 'd.max_file_size_str': '10240000'}, 
+        # 'dialog_combobox': {'d.min_file_size_comboBox': 0, 'd.max_file_size_comboBox': 0}, 
+        # 'dialog_choose_table_src': []}
+
+        if os.path.exists('.\\check_file_dialog_config.pickle'):
+            with open('.\\check_file_dialog_config.pickle', 'rb') as f :
+                para= pickle.load(f) 
+                print(para)
+                for k,v in para["dialog_check_box_list"].items():
+                    eval(k).setChecked(v)
+                for k,v in para["dialog_line_input"].items():
+                    eval(k).setText(v)
+                for k,v in para["dialog_combobox"].items():
+                    eval(k).setCurrentIndex(v)
+
+                d.tableWidget.setRowCount(0)
+                d.tableWidget.clearContents()           
+                for i in para['dialog_choose_table_src']:
+                    self.add_dialog_table_src(i,d)
 
     def clean_dialog_table(self,d):
         d.tableWidget.setRowCount(0)
@@ -127,8 +163,9 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
             if eval(k).isChecked():
                 suffix.extend(v)
 
-        for suf in d.lineEdit_2.text().split(" "):
-            suffix.append("."+suf)
+        if d.lineEdit_2.text()!="" and d.all_expansion_type.isChecked():
+            for suf in d.lineEdit_2.text().split(" "):
+                suffix.append("."+suf)
         return suffix
 
     def get_config_filesize(self,d):
@@ -149,38 +186,79 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
             src=d.tableWidget.item(i, 1).text()
             # src=src.replace("\\", "\\\\")
             scan_path.append(src)
-        if len(scan_path)==0:
-            scan_path.append("C://Users//long//Desktop//audit")
+        # if len(scan_path)==0:
+        #     scan_path.append("C://Users//long//Desktop//audit")
         return scan_path
 
-    def get_info_info(self,d):
-        self.label_35.setText("0%")
-        self.progressBar_2.setProperty("value", "1")
-        self.label_progress_time_2.setText("0:00")
-        self.tableWidget.setRowCount(0)
-        self.tableWidget.clearContents()
-        
-        # for num in range(self.tableWidget.rowCount()):
-        #     self.tableWidget.removeRow(num)
 
-        print(self.get_config_file_suffix(d))
-        print(self.get_config_key_word(d))
-        print(self.get_config_filesize(d))
-        print(self.get_config_switches(d))
-        print(self.get_scan_path_in_table(d))
 
-        self.postdatas = {
-            "scan_path": self.get_scan_path_in_table(d),
-            "file_suffix": self.get_config_file_suffix(d),
-            "keywords_list": self.get_config_key_word(d),
-            "min_filesize": self.get_config_filesize(d)[0],
-            "max_filesize": self.get_config_filesize(d)[1],
-            "switches": {
-                "size_switch": self.get_config_switches(d),
-            }
+    def complete_config(self,d):
 
+        # {'d.all_micsoft_type': True, 'd.checkBox_xls': True, 'd.checkBox_ppt': True, 'd.checkBox_doc': True,
+        #  'd.all_wps_type': True, 'd.checkBox_9wps': True, 'd.checkBox_et': True, 'd.checkBox_dps': True, 'd.all_compress_type': True,
+        #     'd.checkBox_zip': True, 'd.checkBox_is_encrypt': True, 'd.lineEdit_2': '',
+        #     'd.min_file_size_str': '0', 'd.max_file_size_str': '10240000', 'd.min_file_size_comboBox': 0, 'd.max_file_size_comboBox': 0, 'dialog_choose_table_src': []}
+
+
+        dialog_check_box_status={
+            "dialog_check_box_list":{},
+            "dialog_line_input":{},
+            "dialog_combobox":{},
+            "dialog_choose_table_src":[],
         }
-        self.thread_get_check_file_info()
+
+        dialog_check_box_list=["d.all_micsoft_type","d.checkBox_xls", "d.checkBox_ppt","d.checkBox_doc","d.all_wps_type","d.checkBox_9wps","d.checkBox_et", "d.checkBox_dps","d.all_compress_type","d.checkBox_zip","d.checkBox_is_encrypt"]
+        dialog_line_input=["d.lineEdit_2","d.min_file_size_str","d.max_file_size_str","d.key_word_input"]
+        dialog_combobox=["d.min_file_size_comboBox","d.max_file_size_comboBox"]
+
+        for check_box in dialog_check_box_list:
+            dialog_check_box_status["dialog_check_box_list"][check_box]=eval(check_box).isChecked()
+
+        for line_input in dialog_line_input:
+            dialog_check_box_status["dialog_line_input"][line_input]=eval(line_input).text()
+
+        for combobox in dialog_combobox:
+            dialog_check_box_status["dialog_combobox"][combobox]=eval(combobox).currentIndex()
+
+        num = d.tableWidget.rowCount()
+        for i in range(num):
+            dialog_check_box_status["dialog_choose_table_src"].append(d.tableWidget.item(i,1).text())
+
+        with open('.\\check_file_dialog_config.pickle', 'wb') as f :
+            pickle.dump(dialog_check_box_status, f)
+            
+        with open('.\\check_file_dialog_config.pickle', 'rb') as f :
+            dialog_check_box_status= pickle.load(f) 
+        print(type(dialog_check_box_status),dialog_check_box_status)
+
+
+    def get_info_info(self,d):
+        # self.label_35.setText("0%")
+        # self.progressBar_2.setProperty("value", "1")
+        # self.label_progress_time_2.setText("0:00")
+        # self.tableWidget.setRowCount(0)
+        # self.tableWidget.clearContents()
+        
+        # # for num in range(self.tableWidget.rowCount()):
+        # #     self.tableWidget.removeRow(num)
+
+        # print(self.get_config_file_suffix(d))
+        # print(self.get_config_key_word(d))
+        # print(self.get_config_filesize(d))
+        # print(self.get_config_switches(d))
+        # print(self.get_scan_path_in_table(d))
+
+        # self.postdatas = {
+        #     "scan_path": self.get_scan_path_in_table(d),
+        #     "file_suffix": self.get_config_file_suffix(d),
+        #     "keywords_list": self.get_config_key_word(d),
+        #     "min_filesize": self.get_config_filesize(d)[0],
+        #     "max_filesize": self.get_config_filesize(d)[1],
+        #     "switches": {
+        #         "size_switch": self.get_config_switches(d),
+        #     }
+        # }
+        # self.thread_get_check_file_info()
         self.di.reject()
 
 

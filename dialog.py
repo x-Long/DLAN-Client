@@ -866,7 +866,7 @@ class Ui_Dialog(object):
 
 
         self.com_config.setText(_translate("Dialog", "完成配置"))
-        self.default_config.setText(_translate("Dialog", "使用默认配置"))
+        self.default_config.setText(_translate("Dialog", "恢复上次配置"))
         self.com_config.setCursor(QCursor(Qt.PointingHandCursor))
         self.default_config.setCursor(QCursor(Qt.PointingHandCursor))
 
