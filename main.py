@@ -15,6 +15,7 @@ import time
 import pickle
 import os
 
+
 class Count_check_file_time(QtCore.QThread):
     _signal = pyqtSignal(str,int)
 
@@ -31,12 +32,30 @@ class Count_check_file_time(QtCore.QThread):
             text = "%d:%02d" % (count_time/60, count_time % 60)
             print(text)
             self._signal.emit(text,count_time)
-            
+
+
+class Count_check_is_connect(QtCore.QThread):
+    _signal = pyqtSignal(bool)
+
+    def __init__(self,parent=None):
+        super(Count_check_is_connect, self).__init__(parent)
+
+    def run(self):
+        while True:
+            result = os.system("curl http://localhost:80/ >NUL")
+            if result == 0:
+                # print("A网正常")
+                self._signal.emit(True)
+            else:
+                print("网络故障")
+                self._signal.emit(False)
+            time.sleep(1)
 
 class Main_window(QtWidgets.QWidget, Ui_Form):
     def __init__(self, parent=None):
         super().__init__(parent)
 
+        self.check_network()
         self.setupUi(self)
         self.init_dialog()
         self.pushButton.clicked.connect(self.di.show)
@@ -66,9 +85,18 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         for all_type in ["self.d.all_micsoft_type","self.d.all_wps_type","self.d.all_compress_type"]:
             eval(all_type).stateChanged.connect(lambda: self.all_type_state_change(self.d))
 
-    # def show_dialog(self):
+    def check_network(self):
 
-    #     self.di.show()
+        self.check_is_connect=Count_check_is_connect()
+        self.check_is_connect._signal.connect(self.is_network_connect)
+        self.check_is_connect.start()
+
+    def is_network_connect(self,is_connect):
+        if not is_connect:
+            self.check_is_connect.terminate()
+            msg_box=QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, '警告', "未检测到本地server，程序即将退出。\n\n请启动server后重新进入。")
+            msg_box.exec_()
+            self.close()
       
     def read_dialog_config(self,d):
         # {'dialog_check_box_list': {'d.all_micsoft_type': True, 'd.checkBox_xls': True, 'd.checkBox_ppt': True, 'd.checkBox_doc': True, 'd.all_wps_type': True, 'd.checkBox_9wps': True, 'd.checkBox_et': True, 'd.checkBox_dps': True, 'd.all_compress_type': True, 'd.checkBox_zip': True, 'd.checkBox_is_encrypt': True},
