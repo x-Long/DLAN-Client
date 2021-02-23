@@ -261,20 +261,21 @@ class Stacked_page_2(object):
                 msg_box.exec_()
                 return
 
+            self.select_file_items=[]
             self.pushButton_pause_2.setEnabled(True)
             self.pushButton_stop_2.setText("停止检查")
             self.last_check_file_all_time=0
             QtWidgets.QApplication.processEvents()
+
+            self.comboBox.setCurrentIndex(0)
+            self.comboBox_2.setCurrentIndex(0)
+            self.comboBox_3.setCurrentIndex(0)
 
             self.label_35.setText("0%")
             self.progressBar_2.setProperty("value", "1")
             self.label_progress_time_2.setText("0:00")
             self.tableWidget.setRowCount(0)
             self.tableWidget.clearContents()
-
-            self.comboBox.setCurrentIndex(0)
-            self.comboBox_2.setCurrentIndex(0)
-            self.comboBox_3.setCurrentIndex(0)
 
             self.thread_get_check_file_info()
             self.count_time()
@@ -384,6 +385,13 @@ class Stacked_page_2(object):
             self.tableWidget.item(row, column).setTextAlignment(
                 Qt.AlignHCenter | Qt.AlignVCenter)
 
+            if column==2:
+                file_info = QFileInfo(str(item))
+                iconProvider = QFileIconProvider()
+                icon = iconProvider.icon(file_info)
+                self.tableWidget.item(row, column).setIcon(icon)
+                self.tableWidget.item(row, column).setTextAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+
         if len(content)!=0:
             num = self.tableWidget.rowCount()
             self.tableWidget.setRowCount(num+1)
@@ -421,7 +429,7 @@ class Stacked_page_2(object):
             QtWidgets.QApplication.processEvents()
 
             item_num = self.tableWidget.rowCount()
-            msg_box=QMessageBox(QMessageBox.Information, '提示', "扫描任务完成，共获取到"+str(item_num)+"条数据。")
+            msg_box=QMessageBox(QMessageBox.Information, '提示', "文件检查任务扫描完成，共获取到"+str(item_num)+"条数据。")
             msg_box.exec_()
 
 
