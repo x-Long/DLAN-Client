@@ -262,10 +262,7 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         self.di.reject()
 
 
-
-
-# 运行程序
-if __name__ == '__main__':
+def start_dlan_gui():
     app = QtWidgets.QApplication(sys.argv)
     main_window = Main_window()
     main_window.setWindowIcon(QtGui.QIcon('icon/logo.png'))
@@ -274,3 +271,8 @@ if __name__ == '__main__':
     # main_window.resize(main_window.width(),main_window.width()*0.6)
     main_window.show()
     app.exec()
+
+
+# 运行程序
+if __name__ == '__main__':
+    start_dlan_gui()
