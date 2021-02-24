@@ -28,12 +28,6 @@ class Runthread(QtCore.QThread):
         self._signal.emit(net_info,com_info); # 信号发送
 
 
-# page 参考
-# self.page_2 = QtWidgets.QWidget()
-# self.page_2.setObjectName("page_2")
-# self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.page_2)
-# self.verticalLayout_14.setObjectName("verticalLayout_14")
-# self.stackedWidget.addWidget(self.page_2)
 
 class Stacked_page_1(object):
 

@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-# Author:XXX
 
 from Form import Ui_Form
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -291,6 +288,5 @@ def start_dlan_gui(server_port:int):
     app.exec()
 
 
-# 运行程序
 if __name__ == '__main__':
     start_dlan_gui(50008)
