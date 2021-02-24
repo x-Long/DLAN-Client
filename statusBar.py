@@ -7,6 +7,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import partial
 import sys
 
+from requests_manager import RequestManager
+
+
 class Status_bar(object):
 
     def set_up_status_bar(self):
@@ -106,9 +109,5 @@ class Runthread_status(QtCore.QThread):
         super(Runthread_status, self).__init__(parent)
 
     def run(self):
-        print("run")
-        status_bar_info=json.loads(requests.get("http://localhost/v1.0/app/footer/info").content)
-        self._signal_status.emit(status_bar_info); # 信号发送
-
-
-  
+        status_bar_info = RequestManager.make_get_request('/v1.0/app/footer/info')
+        self._signal_status.emit(status_bar_info)

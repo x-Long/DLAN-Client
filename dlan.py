@@ -32,7 +32,6 @@ class Count_check_file_time(QtCore.QThread):
             end = datetime.datetime.now()
             count_time=(end-start).seconds+self.last_check_file_all_time
             text = "%d:%02d" % (count_time/60, count_time % 60)
-            print(text)
             self._signal.emit(text,count_time)
 
 
@@ -44,15 +43,9 @@ class Network_check_is_connect(QtCore.QThread):
 
     def run(self):
         while True:
-            
-            result=True
-            try:
-                requests.get(RequestManager.get_base_url())
-                # print("网络正常")
-            except:
-                result=False
-                print("网络故障")
-            self._signal.emit(result)
+            if RequestManager.is_server_ready():
+                self._signal.emit(True)
+                break
             time.sleep(1)
 
 class Main_window(QtWidgets.QWidget, Ui_Form):
@@ -294,7 +287,8 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         self.di.reject()
 
 
-def start_dlan_gui():
+def start_dlan_gui(server_port:int):
+    RequestManager.on_port_ready(server_port)
     app = QtWidgets.QApplication(sys.argv)
     main_window = Main_window()
     main_window.setWindowIcon(QtGui.QIcon('icon/logo.png'))
@@ -307,4 +301,4 @@ def start_dlan_gui():
 
 # 运行程序
 if __name__ == '__main__':
-    start_dlan_gui()
+    start_dlan_gui(50008)
