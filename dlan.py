@@ -104,7 +104,6 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         if os.path.exists('.\\check_file_dialog_config.pickle'):
             with open('.\\check_file_dialog_config.pickle', 'rb') as f :
                 para= pickle.load(f) 
-                print(para)
                 for k,v in para["dialog_check_box_list"].items():
                     eval(k).setChecked(v)
                 for k,v in para["dialog_line_input"].items():
@@ -254,7 +253,6 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
             
         with open('.\\check_file_dialog_config.pickle', 'rb') as f :
             dialog_check_box_status= pickle.load(f) 
-        print(type(dialog_check_box_status),dialog_check_box_status)
 
 
     def get_info_info(self,d):
@@ -267,11 +265,6 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         # # for num in range(self.tableWidget.rowCount()):
         # #     self.tableWidget.removeRow(num)
 
-        # print(self.get_config_file_suffix(d))
-        # print(self.get_config_key_word(d))
-        # print(self.get_config_filesize(d))
-        # print(self.get_config_switches(d))
-        # print(self.get_scan_path_in_table(d))
 
         # self.postdatas = {
         #     "scan_path": self.get_scan_path_in_table(d),
@@ -293,7 +286,6 @@ def start_dlan_gui(server_port:int):
     main_window = Main_window()
     main_window.setWindowIcon(QtGui.QIcon('icon/logo.png'))
     main_window.setWindowTitle("帝岚科技计算机终端保密检查系统")
-    print(main_window.width())
     # main_window.resize(main_window.width(),main_window.width()*0.6)
     main_window.show()
     app.exec()

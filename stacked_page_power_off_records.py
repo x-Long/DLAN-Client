@@ -30,7 +30,6 @@ class Runthread_power_off_records_info(QtCore.QThread):
         super(Runthread_power_off_records_info, self).__init__(parent)
 
     def run(self):
-        print("run")
         # net_info=json.loads(requests.get("http://localhost/v1.0/native/get_power_off_records").content)
         from requests_manager import RequestManager
         net_info=RequestManager.make_get_request('/v1.0/native/get_power_off_records')
@@ -63,7 +62,6 @@ class Stacked_page_power_off_records_4(object):
         self.usb_power_off_records_style()
 
     def add_power_off_records_row(self,content):
-        print("power_off_records",content)
         def add_item(row, column, item):
             self.tableWidget_7.setItem(
                 row, column, QtWidgets.QTableWidgetItem(str(item)))

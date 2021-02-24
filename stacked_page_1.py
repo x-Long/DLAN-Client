@@ -18,13 +18,11 @@ class Runthread(QtCore.QThread):
         super(Runthread, self).__init__(parent)
 
     # def run(self):
-    #     print("run")
     #     net_info=json.loads(requests.get("http://localhost/v1.0/pc/network").content)
     #     com_info=json.loads(requests.get("http://localhost/v1.0/pc/info").content)
     #     self._signal.emit(net_info,com_info); # 信号发送
 
     def run(self):
-        print("run")
         net_info=RequestManager.make_get_request('/v1.0/pc/network')
         com_info=RequestManager.make_get_request('/v1.0/pc/info')
         self._signal.emit(net_info,com_info); # 信号发送

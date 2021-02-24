@@ -48,7 +48,6 @@ class Side_bar(object):
 
         for i in range(len(self.side_bar_info)):
             for key in self.side_bar_info[i]:
-                print(key, i)
                 self.create_high_frame(
                     "self.frame"+"_"+str(i), "self.verticalLayout"+"_"+str(i), "self.pushButton"+"_"+str(i))
                 self.item_flag = 0
@@ -315,28 +314,24 @@ class Side_bar(object):
 
             for key in self.side_bar_info[i]:
 
-                print(key, i)
                 self.item_flag = 0
                 high_level_pushButton = "self.pushButton"+"_"+str(i)
 
                 for j in range(len(self.side_bar_info[i][key])):
                     for key1 in self.side_bar_info[i][key][j]:
 
-                        print(key1, str(i), j)
                         high_level_frame.append(
                             "self.frame"+"_"+str(i)+"_"+str(j))
                         med_level_pushButton.append(
                             "self.pushButton"+"_"+str(i)+"_"+str(j))
 
                         for k in range(len(self.side_bar_info[i][key][j][key1])):
-                            print(self.side_bar_info[i]
                                   [key][j][key1][k], i, j, k,)
 
                         low_level_frame.append(
                             "self.frame"+"_"+str(i)+"_"+str(j)+"_"+str(self.item_flag))
 
                         self.item_flag = self.item_flag+1
-                        print(self.item_flag)
             temp = []
             temp.append(high_level_pushButton)
             temp.append(high_level_frame)
@@ -350,7 +345,6 @@ class Side_bar(object):
             for h in self.side_bar_widgets[k][1]:
                 self.hide_frame(h)
             for f in range(len(self.side_bar_widgets[k][2])):
-                print(self.side_bar_widgets[k][2][f])
                 self.low_level_button_event(k, f)
 
     def resizeEvent(self, event):
@@ -361,7 +355,6 @@ class Side_bar(object):
         self.update()
 
     def high_level_button_event(self, k):
-        print("self.side_bar_widgets[k][0]", self.side_bar_widgets[k][0])
         eval(self.side_bar_widgets[k][0]).clicked.connect(
             lambda: self.high_frame_res(self.side_bar_widgets[k][1], k))
 
@@ -380,9 +373,7 @@ class Side_bar(object):
         eval(wid).addWidget(iconLabel)
 
     def high_frame_res(self, frame_items, k):
-        # print(eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).count())
         # for i in range(eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).count()):
-        #     print(eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).itemAt(i).widget().deleteLater(),11111111111111111)
 
         # eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).itemAt(eval("self.myLayout"+"_"+self.side_bar_widgets[k][0][5:]).count()-1).widget().deleteLater()
 
@@ -415,8 +406,6 @@ class Side_bar(object):
                 if count_clear_istrue == 0:
                     for is_true_item in self.is_display:
                         eval(is_true_item).setVisible(False)
-                        print(self.is_display, 2222222222222222222222)
-                        print(frame)
                     if len(self.is_display) != 0:
                         self.change_arrows(
                             "self.myLayout_pushButton_"+self.is_display[0][11], "./icon/close.png")
@@ -429,7 +418,6 @@ class Side_bar(object):
 
                 self.is_display.append(frame)
                 for item in self.is_hide:
-                    print("item", item)
                     eval(item).setVisible(True)
                     self.change_arrows(
                         "self.myLayout_pushButton_"+item[11:14], "./icon/open.png")

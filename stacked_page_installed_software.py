@@ -30,7 +30,6 @@ class Runthread_installed_software_info(QtCore.QThread):
         super(Runthread_installed_software_info, self).__init__(parent)
 
     def run(self):
-        print("run")
         # net_info=json.loads(requests.get("http://localhost///v1.0/native/get_installed_software_records").content)
         from requests_manager import RequestManager
         net_info=RequestManager.make_get_request('/v1.0/native/get_installed_software_records')
@@ -62,7 +61,6 @@ class Stacked_page_installed_software_4(object):
         self.usb_installed_software_style()
 
     def add_installed_software_row(self,content):
-        print("installed_software",content)
         def add_item(row, column, item):
             self.tableWidget_4.setItem(
                 row, column, QtWidgets.QTableWidgetItem(str(item)))
