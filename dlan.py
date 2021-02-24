@@ -41,7 +41,6 @@ class Network_check_is_connect(QtCore.QThread):
 
     def run(self):
         while True:
-<<<<<<< HEAD
 
             result=True
             try:
@@ -51,11 +50,6 @@ class Network_check_is_connect(QtCore.QThread):
                 result=False
                 print("网络故障")
             self._signal.emit(result)
-=======
-            if RequestManager.is_server_ready():
-                self._signal.emit(True)
-                break
->>>>>>> 02cf2b6f507a736da70976fbce3ee746a341c015
             time.sleep(1)
 
 class Main_window(QtWidgets.QWidget, Ui_Form):
