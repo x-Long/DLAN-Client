@@ -107,7 +107,8 @@ class Runthread_status(QtCore.QThread):
 
     def run(self):
         print("run")
-        status_bar_info=json.loads(requests.get("http://localhost/v1.0/app/footer/info").content)
+        from requests_manager import RequestManager
+        status_bar_info=j=RequestManager.make_get_request('/v1.0/app/footer/info')
         self._signal_status.emit(status_bar_info); # 信号发送
 
 

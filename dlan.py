@@ -16,7 +16,8 @@ import pickle
 import os
 from requests_manager import RequestManager
 import requests
-
+import u_key
+from requests_manager import RequestManager
 
 class Count_check_file_time(QtCore.QThread):
     _signal = pyqtSignal(str,int)
@@ -44,7 +45,7 @@ class Network_check_is_connect(QtCore.QThread):
 
     def run(self):
         while True:
-            
+
             result=True
             try:
                 requests.get(RequestManager.get_base_url())
@@ -263,46 +264,44 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
             dialog_check_box_status= pickle.load(f) 
         print(type(dialog_check_box_status),dialog_check_box_status)
 
+def handle_u_key_verify(u_key_ui,u_key_dialog):
 
-    def get_info_info(self,d):
-        # self.label_35.setText("0%")
-        # self.progressBar_2.setProperty("value", "1")
-        # self.label_progress_time_2.setText("0:00")
-        # self.tableWidget.setRowCount(0)
-        # self.tableWidget.clearContents()
-        
-        # # for num in range(self.tableWidget.rowCount()):
-        # #     self.tableWidget.removeRow(num)
+    u_key_ui.pushButton_verify.setText("正在验证...")
+    QtWidgets.QApplication.processEvents()
+    # res=True
+    res=RequestManager.make_get_request("/v1.0/ukey/verify?code={}".format(u_key_ui.lineEdit_password.text()))
 
-        # print(self.get_config_file_suffix(d))
-        # print(self.get_config_key_word(d))
-        # print(self.get_config_filesize(d))
-        # print(self.get_config_switches(d))
-        # print(self.get_scan_path_in_table(d))
-
-        # self.postdatas = {
-        #     "scan_path": self.get_scan_path_in_table(d),
-        #     "file_suffix": self.get_config_file_suffix(d),
-        #     "keywords_list": self.get_config_key_word(d),
-        #     "min_filesize": self.get_config_filesize(d)[0],
-        #     "max_filesize": self.get_config_filesize(d)[1],
-        #     "switches": {
-        #         "size_switch": self.get_config_switches(d),
-        #     }
-        # }
-        # self.thread_get_check_file_info()
-        self.di.reject()
-
+    print(res)
+    if res :
+        u_key_dialog.accept()
+    else:
+        msg_box=QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, '警告', '口令不正确，请重新输入。')
+        msg_box.exec_()
+        u_key_ui.pushButton_verify.setText("验证")
+        QtWidgets.QApplication.processEvents()
 
 def start_dlan_gui():
     app = QtWidgets.QApplication(sys.argv)
-    main_window = Main_window()
-    main_window.setWindowIcon(QtGui.QIcon('icon/logo.png'))
-    main_window.setWindowTitle("帝岚科技计算机终端保密检查系统")
-    print(main_window.width())
-    # main_window.resize(main_window.width(),main_window.width()*0.6)
-    main_window.show()
-    app.exec()
+    u_key_dialog = QtWidgets.QDialog()
+    u_key_ui = u_key.Ui_Dialog()
+    u_key_ui.setupUi(u_key_dialog)
+    u_key_dialog.setWindowIcon(QtGui.QIcon('icon/logo.png'))
+    u_key_dialog.setWindowTitle("帝岚科技计算机终端保密检查系统")
+    u_key_ui.pushButton_verify.clicked.connect(lambda: handle_u_key_verify(u_key_ui,u_key_dialog))
+    from PyQt5.QtGui import QIntValidator
+    u_key_ui.lineEdit_password.setValidator(QIntValidator(0, 999999))
+    u_key_dialog.show()
+
+    if u_key_dialog.exec_() == QtWidgets.QDialog.Accepted:
+
+        # app = QtWidgets.QApplication(sys.argv)
+        main_window = Main_window()
+        main_window.setWindowIcon(QtGui.QIcon('icon/logo.png'))
+        main_window.setWindowTitle("帝岚科技计算机终端保密检查系统")
+        print(main_window.width())
+        # main_window.resize(main_window.width(),main_window.width()*0.6)
+        main_window.show()
+        app.exec()
 
 
 # 运行程序

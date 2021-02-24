@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="png">
+    <file>封面图.png</file>
+  </qresource>
+</RCC>
