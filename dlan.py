@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-# Author:XXX
 
 from Form import Ui_Form
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -33,7 +30,6 @@ class Count_check_file_time(QtCore.QThread):
             end = datetime.datetime.now()
             count_time=(end-start).seconds+self.last_check_file_all_time
             text = "%d:%02d" % (count_time/60, count_time % 60)
-            print(text)
             self._signal.emit(text,count_time)
 
 
@@ -45,6 +41,7 @@ class Network_check_is_connect(QtCore.QThread):
 
     def run(self):
         while True:
+<<<<<<< HEAD
 
             result=True
             try:
@@ -54,6 +51,11 @@ class Network_check_is_connect(QtCore.QThread):
                 result=False
                 print("网络故障")
             self._signal.emit(result)
+=======
+            if RequestManager.is_server_ready():
+                self._signal.emit(True)
+                break
+>>>>>>> 02cf2b6f507a736da70976fbce3ee746a341c015
             time.sleep(1)
 
 class Main_window(QtWidgets.QWidget, Ui_Form):
@@ -112,7 +114,6 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
         if os.path.exists('.\\check_file_dialog_config.pickle'):
             with open('.\\check_file_dialog_config.pickle', 'rb') as f :
                 para= pickle.load(f) 
-                print(para)
                 for k,v in para["dialog_check_box_list"].items():
                     eval(k).setChecked(v)
                 for k,v in para["dialog_line_input"].items():
@@ -262,7 +263,6 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
             
         with open('.\\check_file_dialog_config.pickle', 'rb') as f :
             dialog_check_box_status= pickle.load(f) 
-        print(type(dialog_check_box_status),dialog_check_box_status)
 
 def handle_u_key_verify(u_key_ui,u_key_dialog):
 
@@ -280,7 +280,8 @@ def handle_u_key_verify(u_key_ui,u_key_dialog):
         u_key_ui.pushButton_verify.setText("验证")
         QtWidgets.QApplication.processEvents()
 
-def start_dlan_gui():
+def start_dlan_gui(server_port:int):
+    RequestManager.on_port_ready(server_port)
     app = QtWidgets.QApplication(sys.argv)
     u_key_dialog = QtWidgets.QDialog()
     u_key_ui = u_key.Ui_Dialog()
@@ -304,6 +305,5 @@ def start_dlan_gui():
         app.exec()
 
 
-# 运行程序
 if __name__ == '__main__':
-    start_dlan_gui()
+    start_dlan_gui(50008)

@@ -30,7 +30,6 @@ class Runthread_all_usb_info(QtCore.QThread):
         super(Runthread_all_usb_info, self).__init__(parent)
 
     def run(self):
-        print("run")
         # net_info=json.loads(requests.get("http://localhost/v1.0/native/get_all_usb_device_records").content)
         net_info=RequestManager.make_get_request('/v1.0/native/get_all_usb_device_records')
 
@@ -61,7 +60,6 @@ class Stacked_page_all_usb_4(object):
         self.usb_all_usb_style()
 
     def add_all_usb_row(self,content):
-        print("all_usb",content)
         def add_item(row, column, item):
             self.tableWidget_3.setItem(
                 row, column, QtWidgets.QTableWidgetItem(str(item)))

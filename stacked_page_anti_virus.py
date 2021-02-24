@@ -30,7 +30,6 @@ class Runthread_anti_virus_info(QtCore.QThread):
         super(Runthread_anti_virus_info, self).__init__(parent)
 
     def run(self):
-        print("run")
         # net_info=json.loads(requests.get("http://localhost/v1.0/native/get_installed_anti_virus_software_records").content)
         from requests_manager import RequestManager
         net_info=RequestManager.make_get_request('/v1.0/native/get_installed_anti_virus_software_records')
@@ -63,7 +62,6 @@ class Stacked_page_anti_virus_4(object):
         self.usb_anti_virus_style()
 
     def add_anti_virus_row(self,content):
-        print("anti_virus",content)
         def add_item(row, column, item):
             self.tableWidget_5.setItem(
                 row, column, QtWidgets.QTableWidgetItem(str(item)))

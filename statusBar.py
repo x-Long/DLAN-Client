@@ -2,10 +2,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.Qt import *
 import requests
 import json
-# from dlan import Ui_Form
 from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import partial
 import sys
+
+from requests_manager import RequestManager
+
 
 class Status_bar(object):
 

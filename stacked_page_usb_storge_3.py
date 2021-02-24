@@ -30,7 +30,6 @@ class Runthread_usb_storge_info(QtCore.QThread):
         super(Runthread_usb_storge_info, self).__init__(parent)
 
     def run(self):
-        print("run")
         # net_info=json.loads(requests.get("http://localhost/v1.0/native/get_usb_storage_device_using_records").content)
         from requests_manager import RequestManager
         net_info=RequestManager.make_get_request('/v1.0/native/get_usb_storage_device_using_records')

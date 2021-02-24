@@ -36,7 +36,6 @@ class Count_check_file_time(QtCore.QThread):
             end = datetime.datetime.now()
             count_time=(end-start).seconds+self.last_check_file_all_time
             text = "%d:%02d" % (count_time/60, count_time % 60)
-            print(text)
             self._signal.emit(text,count_time)
 
 class Runthread_check_file(QtCore.QThread):
@@ -65,7 +64,6 @@ class Runthread_check_file(QtCore.QThread):
         # dis_task = json.loads(dis_task)
         dis_task = RequestManager.make_post_request("/v1.0/pc/files/scan",self.post_info)
         # dis_task = json.loads(dis_task)
-        print(dis_task,2222222222222)
 
         data = {
             "task_id": dis_task["task_id"],
@@ -81,13 +79,10 @@ class Runthread_check_file(QtCore.QThread):
 
             if len(net_info["results"])==0:
                 self._signal.emit({},net_info["progress"],net_info["status"],data["task_id"])
-                print({},net_info["progress"])
 
             for result in net_info["results"]:
                 self._signal.emit(result,net_info["progress"],net_info["status"],data["task_id"])
-                print(result,net_info["progress"])
             if net_info["status"] == "finished":
-                print('扫描结束')
                 break
 
     def run(self):
@@ -119,9 +114,7 @@ class Runthread_check_file1(QtCore.QThread):
 
             for result in net_info["results"]:
                 self._signal.emit(result,net_info["progress"],net_info["status"],data["task_id"])
-                print(result,net_info["progress"])
             if net_info["status"] == "finished":
-                print('扫描结束')
                 break
 
     def run(self):
@@ -165,7 +158,6 @@ class Stacked_page_2(object):
         self.tableWidget.clearContents()
 
         def add_select_row(content):
-            # print(content[0].isChecked())
             num = self.tableWidget.rowCount()
             self.tableWidget.setRowCount(num+1) 
             # self.tableWidget.setCellWidget(num, 0, content[0])
@@ -301,7 +293,6 @@ class Stacked_page_2(object):
         if self.pushButton_pause_2.text()=="暂停检查":
 
             if self.task_id==-1:
-                print()
                 msg_box=QMessageBox(QMessageBox.Warning, '警告', "未检测到扫描任务，或扫描任务已经停止，请点击“开始检查”按钮启动扫描任务。")
                 msg_box.exec_()
                 return
@@ -497,23 +488,18 @@ class Stacked_page_2(object):
         item3 = menu.addAction(u"清除文件")
         action = menu.exec_(self.tableWidget.mapToGlobal(pos))
         if action == item1:
-            print('打开文件', self.tableWidget.item(row_num, 6).text())
             # os.startfile(self.tableWidget.item(row_num, 6).text())
             file_name = self.tableWidget.item(row_num, 6).text()
-            print(self.tableWidget.item(row_num, 6).text())
             self.menu_file_op = menu_file_op(file_name, "open_filename")
             self.menu_file_op.start()
 
         elif action == item2:
-            print('打开文件夹', self.tableWidget.item(row_num, 6).text())
             # os.startfile(os.path.dirname(self.tableWidget.item(row_num, 6).text()))
             dir_name = os.path.dirname(self.tableWidget.item(row_num, 6).text())
-            print(self.tableWidget.item(row_num, 6).text())
             self.menu_file_op = menu_file_op(dir_name, "open_dir")
             self.menu_file_op.start()
 
         elif action == item3:
-            print('清除文件', self.tableWidget.item(row_num, 6).text())
             # os.remove(self.tableWidget.item(row_num, 6).text())
             del_name = self.tableWidget.item(row_num, 6).text()
             self.menu_file_op = menu_file_op(del_name, "del_file")

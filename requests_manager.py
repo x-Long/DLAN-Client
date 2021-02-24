@@ -17,6 +17,9 @@ class RequestManager:
         self.port = port
         self.base_url = f'http://{self.host}:{self.port}'
 
+    def is_server_ready(self):
+        return self.base_url != None
+
     def make_get_request(self, router_name:str):
         url = f'{self.base_url}{router_name}'
         try:
@@ -26,8 +29,7 @@ class RequestManager:
             objs = json.loads(output)
             return objs
         except Exception as ex:
-            # logger.exception(exc_info=ex)
-            pass
+            logger.exception(f'error on {url}', exc_info=ex)
 
     def make_post_request(self, router_name:str, values):
         url = f'{self.base_url}{router_name}'
@@ -43,10 +45,12 @@ class RequestManager:
             logger.debug(f'output: {output}')
             return json.loads(output.decode())
         except Exception as ex:
-            logger.exception(exc_info=ex)
+            logger.exception(f'error on {url}', exc_info=ex)
 
+<<<<<<< HEAD
 RequestManager.on_port_ready(8081)
+=======
+>>>>>>> 02cf2b6f507a736da70976fbce3ee746a341c015
 if __name__ == '__main__':
-    RequestManager.on_port_ready(80)
-    aaa=RequestManager.make_get_request('/v1.0/native/get_power_off_records')
-    print(aaa)
+    RequestManager.on_port_ready(8081)
+    aaa = RequestManager.make_get_request('/v1.0/app/footer/info')
