@@ -10,6 +10,9 @@ class RequestManager:
         self.port = None
         self.base_url = None
 
+    def get_base_url(self):
+        return self.base_url
+
     def on_port_ready(self, port: int):
         self.port = port
         self.base_url = f'http://{self.host}:{self.port}'
@@ -37,11 +40,12 @@ class RequestManager:
             with urllib.request.urlopen(req) as f:
                 output = f.read()
             logger.debug(f'output: {output}')
-            return output.decode()
+            return json.loads(output.decode())
         except Exception as ex:
             logger.exception(exc_info=ex)
 
-
+RequestManager.on_port_ready(80)
 if __name__ == '__main__':
     RequestManager.on_port_ready(80)
-    RequestManager.make_get_request('/v1.0/native/get_power_off_records')
+    aaa=RequestManager.make_get_request('/v1.0/native/get_power_off_records')
+    print(aaa)

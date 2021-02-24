@@ -20,7 +20,7 @@ import requests
 import json
 import time
 import datetime
-
+from requests_manager import RequestManager
 
 class Runthread_all_usb_info(QtCore.QThread):
 
@@ -31,7 +31,9 @@ class Runthread_all_usb_info(QtCore.QThread):
 
     def run(self):
         print("run")
-        net_info=json.loads(requests.get("http://localhost/v1.0/native/get_all_usb_device_records").content)
+        # net_info=json.loads(requests.get("http://localhost/v1.0/native/get_all_usb_device_records").content)
+        net_info=RequestManager.make_get_request('/v1.0/native/get_all_usb_device_records')
+
         self._signal.emit(net_info); # 信号发送
 
 

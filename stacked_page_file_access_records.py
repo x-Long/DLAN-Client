@@ -34,8 +34,11 @@ class Runthread_file_access_records_info(QtCore.QThread):
 
     def run(self):
         print("run")
-        net_info = json.loads(requests.get(
-            "http://localhost/v1.0/native/get_file_access_records").content)
+        # net_info = json.loads(requests.get(
+        #     "http://localhost/v1.0/native/get_file_access_records").content)
+        from requests_manager import RequestManager
+        net_info=RequestManager.make_get_request('/v1.0/native/get_file_access_records')
+
         self._signal.emit(net_info)  # 信号发送
 
 

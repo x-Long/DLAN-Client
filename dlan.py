@@ -14,6 +14,8 @@ import datetime
 import time
 import pickle
 import os
+from requests_manager import RequestManager
+import requests
 
 
 class Count_check_file_time(QtCore.QThread):
@@ -34,21 +36,23 @@ class Count_check_file_time(QtCore.QThread):
             self._signal.emit(text,count_time)
 
 
-class Count_check_is_connect(QtCore.QThread):
+class Network_check_is_connect(QtCore.QThread):
     _signal = pyqtSignal(bool)
 
     def __init__(self,parent=None):
-        super(Count_check_is_connect, self).__init__(parent)
+        super(Network_check_is_connect, self).__init__(parent)
 
     def run(self):
         while True:
-            result = os.system("curl http://localhost:80/ >NUL")
-            if result == 0:
-                # print("A网正常")
-                self._signal.emit(True)
-            else:
+            
+            result=True
+            try:
+                requests.get(RequestManager.get_base_url())
+                # print("网络正常")
+            except:
+                result=False
                 print("网络故障")
-                self._signal.emit(False)
+            self._signal.emit(result)
             time.sleep(1)
 
 class Main_window(QtWidgets.QWidget, Ui_Form):
@@ -87,7 +91,7 @@ class Main_window(QtWidgets.QWidget, Ui_Form):
 
     def check_network(self):
 
-        self.check_is_connect=Count_check_is_connect()
+        self.check_is_connect=Network_check_is_connect()
         self.check_is_connect._signal.connect(self.is_network_connect)
         self.check_is_connect.start()
 

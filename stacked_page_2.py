@@ -15,12 +15,12 @@ from PyQt5.QtWidgets import *
 import sys
 from PyQt5.QtCore import QObject, pyqtSignal
 
-
 import os
 import requests
 import json
 import time
 import datetime
+from requests_manager import RequestManager
 
 class Count_check_file_time(QtCore.QThread):
     _signal = pyqtSignal(str,int)
@@ -60,9 +60,12 @@ class Runthread_check_file(QtCore.QThread):
         #     }
         # }
 
-        headers = {"Content-Type": "application/json","Accept": "application/json", }
-        dis_task = requests.post('http://localhost/v1.0/pc/files/scan',data=json.dumps(self.post_info), headers=headers).content
-        dis_task = json.loads(dis_task)
+        # headers = {"Content-Type": "application/json","Accept": "application/json", }
+        # dis_task = requests.post('http://localhost/v1.0/pc/files/scan',data=json.dumps(self.post_info), headers=headers).content
+        # dis_task = json.loads(dis_task)
+        dis_task = RequestManager.make_post_request("/v1.0/pc/files/scan",self.post_info)
+        # dis_task = json.loads(dis_task)
+        print(dis_task,2222222222222)
 
         data = {
             "task_id": dis_task["task_id"],
@@ -70,10 +73,11 @@ class Runthread_check_file(QtCore.QThread):
         }
 
         while True:
-            net_info = requests.get("http://localhost/v1.0/files/scan/status?task_id={}&page_size={}".format(data["task_id"],data["page_size"])).content.decode('unicode-escape')
-            # 返回结果中含有 \ ,使得json.loads无法解析，所以需要将返回结果中的 \ 替换为 \\
-            net_info = net_info.replace("\\", "\\\\")
-            net_info = json.loads(net_info)
+            # net_info = requests.get("http://localhost/v1.0/files/scan/status?task_id={}&page_size={}".format(data["task_id"],data["page_size"])).content.decode('unicode-escape')
+            # # 返回结果中含有 \ ,使得json.loads无法解析，所以需要将返回结果中的 \ 替换为 \\
+            # net_info = net_info.replace("\\", "\\\\")
+            # net_info = json.loads(net_info)
+            net_info=RequestManager.make_get_request("/v1.0/files/scan/status?task_id={}&page_size={}".format(data["task_id"],data["page_size"]))
 
             if len(net_info["results"])==0:
                 self._signal.emit({},net_info["progress"],net_info["status"],data["task_id"])
@@ -106,10 +110,12 @@ class Runthread_check_file1(QtCore.QThread):
         }
 
         while True:
-            net_info = requests.get("http://localhost/v1.0/files/scan/status?task_id={}&page_size={}".format(data["task_id"],data["page_size"])).content.decode('unicode-escape')
-            # 返回结果中含有 \ ,使得json.loads无法解析，所以需要将返回结果中的 \ 替换为 \\
-            net_info = net_info.replace("\\", "\\\\")
-            net_info = json.loads(net_info)
+            # net_info = requests.get("http://localhost/v1.0/files/scan/status?task_id={}&page_size={}".format(data["task_id"],data["page_size"])).content.decode('unicode-escape')
+            # # 返回结果中含有 \ ,使得json.loads无法解析，所以需要将返回结果中的 \ 替换为 \\
+            # net_info = net_info.replace("\\", "\\\\")
+            # net_info = json.loads(net_info)
+            net_info=RequestManager.make_get_request("/v1.0/files/scan/status?task_id={}&page_size={}".format(data["task_id"],data["page_size"]))
+
 
             for result in net_info["results"]:
                 self._signal.emit(result,net_info["progress"],net_info["status"],data["task_id"])
