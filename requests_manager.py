@@ -47,7 +47,6 @@ class RequestManager:
         except Exception as ex:
             logger.exception(f'error on {url}', exc_info=ex)
 
-
 if __name__ == '__main__':
     RequestManager.on_port_ready(8081)
     aaa = RequestManager.make_get_request('/v1.0/app/footer/info')

@@ -41,9 +41,8 @@ class Network_check_is_connect(QtCore.QThread):
 
     def run(self):
         while True:
-            if RequestManager.is_server_ready():
-                self._signal.emit(True)
-                break
+            if not RequestManager.is_server_ready():
+                self._signal.emit(False)
             time.sleep(1)
 
 
@@ -302,4 +301,4 @@ def start_dlan_gui(server_port:int):
 
 
 if __name__ == '__main__':
-    start_dlan_gui(8081)
+    start_dlan_gui(50008)
