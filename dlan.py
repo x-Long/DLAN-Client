@@ -262,7 +262,7 @@ def handle_u_key_verify(u_key_ui,u_key_dialog):
 
     u_key_ui.pushButton_verify.setText("正在验证...")
     QtWidgets.QApplication.processEvents()
-    # res=True
+    # res=True  
     res=RequestManager.make_get_request("/v1.0/ukey/verify?code={}".format(u_key_ui.lineEdit_password.text()))
 
     print(res)
@@ -300,4 +300,4 @@ def start_dlan_gui(server_port:int):
 
 
 if __name__ == '__main__':
-    start_dlan_gui(50008)
+    start_dlan_gui(8081)

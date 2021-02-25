@@ -326,7 +326,7 @@ class Side_bar(object):
                             "self.pushButton"+"_"+str(i)+"_"+str(j))
 
                         for k in range(len(self.side_bar_info[i][key][j][key1])):
-                                  [key][j][key1][k], i, j, k,)
+                            pass
 
                         low_level_frame.append(
                             "self.frame"+"_"+str(i)+"_"+str(j)+"_"+str(self.item_flag))
