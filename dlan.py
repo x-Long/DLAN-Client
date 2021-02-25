@@ -41,16 +41,11 @@ class Network_check_is_connect(QtCore.QThread):
 
     def run(self):
         while True:
-
-            result=True
-            try:
-                requests.get(RequestManager.get_base_url())
-                # print("网络正常")
-            except:
-                result=False
-                print("网络故障")
-            self._signal.emit(result)
+            if RequestManager.is_server_ready():
+                self._signal.emit(True)
+                break
             time.sleep(1)
+
 
 class Main_window(QtWidgets.QWidget, Ui_Form):
     def __init__(self, parent=None):
