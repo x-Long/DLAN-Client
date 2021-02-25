@@ -52,15 +52,31 @@ class Ui_Dialog(object):
         self.horizontalLayout.addWidget(self.lineEdit_password)
         self.pushButton_verify = QtWidgets.QPushButton(self.frame)
         self.pushButton_verify.setMinimumSize(QtCore.QSize(100, 35))
-        self.pushButton_verify.setStyleSheet("background: #3A7FED;\n"
-"font-family: \"微软雅黑\";;\n"
-"font-style: normal;\n"
-"font-weight: normal;\n"
-"font-size: 14px;\n"
-"line-height: 20px;\n"
-"border-radius: 3px;\n"
-"\n"
-"color: #FFFFFF;")
+        self.pushButton_verify.setStyleSheet(
+                                                "QPushButton{"
+                                                "background: #3A7FED;\n"
+                                              "font-family: PingFang SC;\n"
+                                              "font-style: normal;\n"
+                                              "font-weight: normal;\n"
+                                              "font-size: 14px;\n"
+                                              "line-height: 20px;\n"
+                                              "border-radius: 3px;\n"
+                                              "\n"
+                                              "color: #FFFFFF;"
+                                              "}"
+                                                "QPushButton:hover{"
+                                                "background: #007acc;\n"
+                                              "font-family: PingFang SC;\n"
+                                              "font-style: normal;\n"
+                                              "font-weight: normal;\n"
+                                              "font-size: 14px;\n"
+                                              "line-height: 20px;\n"
+                                              "border-radius: 3px;\n"
+                                              "\n"
+                                              "color: #FFFFFF;"
+                                              "}"
+                                              )
+
         self.pushButton_verify.setObjectName("pushButton_verify")
         self.horizontalLayout.addWidget(self.pushButton_verify)
         self.verticalLayout.addWidget(self.frame)
