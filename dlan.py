@@ -262,6 +262,13 @@ def handle_u_key_verify(u_key_ui,u_key_dialog):
 
     u_key_ui.pushButton_verify.setText("正在验证...")
     QtWidgets.QApplication.processEvents()
+    if len(u_key_ui.lineEdit_password.text())<6:
+        msg_box=QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, '警告', '口令应为6位整数。')
+        msg_box.exec_()
+        u_key_ui.pushButton_verify.setText("验证")
+        QtWidgets.QApplication.processEvents()
+        return
+
     # res=True  
     res=RequestManager.make_get_request("/v1.0/ukey/verify?code={}".format(u_key_ui.lineEdit_password.text()))
 
