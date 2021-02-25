@@ -129,95 +129,95 @@ class Stacked_page_hard_disk_4(object):
             self.page_hard_disk_info)
         self.verticalLayout_18.setObjectName("verticalLayout_18")
 
-        self.frame_progress_3 = QtWidgets.QFrame(self.page_hard_disk_info)
-        self.frame_progress_3.setMinimumSize(QtCore.QSize(0, 0))
-        self.frame_progress_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_progress_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_progress_3.setObjectName("frame_progress_3")
-        self.horizontalLayout_18 = QtWidgets.QHBoxLayout(self.frame_progress_3)
-        self.horizontalLayout_18.setContentsMargins(5, 5, 5, 5)
-        self.horizontalLayout_18.setSpacing(5)
-        self.horizontalLayout_18.setObjectName("horizontalLayout_18")
-        self.label_progress_time_3 = QtWidgets.QLabel(self.frame_progress_3)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.label_progress_time_3.sizePolicy().hasHeightForWidth())
-        self.label_progress_time_3.setSizePolicy(sizePolicy)
-        self.label_progress_time_3.setMinimumSize(QtCore.QSize(60, 0))
-        self.label_progress_time_3.setMaximumSize(
-            QtCore.QSize(16777215, 16777215))
-        self.label_progress_time_3.setStyleSheet("font-family: Metropolis;\n"
-                                                 "font-size: 18px;\n"
-                                                 "line-height: 28px;\n"
-                                                 "font-weight: 800;\n"
-                                                 "\n"
-                                                 "color: #565656;")
-        self.label_progress_time_3.setObjectName("label_progress_time_3")
-        self.horizontalLayout_18.addWidget(self.label_progress_time_3)
-        self.progressBar_3 = QtWidgets.QProgressBar(self.frame_progress_3)
-        self.progressBar_3.setMinimumSize(QtCore.QSize(0, 15))
-        self.progressBar_3.setStyleSheet("QProgressBar{\n"
-                                         "\n"
-                                         "background-color: #DEDEDE; \n"
-                                         "height:12px;\n"
-                                         "border-radius: 8px;\n"
-                                         "\n"
-                                         "\n"
-                                         "\n"
-                                         "}\n"
-                                         "\n"
-                                         "\n"
-                                         "QProgressBar::chunk{\n"
-                                         "background-color: #83C088; \n"
-                                         "border-radius: 6px;\n"
-                                         "\n"
-                                         "}\n"
-                                         "\n"
-                                         " ")
-        self.progressBar_3.setProperty("value", 24)
-        self.progressBar_3.setTextVisible(False)
-        self.progressBar_3.setObjectName("progressBar_3")
-        self.horizontalLayout_18.addWidget(self.progressBar_3)
-        self.label_86 = QtWidgets.QLabel(self.frame_progress_3)
-        self.label_86.setMinimumSize(QtCore.QSize(50, 0))
-        self.label_86.setStyleSheet("font-family: Metropolis;\n"
-                                    "font-size: 18px;\n"
-                                    "line-height: 28px;\n"
-                                    "font-weight: 800;\n"
-                                    "\n"
-                                    "color: #565656;")
-        self.label_86.setObjectName("label_86")
-        self.horizontalLayout_18.addWidget(self.label_86)
-        self.pushButton_pause_3 = QtWidgets.QPushButton(self.frame_progress_3)
-        self.pushButton_pause_3.setMinimumSize(QtCore.QSize(100, 35))
-        self.pushButton_pause_3.setStyleSheet("background: #3A7FED;\n"
-                                              "font-family: PingFang SC;\n"
-                                              "font-style: normal;\n"
-                                              "font-weight: normal;\n"
-                                              "font-size: 14px;\n"
-                                              "line-height: 20px;\n"
-                                              "border-radius: 3px;\n"
-                                              "\n"
-                                              "color: #FFFFFF;")
-        self.pushButton_pause_3.setObjectName("pushButton_pause_3")
-        self.horizontalLayout_18.addWidget(self.pushButton_pause_3)
-        self.pushButton_stop_3 = QtWidgets.QPushButton(self.frame_progress_3)
-        self.pushButton_stop_3.setMinimumSize(QtCore.QSize(100, 35))
-        self.pushButton_stop_3.setStyleSheet("background: #3A7FED;\n"
-                                             "font-family: PingFang SC;\n"
-                                             "font-style: normal;\n"
-                                             "font-weight: normal;\n"
-                                             "font-size: 14px;\n"
-                                             "line-height: 20px;\n"
-                                             "border-radius: 3px;\n"
-                                             "\n"
-                                             "color: #FFFFFF;")
-        self.pushButton_stop_3.setObjectName("pushButton_stop_3")
-        self.horizontalLayout_18.addWidget(self.pushButton_stop_3)
-        self.verticalLayout_18.addWidget(self.frame_progress_3)
+        # self.frame_progress_3 = QtWidgets.QFrame(self.page_hard_disk_info)
+        # self.frame_progress_3.setMinimumSize(QtCore.QSize(0, 0))
+        # self.frame_progress_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        # self.frame_progress_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        # self.frame_progress_3.setObjectName("frame_progress_3")
+        # self.horizontalLayout_18 = QtWidgets.QHBoxLayout(self.frame_progress_3)
+        # self.horizontalLayout_18.setContentsMargins(5, 5, 5, 5)
+        # self.horizontalLayout_18.setSpacing(5)
+        # self.horizontalLayout_18.setObjectName("horizontalLayout_18")
+        # self.label_progress_time_3 = QtWidgets.QLabel(self.frame_progress_3)
+        # sizePolicy = QtWidgets.QSizePolicy(
+        #     QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        # sizePolicy.setHorizontalStretch(0)
+        # sizePolicy.setVerticalStretch(0)
+        # sizePolicy.setHeightForWidth(
+        #     self.label_progress_time_3.sizePolicy().hasHeightForWidth())
+        # self.label_progress_time_3.setSizePolicy(sizePolicy)
+        # self.label_progress_time_3.setMinimumSize(QtCore.QSize(60, 0))
+        # self.label_progress_time_3.setMaximumSize(
+        #     QtCore.QSize(16777215, 16777215))
+        # self.label_progress_time_3.setStyleSheet("font-family: Metropolis;\n"
+        #                                          "font-size: 18px;\n"
+        #                                          "line-height: 28px;\n"
+        #                                          "font-weight: 800;\n"
+        #                                          "\n"
+        #                                          "color: #565656;")
+        # self.label_progress_time_3.setObjectName("label_progress_time_3")
+        # self.horizontalLayout_18.addWidget(self.label_progress_time_3)
+        # self.progressBar_3 = QtWidgets.QProgressBar(self.frame_progress_3)
+        # self.progressBar_3.setMinimumSize(QtCore.QSize(0, 15))
+        # self.progressBar_3.setStyleSheet("QProgressBar{\n"
+        #                                  "\n"
+        #                                  "background-color: #DEDEDE; \n"
+        #                                  "height:12px;\n"
+        #                                  "border-radius: 8px;\n"
+        #                                  "\n"
+        #                                  "\n"
+        #                                  "\n"
+        #                                  "}\n"
+        #                                  "\n"
+        #                                  "\n"
+        #                                  "QProgressBar::chunk{\n"
+        #                                  "background-color: #83C088; \n"
+        #                                  "border-radius: 6px;\n"
+        #                                  "\n"
+        #                                  "}\n"
+        #                                  "\n"
+        #                                  " ")
+        # self.progressBar_3.setProperty("value", 24)
+        # self.progressBar_3.setTextVisible(False)
+        # self.progressBar_3.setObjectName("progressBar_3")
+        # self.horizontalLayout_18.addWidget(self.progressBar_3)
+        # self.label_86 = QtWidgets.QLabel(self.frame_progress_3)
+        # self.label_86.setMinimumSize(QtCore.QSize(50, 0))
+        # self.label_86.setStyleSheet("font-family: Metropolis;\n"
+        #                             "font-size: 18px;\n"
+        #                             "line-height: 28px;\n"
+        #                             "font-weight: 800;\n"
+        #                             "\n"
+        #                             "color: #565656;")
+        # self.label_86.setObjectName("label_86")
+        # self.horizontalLayout_18.addWidget(self.label_86)
+        # self.pushButton_pause_3 = QtWidgets.QPushButton(self.frame_progress_3)
+        # self.pushButton_pause_3.setMinimumSize(QtCore.QSize(100, 35))
+        # self.pushButton_pause_3.setStyleSheet("background: #3A7FED;\n"
+        #                                       "font-family: PingFang SC;\n"
+        #                                       "font-style: normal;\n"
+        #                                       "font-weight: normal;\n"
+        #                                       "font-size: 14px;\n"
+        #                                       "line-height: 20px;\n"
+        #                                       "border-radius: 3px;\n"
+        #                                       "\n"
+        #                                       "color: #FFFFFF;")
+        # self.pushButton_pause_3.setObjectName("pushButton_pause_3")
+        # self.horizontalLayout_18.addWidget(self.pushButton_pause_3)
+        # self.pushButton_stop_3 = QtWidgets.QPushButton(self.frame_progress_3)
+        # self.pushButton_stop_3.setMinimumSize(QtCore.QSize(100, 35))
+        # self.pushButton_stop_3.setStyleSheet("background: #3A7FED;\n"
+        #                                      "font-family: PingFang SC;\n"
+        #                                      "font-style: normal;\n"
+        #                                      "font-weight: normal;\n"
+        #                                      "font-size: 14px;\n"
+        #                                      "line-height: 20px;\n"
+        #                                      "border-radius: 3px;\n"
+        #                                      "\n"
+        #                                      "color: #FFFFFF;")
+        # self.pushButton_stop_3.setObjectName("pushButton_stop_3")
+        # self.horizontalLayout_18.addWidget(self.pushButton_stop_3)
+        # self.verticalLayout_18.addWidget(self.frame_progress_3)
 
         self.scrollArea_content_2 = QtWidgets.QScrollArea(
             self.page_hard_disk_info)
@@ -431,10 +431,10 @@ class Stacked_page_hard_disk_4(object):
 
         # 设置填充信息
 
-        self.label_progress_time_3.setText("02:00")
-        self.label_86.setText("100%")
-        self.pushButton_pause_3.setText("暂停检查")
-        self.pushButton_stop_3.setText("停止检查")
+        # self.label_progress_time_3.setText("02:00")
+        # self.label_86.setText("100%")
+        # self.pushButton_pause_3.setText("暂停检查")
+        # self.pushButton_stop_3.setText("停止检查")
         self.label_39.setText("    项目")
         self.label_40.setText("|")
         self.label_41.setText(" 基本信息")

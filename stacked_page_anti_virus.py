@@ -5,16 +5,13 @@ import json
 from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import partial
 import sys
-
 from PyQt5.QtCore import Qt
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 from PyQt5 import QtCore
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sys
 from PyQt5.QtCore import QObject, pyqtSignal
-
 import os
 import requests
 import json
@@ -33,10 +30,7 @@ class Runthread_anti_virus_info(QtCore.QThread):
         # net_info=json.loads(requests.get("http://localhost/v1.0/native/get_installed_anti_virus_software_records").content)
         from requests_manager import RequestManager
         net_info=RequestManager.make_get_request('/v1.0/native/get_installed_anti_virus_software_records')
-
-        
         self._signal.emit(net_info); # 信号发送
-
 
 class Stacked_page_anti_virus_4(object):
 
@@ -68,18 +62,14 @@ class Stacked_page_anti_virus_4(object):
             self.tableWidget_5.item(row, column).setTextAlignment(
                 Qt.AlignHCenter | Qt.AlignVCenter)
 
-
         for item in content:
             num = self.tableWidget_5.rowCount()
             self.tableWidget_5.setRowCount(num+1) 
-
             add_item(num, 0, num+1)   # 序号
             add_item(num, 1, item["name"])
             add_item(num, 2, item["version"])
             add_item(num, 3, item["install_path"])
-  
-       
-   
+
 
     def init_anti_virus_table_widget(self):
 
@@ -226,92 +216,92 @@ class Stacked_page_anti_virus_4(object):
         self.page_anti_virus_software.setObjectName("page_anti_virus_software")
         self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.page_anti_virus_software)
         self.verticalLayout_27.setObjectName("verticalLayout_27")
-        self.frame_progress_7 = QtWidgets.QFrame(self.page_anti_virus_software)
-        self.frame_progress_7.setMinimumSize(QtCore.QSize(0, 0))
-        self.frame_progress_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_progress_7.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_progress_7.setObjectName("frame_progress_7")
-        self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.frame_progress_7)
-        self.horizontalLayout_16.setContentsMargins(5, 5, 5, 5)
-        self.horizontalLayout_16.setSpacing(5)
-        self.horizontalLayout_16.setObjectName("horizontalLayout_16")
-        self.label_progress_time_7 = QtWidgets.QLabel(self.frame_progress_7)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_progress_time_7.sizePolicy().hasHeightForWidth())
-        self.label_progress_time_7.setSizePolicy(sizePolicy)
-        self.label_progress_time_7.setMinimumSize(QtCore.QSize(60, 0))
-        self.label_progress_time_7.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.label_progress_time_7.setStyleSheet("font-family: Metropolis;\n"
-"font-size: 18px;\n"
-"line-height: 28px;\n"
-"font-weight: 800;\n"
-"\n"
-"color: #565656;")
-        self.label_progress_time_7.setObjectName("label_progress_time_7")
-        self.horizontalLayout_16.addWidget(self.label_progress_time_7)
-        self.progressBar_7 = QtWidgets.QProgressBar(self.frame_progress_7)
-        self.progressBar_7.setMinimumSize(QtCore.QSize(0, 15))
-        self.progressBar_7.setStyleSheet("QProgressBar{\n"
-"\n"
-"background-color: #DEDEDE; \n"
-"height:12px;\n"
-"border-radius: 8px;\n"
-"\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"QProgressBar::chunk{\n"
-"background-color: #83C088; \n"
-"border-radius: 6px;\n"
-"\n"
-"}\n"
-"\n"
-" ")
-        self.progressBar_7.setProperty("value", 24)
-        self.progressBar_7.setTextVisible(False)
-        self.progressBar_7.setObjectName("progressBar_7")
-        self.horizontalLayout_16.addWidget(self.progressBar_7)
-        self.label_45 = QtWidgets.QLabel(self.frame_progress_7)
-        self.label_45.setMinimumSize(QtCore.QSize(50, 0))
-        self.label_45.setStyleSheet("font-family: Metropolis;\n"
-"font-size: 18px;\n"
-"line-height: 28px;\n"
-"font-weight: 800;\n"
-"\n"
-"color: #565656;")
-        self.label_45.setObjectName("label_45")
-        self.horizontalLayout_16.addWidget(self.label_45)
-        self.pushButton_pause_7 = QtWidgets.QPushButton(self.frame_progress_7)
-        self.pushButton_pause_7.setMinimumSize(QtCore.QSize(100, 35))
-        self.pushButton_pause_7.setStyleSheet("background: #3A7FED;\n"
-"font-family: PingFang SC;\n"
-"font-style: normal;\n"
-"font-weight: normal;\n"
-"font-size: 14px;\n"
-"line-height: 20px;\n"
-"border-radius: 3px;\n"
-"\n"
-"color: #FFFFFF;")
-        self.pushButton_pause_7.setObjectName("pushButton_pause_7")
-        self.horizontalLayout_16.addWidget(self.pushButton_pause_7)
-        self.pushButton_stop_7 = QtWidgets.QPushButton(self.frame_progress_7)
-        self.pushButton_stop_7.setMinimumSize(QtCore.QSize(100, 35))
-        self.pushButton_stop_7.setStyleSheet("background: #3A7FED;\n"
-"font-family: PingFang SC;\n"
-"font-style: normal;\n"
-"font-weight: normal;\n"
-"font-size: 14px;\n"
-"line-height: 20px;\n"
-"border-radius: 3px;\n"
-"\n"
-"color: #FFFFFF;")
-        self.pushButton_stop_7.setObjectName("pushButton_stop_7")
-        self.horizontalLayout_16.addWidget(self.pushButton_stop_7)
-        self.verticalLayout_27.addWidget(self.frame_progress_7)
+#         self.frame_progress_7 = QtWidgets.QFrame(self.page_anti_virus_software)
+#         self.frame_progress_7.setMinimumSize(QtCore.QSize(0, 0))
+#         self.frame_progress_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+#         self.frame_progress_7.setFrameShadow(QtWidgets.QFrame.Raised)
+#         self.frame_progress_7.setObjectName("frame_progress_7")
+#         self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.frame_progress_7)
+#         self.horizontalLayout_16.setContentsMargins(5, 5, 5, 5)
+#         self.horizontalLayout_16.setSpacing(5)
+#         self.horizontalLayout_16.setObjectName("horizontalLayout_16")
+#         self.label_progress_time_7 = QtWidgets.QLabel(self.frame_progress_7)
+#         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+#         sizePolicy.setHorizontalStretch(0)
+#         sizePolicy.setVerticalStretch(0)
+#         sizePolicy.setHeightForWidth(self.label_progress_time_7.sizePolicy().hasHeightForWidth())
+#         self.label_progress_time_7.setSizePolicy(sizePolicy)
+#         self.label_progress_time_7.setMinimumSize(QtCore.QSize(60, 0))
+#         self.label_progress_time_7.setMaximumSize(QtCore.QSize(16777215, 16777215))
+#         self.label_progress_time_7.setStyleSheet("font-family: Metropolis;\n"
+# "font-size: 18px;\n"
+# "line-height: 28px;\n"
+# "font-weight: 800;\n"
+# "\n"
+# "color: #565656;")
+#         self.label_progress_time_7.setObjectName("label_progress_time_7")
+#         self.horizontalLayout_16.addWidget(self.label_progress_time_7)
+#         self.progressBar_7 = QtWidgets.QProgressBar(self.frame_progress_7)
+#         self.progressBar_7.setMinimumSize(QtCore.QSize(0, 15))
+#         self.progressBar_7.setStyleSheet("QProgressBar{\n"
+# "\n"
+# "background-color: #DEDEDE; \n"
+# "height:12px;\n"
+# "border-radius: 8px;\n"
+# "\n"
+# "\n"
+# "\n"
+# "}\n"
+# "\n"
+# "\n"
+# "QProgressBar::chunk{\n"
+# "background-color: #83C088; \n"
+# "border-radius: 6px;\n"
+# "\n"
+# "}\n"
+# "\n"
+# " ")
+#         self.progressBar_7.setProperty("value", 24)
+#         self.progressBar_7.setTextVisible(False)
+#         self.progressBar_7.setObjectName("progressBar_7")
+#         self.horizontalLayout_16.addWidget(self.progressBar_7)
+#         self.label_45 = QtWidgets.QLabel(self.frame_progress_7)
+#         self.label_45.setMinimumSize(QtCore.QSize(50, 0))
+#         self.label_45.setStyleSheet("font-family: Metropolis;\n"
+# "font-size: 18px;\n"
+# "line-height: 28px;\n"
+# "font-weight: 800;\n"
+# "\n"
+# "color: #565656;")
+#         self.label_45.setObjectName("label_45")
+#         self.horizontalLayout_16.addWidget(self.label_45)
+#         self.pushButton_pause_7 = QtWidgets.QPushButton(self.frame_progress_7)
+#         self.pushButton_pause_7.setMinimumSize(QtCore.QSize(100, 35))
+#         self.pushButton_pause_7.setStyleSheet("background: #3A7FED;\n"
+# "font-family: PingFang SC;\n"
+# "font-style: normal;\n"
+# "font-weight: normal;\n"
+# "font-size: 14px;\n"
+# "line-height: 20px;\n"
+# "border-radius: 3px;\n"
+# "\n"
+# "color: #FFFFFF;")
+#         self.pushButton_pause_7.setObjectName("pushButton_pause_7")
+#         self.horizontalLayout_16.addWidget(self.pushButton_pause_7)
+#         self.pushButton_stop_7 = QtWidgets.QPushButton(self.frame_progress_7)
+#         self.pushButton_stop_7.setMinimumSize(QtCore.QSize(100, 35))
+#         self.pushButton_stop_7.setStyleSheet("background: #3A7FED;\n"
+# "font-family: PingFang SC;\n"
+# "font-style: normal;\n"
+# "font-weight: normal;\n"
+# "font-size: 14px;\n"
+# "line-height: 20px;\n"
+# "border-radius: 3px;\n"
+# "\n"
+# "color: #FFFFFF;")
+#         self.pushButton_stop_7.setObjectName("pushButton_stop_7")
+#         self.horizontalLayout_16.addWidget(self.pushButton_stop_7)
+#         self.verticalLayout_27.addWidget(self.frame_progress_7)
         self.tabWidget_5 = QtWidgets.QTabWidget(self.page_anti_virus_software)
         self.tabWidget_5.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.tabWidget_5.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
@@ -354,29 +344,15 @@ class Stacked_page_anti_virus_4(object):
         self.verticalLayout_26.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_26.setSpacing(0)
         self.verticalLayout_26.setObjectName("verticalLayout_26")
-
-
-
-
-        
         self.tableWidget_5 = QtWidgets.QTableWidget(self.tab_6)
-    
-      
         self.page_anti_virus_4()
         self.verticalLayout_26.addWidget(self.tableWidget_5)
-
-
-        
         self.tabWidget_5.addTab(self.tab_6, "")
         self.verticalLayout_27.addWidget(self.tabWidget_5)
         self.stackedWidget.addWidget(self.page_anti_virus_software)
 
-        
-
-
-
-        self.label_progress_time_7.setText("02:00")
-        self.label_45.setText("100%")
-        self.pushButton_pause_7.setText("暂停检查")
-        self.pushButton_stop_7.setText("停止检查")
+        # self.label_progress_time_7.setText("02:00")
+        # self.label_45.setText("100%")
+        # self.pushButton_pause_7.setText("暂停检查")
+        # self.pushButton_stop_7.setText("停止检查")
         self.tabWidget_5.setTabText(self.tabWidget_5.indexOf(self.tab_6),  "杀毒软件")

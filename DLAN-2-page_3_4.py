@@ -383,7 +383,7 @@ class Ui_Form(object):
         self.scrollArea_content.setWidgetResizable(True)
         self.scrollArea_content.setObjectName("scrollArea_content")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 972, 690))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 976, 696))
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
@@ -886,7 +886,7 @@ class Ui_Form(object):
         self.scrollArea_content_2.setWidgetResizable(True)
         self.scrollArea_content_2.setObjectName("scrollArea_content_2")
         self.scrollAreaWidgetContents_4 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 972, 690))
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 227, 156))
         self.scrollAreaWidgetContents_4.setObjectName("scrollAreaWidgetContents_4")
         self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
@@ -2578,8 +2578,6 @@ class Ui_Form(object):
         self.tabWidget_6.addTab(self.tab_7, "")
         self.verticalLayout_29.addWidget(self.tabWidget_6)
         self.stackedWidget.addWidget(self.page_file_access_records)
-
-
         self.page_power_off_records = QtWidgets.QWidget()
         self.page_power_off_records.setObjectName("page_power_off_records")
         self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.page_power_off_records)
@@ -2712,8 +2710,6 @@ class Ui_Form(object):
         self.verticalLayout_30.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_30.setSpacing(0)
         self.verticalLayout_30.setObjectName("verticalLayout_30")
-
-
         self.tableWidget_7 = QtWidgets.QTableWidget(self.tab_8)
         self.tableWidget_7.setStatusTip("")
         self.tableWidget_7.setStyleSheet("        QTableView\n"
@@ -2818,19 +2814,2467 @@ class Ui_Form(object):
         self.tableWidget_7.horizontalHeader().setDefaultSectionSize(139)
         self.tableWidget_7.horizontalHeader().setHighlightSections(True)
         self.tableWidget_7.horizontalHeader().setStretchLastSection(True)
-        self.tableWidget_7.verticalHeader().setVisible(True)
+        self.tableWidget_7.verticalHeader().setVisible(False)
         self.tableWidget_7.verticalHeader().setSortIndicatorShown(False)
         self.tableWidget_7.verticalHeader().setStretchLastSection(False)
         self.verticalLayout_30.addWidget(self.tableWidget_7)
-
-
         self.tabWidget_7.addTab(self.tab_8, "")
         self.verticalLayout_31.addWidget(self.tabWidget_7)
         self.stackedWidget.addWidget(self.page_power_off_records)
 
 
 
+        self.page_deleted_files_records = QtWidgets.QWidget()
+        self.page_deleted_files_records.setObjectName("page_deleted_files_records")
+        self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.page_deleted_files_records)
+        self.verticalLayout_33.setObjectName("verticalLayout_33")
+        self.frame_progress_10 = QtWidgets.QFrame(self.page_deleted_files_records)
+        self.frame_progress_10.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_10.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_10.setObjectName("frame_progress_10")
+        self.horizontalLayout_20 = QtWidgets.QHBoxLayout(self.frame_progress_10)
+        self.horizontalLayout_20.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_20.setSpacing(5)
+        self.horizontalLayout_20.setObjectName("horizontalLayout_20")
+        self.label_progress_time_10 = QtWidgets.QLabel(self.frame_progress_10)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_10.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_10.setSizePolicy(sizePolicy)
+        self.label_progress_time_10.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_10.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_10.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_10.setObjectName("label_progress_time_10")
+        self.horizontalLayout_20.addWidget(self.label_progress_time_10)
+        self.progressBar_10 = QtWidgets.QProgressBar(self.frame_progress_10)
+        self.progressBar_10.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_10.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_10.setProperty("value", 24)
+        self.progressBar_10.setTextVisible(False)
+        self.progressBar_10.setObjectName("progressBar_10")
+        self.horizontalLayout_20.addWidget(self.progressBar_10)
+        self.label_48 = QtWidgets.QLabel(self.frame_progress_10)
+        self.label_48.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_48.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_48.setObjectName("label_48")
+        self.horizontalLayout_20.addWidget(self.label_48)
+        self.pushButton_pause_10 = QtWidgets.QPushButton(self.frame_progress_10)
+        self.pushButton_pause_10.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_10.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_10.setObjectName("pushButton_pause_10")
+        self.horizontalLayout_20.addWidget(self.pushButton_pause_10)
+        self.pushButton_stop_10 = QtWidgets.QPushButton(self.frame_progress_10)
+        self.pushButton_stop_10.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_10.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_10.setObjectName("pushButton_stop_10")
+        self.horizontalLayout_20.addWidget(self.pushButton_stop_10)
+        self.verticalLayout_33.addWidget(self.frame_progress_10)
+        self.tabWidget_8 = QtWidgets.QTabWidget(self.page_deleted_files_records)
+        self.tabWidget_8.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_8.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_8.setObjectName("tabWidget_8")
+        self.tab_9 = QtWidgets.QWidget()
+        self.tab_9.setStyleSheet("")
+        self.tab_9.setObjectName("tab_9")
+        self.verticalLayout_32 = QtWidgets.QVBoxLayout(self.tab_9)
+        self.verticalLayout_32.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_32.setSpacing(0)
+        self.verticalLayout_32.setObjectName("verticalLayout_32")
+        self.tableWidget_8 = QtWidgets.QTableWidget(self.tab_9)
+        self.tableWidget_8.setStatusTip("")
+        self.tableWidget_8.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_8.setLineWidth(0)
+        self.tableWidget_8.setAutoScroll(True)
+        self.tableWidget_8.setAutoScrollMargin(3)
+        self.tableWidget_8.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_8.setShowGrid(False)
+        self.tableWidget_8.setWordWrap(True)
+        self.tableWidget_8.setObjectName("tableWidget_8")
+        self.tableWidget_8.setColumnCount(6)
+        self.tableWidget_8.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_8.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_8.setItem(2, 0, item)
+        self.tableWidget_8.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_8.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_8.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_8.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_8.verticalHeader().setVisible(False)
+        self.tableWidget_8.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_8.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_32.addWidget(self.tableWidget_8)
+        self.tabWidget_8.addTab(self.tab_9, "")
+        self.verticalLayout_33.addWidget(self.tabWidget_8)
+        self.stackedWidget.addWidget(self.page_deleted_files_records)
 
+
+
+
+        self.page_get_cell_phone_records = QtWidgets.QWidget()
+        self.page_get_cell_phone_records.setObjectName("page_get_cell_phone_records")
+        self.verticalLayout_35 = QtWidgets.QVBoxLayout(self.page_get_cell_phone_records)
+        self.verticalLayout_35.setObjectName("verticalLayout_35")
+        self.frame_progress_11 = QtWidgets.QFrame(self.page_get_cell_phone_records)
+        self.frame_progress_11.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_11.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_11.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_11.setObjectName("frame_progress_11")
+        self.horizontalLayout_21 = QtWidgets.QHBoxLayout(self.frame_progress_11)
+        self.horizontalLayout_21.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_21.setSpacing(5)
+        self.horizontalLayout_21.setObjectName("horizontalLayout_21")
+        self.label_progress_time_11 = QtWidgets.QLabel(self.frame_progress_11)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_11.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_11.setSizePolicy(sizePolicy)
+        self.label_progress_time_11.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_11.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_11.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_11.setObjectName("label_progress_time_11")
+        self.horizontalLayout_21.addWidget(self.label_progress_time_11)
+        self.progressBar_11 = QtWidgets.QProgressBar(self.frame_progress_11)
+        self.progressBar_11.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_11.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_11.setProperty("value", 24)
+        self.progressBar_11.setTextVisible(False)
+        self.progressBar_11.setObjectName("progressBar_11")
+        self.horizontalLayout_21.addWidget(self.progressBar_11)
+        self.label_49 = QtWidgets.QLabel(self.frame_progress_11)
+        self.label_49.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_49.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_49.setObjectName("label_49")
+        self.horizontalLayout_21.addWidget(self.label_49)
+        self.pushButton_pause_11 = QtWidgets.QPushButton(self.frame_progress_11)
+        self.pushButton_pause_11.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_11.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_11.setObjectName("pushButton_pause_11")
+        self.horizontalLayout_21.addWidget(self.pushButton_pause_11)
+        self.pushButton_stop_11 = QtWidgets.QPushButton(self.frame_progress_11)
+        self.pushButton_stop_11.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_11.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_11.setObjectName("pushButton_stop_11")
+        self.horizontalLayout_21.addWidget(self.pushButton_stop_11)
+        self.verticalLayout_35.addWidget(self.frame_progress_11)
+        self.tabWidget_9 = QtWidgets.QTabWidget(self.page_get_cell_phone_records)
+        self.tabWidget_9.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_9.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_9.setObjectName("tabWidget_9")
+        self.tab_10 = QtWidgets.QWidget()
+        self.tab_10.setStyleSheet("")
+        self.tab_10.setObjectName("tab_10")
+        self.verticalLayout_34 = QtWidgets.QVBoxLayout(self.tab_10)
+        self.verticalLayout_34.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_34.setSpacing(0)
+        self.verticalLayout_34.setObjectName("verticalLayout_34")
+        self.tableWidget_9 = QtWidgets.QTableWidget(self.tab_10)
+        self.tableWidget_9.setStatusTip("")
+        self.tableWidget_9.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_9.setLineWidth(0)
+        self.tableWidget_9.setAutoScroll(True)
+        self.tableWidget_9.setAutoScrollMargin(3)
+        self.tableWidget_9.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_9.setShowGrid(False)
+        self.tableWidget_9.setWordWrap(True)
+        self.tableWidget_9.setObjectName("tableWidget_9")
+        self.tableWidget_9.setColumnCount(6)
+        self.tableWidget_9.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_9.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_9.setItem(2, 0, item)
+        self.tableWidget_9.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_9.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_9.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_9.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_9.verticalHeader().setVisible(False)
+        self.tableWidget_9.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_9.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_34.addWidget(self.tableWidget_9)
+        self.tabWidget_9.addTab(self.tab_10, "")
+        self.verticalLayout_35.addWidget(self.tabWidget_9)
+        self.stackedWidget.addWidget(self.page_get_cell_phone_records)
+
+
+
+        self.page_get_services_records = QtWidgets.QWidget()
+        self.page_get_services_records.setObjectName("page_get_services_records")
+        self.verticalLayout_37 = QtWidgets.QVBoxLayout(self.page_get_services_records)
+        self.verticalLayout_37.setObjectName("verticalLayout_37")
+        self.frame_progress_12 = QtWidgets.QFrame(self.page_get_services_records)
+        self.frame_progress_12.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_12.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_12.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_12.setObjectName("frame_progress_12")
+        self.horizontalLayout_22 = QtWidgets.QHBoxLayout(self.frame_progress_12)
+        self.horizontalLayout_22.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_22.setSpacing(5)
+        self.horizontalLayout_22.setObjectName("horizontalLayout_22")
+        self.label_progress_time_12 = QtWidgets.QLabel(self.frame_progress_12)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_12.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_12.setSizePolicy(sizePolicy)
+        self.label_progress_time_12.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_12.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_12.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_12.setObjectName("label_progress_time_12")
+        self.horizontalLayout_22.addWidget(self.label_progress_time_12)
+        self.progressBar_12 = QtWidgets.QProgressBar(self.frame_progress_12)
+        self.progressBar_12.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_12.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_12.setProperty("value", 24)
+        self.progressBar_12.setTextVisible(False)
+        self.progressBar_12.setObjectName("progressBar_12")
+        self.horizontalLayout_22.addWidget(self.progressBar_12)
+        self.label_50 = QtWidgets.QLabel(self.frame_progress_12)
+        self.label_50.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_50.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_50.setObjectName("label_50")
+        self.horizontalLayout_22.addWidget(self.label_50)
+        self.pushButton_pause_12 = QtWidgets.QPushButton(self.frame_progress_12)
+        self.pushButton_pause_12.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_12.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_12.setObjectName("pushButton_pause_12")
+        self.horizontalLayout_22.addWidget(self.pushButton_pause_12)
+        self.pushButton_stop_12 = QtWidgets.QPushButton(self.frame_progress_12)
+        self.pushButton_stop_12.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_12.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_12.setObjectName("pushButton_stop_12")
+        self.horizontalLayout_22.addWidget(self.pushButton_stop_12)
+        self.verticalLayout_37.addWidget(self.frame_progress_12)
+        self.tabWidget_10 = QtWidgets.QTabWidget(self.page_get_services_records)
+
+
+
+        self.tabWidget_10.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_10.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_10.setObjectName("tabWidget_10")
+        self.tab_11 = QtWidgets.QWidget()
+        self.tab_11.setStyleSheet("")
+        self.tab_11.setObjectName("tab_11")
+        self.verticalLayout_36 = QtWidgets.QVBoxLayout(self.tab_11)
+        self.verticalLayout_36.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_36.setSpacing(0)
+        self.verticalLayout_36.setObjectName("verticalLayout_36")
+        self.tableWidget_10 = QtWidgets.QTableWidget(self.tab_11)
+        self.tableWidget_10.setStatusTip("")
+        self.tableWidget_10.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_10.setLineWidth(0)
+        self.tableWidget_10.setAutoScroll(True)
+        self.tableWidget_10.setAutoScrollMargin(3)
+        self.tableWidget_10.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_10.setShowGrid(False)
+        self.tableWidget_10.setWordWrap(True)
+        self.tableWidget_10.setObjectName("tableWidget_10")
+        self.tableWidget_10.setColumnCount(6)
+        self.tableWidget_10.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_10.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_10.setItem(2, 0, item)
+        self.tableWidget_10.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_10.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_10.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_10.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_10.verticalHeader().setVisible(False)
+        self.tableWidget_10.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_10.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_36.addWidget(self.tableWidget_10)
+        self.tabWidget_10.addTab(self.tab_11, "")
+        self.verticalLayout_37.addWidget(self.tabWidget_10)
+        self.stackedWidget.addWidget(self.page_get_services_records)
+
+
+
+        self.page_current_network_records = QtWidgets.QWidget()
+        self.page_current_network_records.setObjectName("page_current_network_records")
+        self.verticalLayout_39 = QtWidgets.QVBoxLayout(self.page_current_network_records)
+        self.verticalLayout_39.setObjectName("verticalLayout_39")
+        self.frame_progress_13 = QtWidgets.QFrame(self.page_current_network_records)
+        self.frame_progress_13.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_13.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_13.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_13.setObjectName("frame_progress_13")
+        self.horizontalLayout_23 = QtWidgets.QHBoxLayout(self.frame_progress_13)
+        self.horizontalLayout_23.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_23.setSpacing(5)
+        self.horizontalLayout_23.setObjectName("horizontalLayout_23")
+        self.label_progress_time_13 = QtWidgets.QLabel(self.frame_progress_13)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_13.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_13.setSizePolicy(sizePolicy)
+        self.label_progress_time_13.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_13.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_13.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_13.setObjectName("label_progress_time_13")
+        self.horizontalLayout_23.addWidget(self.label_progress_time_13)
+        self.progressBar_13 = QtWidgets.QProgressBar(self.frame_progress_13)
+        self.progressBar_13.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_13.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_13.setProperty("value", 24)
+        self.progressBar_13.setTextVisible(False)
+        self.progressBar_13.setObjectName("progressBar_13")
+        self.horizontalLayout_23.addWidget(self.progressBar_13)
+        self.label_51 = QtWidgets.QLabel(self.frame_progress_13)
+        self.label_51.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_51.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_51.setObjectName("label_51")
+        self.horizontalLayout_23.addWidget(self.label_51)
+        self.pushButton_pause_13 = QtWidgets.QPushButton(self.frame_progress_13)
+        self.pushButton_pause_13.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_13.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_13.setObjectName("pushButton_pause_13")
+        self.horizontalLayout_23.addWidget(self.pushButton_pause_13)
+        self.pushButton_stop_13 = QtWidgets.QPushButton(self.frame_progress_13)
+        self.pushButton_stop_13.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_13.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_13.setObjectName("pushButton_stop_13")
+        self.horizontalLayout_23.addWidget(self.pushButton_stop_13)
+        self.verticalLayout_39.addWidget(self.frame_progress_13)
+        self.tabWidget_11 = QtWidgets.QTabWidget(self.page_current_network_records)
+        self.tabWidget_11.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_11.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_11.setObjectName("tabWidget_11")
+        self.tab_12 = QtWidgets.QWidget()
+        self.tab_12.setStyleSheet("")
+        self.tab_12.setObjectName("tab_12")
+        self.verticalLayout_38 = QtWidgets.QVBoxLayout(self.tab_12)
+        self.verticalLayout_38.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_38.setSpacing(0)
+        self.verticalLayout_38.setObjectName("verticalLayout_38")
+        self.tableWidget_11 = QtWidgets.QTableWidget(self.tab_12)
+        self.tableWidget_11.setStatusTip("")
+        self.tableWidget_11.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_11.setLineWidth(0)
+        self.tableWidget_11.setAutoScroll(True)
+        self.tableWidget_11.setAutoScrollMargin(3)
+        self.tableWidget_11.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_11.setShowGrid(False)
+        self.tableWidget_11.setWordWrap(True)
+        self.tableWidget_11.setObjectName("tableWidget_11")
+        self.tableWidget_11.setColumnCount(6)
+        self.tableWidget_11.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_11.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_11.setItem(2, 0, item)
+        self.tableWidget_11.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_11.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_11.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_11.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_11.verticalHeader().setVisible(False)
+        self.tableWidget_11.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_11.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_38.addWidget(self.tableWidget_11)
+        self.tabWidget_11.addTab(self.tab_12, "")
+        self.verticalLayout_39.addWidget(self.tabWidget_11)
+        self.stackedWidget.addWidget(self.page_current_network_records)
+
+
+        self.page_get_system_logs_records = QtWidgets.QWidget()
+        self.page_get_system_logs_records.setObjectName("page_get_system_logs_records")
+        self.verticalLayout_41 = QtWidgets.QVBoxLayout(self.page_get_system_logs_records)
+        self.verticalLayout_41.setObjectName("verticalLayout_41")
+        self.frame_progress_14 = QtWidgets.QFrame(self.page_get_system_logs_records)
+        self.frame_progress_14.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_14.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_14.setObjectName("frame_progress_14")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout(self.frame_progress_14)
+        self.horizontalLayout_24.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_24.setSpacing(5)
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.label_progress_time_14 = QtWidgets.QLabel(self.frame_progress_14)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_14.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_14.setSizePolicy(sizePolicy)
+        self.label_progress_time_14.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_14.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_14.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_14.setObjectName("label_progress_time_14")
+        self.horizontalLayout_24.addWidget(self.label_progress_time_14)
+        self.progressBar_14 = QtWidgets.QProgressBar(self.frame_progress_14)
+        self.progressBar_14.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_14.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_14.setProperty("value", 24)
+        self.progressBar_14.setTextVisible(False)
+        self.progressBar_14.setObjectName("progressBar_14")
+        self.horizontalLayout_24.addWidget(self.progressBar_14)
+        self.label_52 = QtWidgets.QLabel(self.frame_progress_14)
+        self.label_52.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_52.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_52.setObjectName("label_52")
+        self.horizontalLayout_24.addWidget(self.label_52)
+        self.pushButton_pause_14 = QtWidgets.QPushButton(self.frame_progress_14)
+        self.pushButton_pause_14.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_14.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_14.setObjectName("pushButton_pause_14")
+        self.horizontalLayout_24.addWidget(self.pushButton_pause_14)
+        self.pushButton_stop_14 = QtWidgets.QPushButton(self.frame_progress_14)
+        self.pushButton_stop_14.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_14.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_14.setObjectName("pushButton_stop_14")
+        self.horizontalLayout_24.addWidget(self.pushButton_stop_14)
+        self.verticalLayout_41.addWidget(self.frame_progress_14)
+        self.tabWidget_12 = QtWidgets.QTabWidget(self.page_get_system_logs_records)
+        self.tabWidget_12.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_12.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_12.setObjectName("tabWidget_12")
+        self.tab_13 = QtWidgets.QWidget()
+        self.tab_13.setStyleSheet("")
+        self.tab_13.setObjectName("tab_13")
+        self.verticalLayout_40 = QtWidgets.QVBoxLayout(self.tab_13)
+        self.verticalLayout_40.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_40.setSpacing(0)
+        self.verticalLayout_40.setObjectName("verticalLayout_40")
+        self.tableWidget_12 = QtWidgets.QTableWidget(self.tab_13)
+        self.tableWidget_12.setStatusTip("")
+        self.tableWidget_12.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_12.setLineWidth(0)
+        self.tableWidget_12.setAutoScroll(True)
+        self.tableWidget_12.setAutoScrollMargin(3)
+        self.tableWidget_12.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_12.setShowGrid(False)
+        self.tableWidget_12.setWordWrap(True)
+        self.tableWidget_12.setObjectName("tableWidget_12")
+        self.tableWidget_12.setColumnCount(6)
+        self.tableWidget_12.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_12.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_12.setItem(2, 0, item)
+        self.tableWidget_12.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_12.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_12.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_12.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_12.verticalHeader().setVisible(False)
+        self.tableWidget_12.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_12.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_40.addWidget(self.tableWidget_12)
+        self.tabWidget_12.addTab(self.tab_13, "")
+        self.verticalLayout_41.addWidget(self.tabWidget_12)
+        self.stackedWidget.addWidget(self.page_get_system_logs_records)
+
+
+        self.page_sharing_settings_records = QtWidgets.QWidget()
+        self.page_sharing_settings_records.setObjectName("page_sharing_settings_records")
+        self.verticalLayout_43 = QtWidgets.QVBoxLayout(self.page_sharing_settings_records)
+        self.verticalLayout_43.setObjectName("verticalLayout_43")
+        self.frame_progress_15 = QtWidgets.QFrame(self.page_sharing_settings_records)
+        self.frame_progress_15.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_15.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_15.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_15.setObjectName("frame_progress_15")
+        self.horizontalLayout_25 = QtWidgets.QHBoxLayout(self.frame_progress_15)
+        self.horizontalLayout_25.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_25.setSpacing(5)
+        self.horizontalLayout_25.setObjectName("horizontalLayout_25")
+        self.label_progress_time_15 = QtWidgets.QLabel(self.frame_progress_15)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_15.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_15.setSizePolicy(sizePolicy)
+        self.label_progress_time_15.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_15.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_15.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_15.setObjectName("label_progress_time_15")
+        self.horizontalLayout_25.addWidget(self.label_progress_time_15)
+        self.progressBar_15 = QtWidgets.QProgressBar(self.frame_progress_15)
+        self.progressBar_15.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_15.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_15.setProperty("value", 24)
+        self.progressBar_15.setTextVisible(False)
+        self.progressBar_15.setObjectName("progressBar_15")
+        self.horizontalLayout_25.addWidget(self.progressBar_15)
+        self.label_53 = QtWidgets.QLabel(self.frame_progress_15)
+        self.label_53.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_53.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_53.setObjectName("label_53")
+        self.horizontalLayout_25.addWidget(self.label_53)
+        self.pushButton_pause_15 = QtWidgets.QPushButton(self.frame_progress_15)
+        self.pushButton_pause_15.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_15.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_15.setObjectName("pushButton_pause_15")
+        self.horizontalLayout_25.addWidget(self.pushButton_pause_15)
+        self.pushButton_stop_15 = QtWidgets.QPushButton(self.frame_progress_15)
+        self.pushButton_stop_15.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_15.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_15.setObjectName("pushButton_stop_15")
+        self.horizontalLayout_25.addWidget(self.pushButton_stop_15)
+        self.verticalLayout_43.addWidget(self.frame_progress_15)
+        self.tabWidget_13 = QtWidgets.QTabWidget(self.page_sharing_settings_records)
+        self.tabWidget_13.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_13.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_13.setObjectName("tabWidget_13")
+        self.tab_14 = QtWidgets.QWidget()
+        self.tab_14.setStyleSheet("")
+        self.tab_14.setObjectName("tab_14")
+        self.verticalLayout_42 = QtWidgets.QVBoxLayout(self.tab_14)
+        self.verticalLayout_42.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_42.setSpacing(0)
+        self.verticalLayout_42.setObjectName("verticalLayout_42")
+        self.tableWidget_13 = QtWidgets.QTableWidget(self.tab_14)
+        self.tableWidget_13.setStatusTip("")
+        self.tableWidget_13.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_13.setLineWidth(0)
+        self.tableWidget_13.setAutoScroll(True)
+        self.tableWidget_13.setAutoScrollMargin(3)
+        self.tableWidget_13.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_13.setShowGrid(False)
+        self.tableWidget_13.setWordWrap(True)
+        self.tableWidget_13.setObjectName("tableWidget_13")
+        self.tableWidget_13.setColumnCount(6)
+        self.tableWidget_13.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_13.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_13.setItem(2, 0, item)
+        self.tableWidget_13.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_13.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_13.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_13.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_13.verticalHeader().setVisible(False)
+        self.tableWidget_13.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_13.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_42.addWidget(self.tableWidget_13)
+        self.tabWidget_13.addTab(self.tab_14, "")
+        self.verticalLayout_43.addWidget(self.tabWidget_13)
+        self.stackedWidget.addWidget(self.page_sharing_settings_records)
+        self.page_strategy_records = QtWidgets.QWidget()
+        self.page_strategy_records.setObjectName("page_strategy_records")
+        self.verticalLayout_45 = QtWidgets.QVBoxLayout(self.page_strategy_records)
+        self.verticalLayout_45.setObjectName("verticalLayout_45")
+        self.frame_progress_16 = QtWidgets.QFrame(self.page_strategy_records)
+        self.frame_progress_16.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_16.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_16.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_16.setObjectName("frame_progress_16")
+        self.horizontalLayout_34 = QtWidgets.QHBoxLayout(self.frame_progress_16)
+        self.horizontalLayout_34.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_34.setSpacing(5)
+        self.horizontalLayout_34.setObjectName("horizontalLayout_34")
+        self.label_progress_time_16 = QtWidgets.QLabel(self.frame_progress_16)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_16.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_16.setSizePolicy(sizePolicy)
+        self.label_progress_time_16.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_16.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_16.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_16.setObjectName("label_progress_time_16")
+        self.horizontalLayout_34.addWidget(self.label_progress_time_16)
+        self.progressBar_16 = QtWidgets.QProgressBar(self.frame_progress_16)
+        self.progressBar_16.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_16.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_16.setProperty("value", 24)
+        self.progressBar_16.setTextVisible(False)
+        self.progressBar_16.setObjectName("progressBar_16")
+        self.horizontalLayout_34.addWidget(self.progressBar_16)
+        self.label_64 = QtWidgets.QLabel(self.frame_progress_16)
+        self.label_64.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_64.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_64.setObjectName("label_64")
+        self.horizontalLayout_34.addWidget(self.label_64)
+        self.pushButton_pause_16 = QtWidgets.QPushButton(self.frame_progress_16)
+        self.pushButton_pause_16.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_16.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_16.setObjectName("pushButton_pause_16")
+        self.horizontalLayout_34.addWidget(self.pushButton_pause_16)
+        self.pushButton_stop_16 = QtWidgets.QPushButton(self.frame_progress_16)
+        self.pushButton_stop_16.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_16.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_16.setObjectName("pushButton_stop_16")
+        self.horizontalLayout_34.addWidget(self.pushButton_stop_16)
+        self.verticalLayout_45.addWidget(self.frame_progress_16)
+        self.tabWidget_14 = QtWidgets.QTabWidget(self.page_strategy_records)
+        self.tabWidget_14.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_14.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_14.setObjectName("tabWidget_14")
+        self.tab_15 = QtWidgets.QWidget()
+        self.tab_15.setStyleSheet("")
+        self.tab_15.setObjectName("tab_15")
+        self.verticalLayout_44 = QtWidgets.QVBoxLayout(self.tab_15)
+        self.verticalLayout_44.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_44.setSpacing(0)
+        self.verticalLayout_44.setObjectName("verticalLayout_44")
+        self.tableWidget_14 = QtWidgets.QTableWidget(self.tab_15)
+        self.tableWidget_14.setStatusTip("")
+        self.tableWidget_14.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_14.setLineWidth(0)
+        self.tableWidget_14.setAutoScroll(True)
+        self.tableWidget_14.setAutoScrollMargin(3)
+        self.tableWidget_14.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_14.setShowGrid(False)
+        self.tableWidget_14.setWordWrap(True)
+        self.tableWidget_14.setObjectName("tableWidget_14")
+        self.tableWidget_14.setColumnCount(6)
+        self.tableWidget_14.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_14.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_14.setItem(2, 0, item)
+        self.tableWidget_14.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_14.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_14.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_14.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_14.verticalHeader().setVisible(False)
+        self.tableWidget_14.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_14.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_44.addWidget(self.tableWidget_14)
+        self.tabWidget_14.addTab(self.tab_15, "")
+        self.verticalLayout_45.addWidget(self.tabWidget_14)
+        self.stackedWidget.addWidget(self.page_strategy_records)
+
+        self.page_users_groups_records = QtWidgets.QWidget()
+        self.page_users_groups_records.setObjectName("page_users_groups_records")
+        self.verticalLayout_47 = QtWidgets.QVBoxLayout(self.page_users_groups_records)
+        self.verticalLayout_47.setObjectName("verticalLayout_47")
+        self.frame_progress_17 = QtWidgets.QFrame(self.page_users_groups_records)
+        self.frame_progress_17.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_17.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_17.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_17.setObjectName("frame_progress_17")
+        self.horizontalLayout_35 = QtWidgets.QHBoxLayout(self.frame_progress_17)
+        self.horizontalLayout_35.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_35.setSpacing(5)
+        self.horizontalLayout_35.setObjectName("horizontalLayout_35")
+        self.label_progress_time_17 = QtWidgets.QLabel(self.frame_progress_17)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_17.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_17.setSizePolicy(sizePolicy)
+        self.label_progress_time_17.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_17.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_17.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_17.setObjectName("label_progress_time_17")
+        self.horizontalLayout_35.addWidget(self.label_progress_time_17)
+        self.progressBar_17 = QtWidgets.QProgressBar(self.frame_progress_17)
+        self.progressBar_17.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_17.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_17.setProperty("value", 24)
+        self.progressBar_17.setTextVisible(False)
+        self.progressBar_17.setObjectName("progressBar_17")
+        self.horizontalLayout_35.addWidget(self.progressBar_17)
+        self.label_65 = QtWidgets.QLabel(self.frame_progress_17)
+        self.label_65.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_65.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_65.setObjectName("label_65")
+        self.horizontalLayout_35.addWidget(self.label_65)
+        self.pushButton_pause_17 = QtWidgets.QPushButton(self.frame_progress_17)
+        self.pushButton_pause_17.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_17.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_17.setObjectName("pushButton_pause_17")
+        self.horizontalLayout_35.addWidget(self.pushButton_pause_17)
+        self.pushButton_stop_17 = QtWidgets.QPushButton(self.frame_progress_17)
+        self.pushButton_stop_17.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_17.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_17.setObjectName("pushButton_stop_17")
+        self.horizontalLayout_35.addWidget(self.pushButton_stop_17)
+        self.verticalLayout_47.addWidget(self.frame_progress_17)
+        self.tabWidget_15 = QtWidgets.QTabWidget(self.page_users_groups_records)
+        self.tabWidget_15.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_15.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_15.setObjectName("tabWidget_15")
+        self.tab_16 = QtWidgets.QWidget()
+        self.tab_16.setStyleSheet("")
+        self.tab_16.setObjectName("tab_16")
+        self.verticalLayout_46 = QtWidgets.QVBoxLayout(self.tab_16)
+        self.verticalLayout_46.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_46.setSpacing(0)
+        self.verticalLayout_46.setObjectName("verticalLayout_46")
+        self.tableWidget_15 = QtWidgets.QTableWidget(self.tab_16)
+        self.tableWidget_15.setStatusTip("")
+        self.tableWidget_15.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_15.setLineWidth(0)
+        self.tableWidget_15.setAutoScroll(True)
+        self.tableWidget_15.setAutoScrollMargin(3)
+        self.tableWidget_15.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_15.setShowGrid(False)
+        self.tableWidget_15.setWordWrap(True)
+        self.tableWidget_15.setObjectName("tableWidget_15")
+        self.tableWidget_15.setColumnCount(6)
+        self.tableWidget_15.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_15.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_15.setItem(2, 0, item)
+        self.tableWidget_15.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_15.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_15.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_15.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_15.verticalHeader().setVisible(False)
+        self.tableWidget_15.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_15.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_46.addWidget(self.tableWidget_15)
+        self.tabWidget_15.addTab(self.tab_16, "")
+        self.verticalLayout_47.addWidget(self.tabWidget_15)
+        self.stackedWidget.addWidget(self.page_users_groups_records)
+
+
+        self.page_system_drives_records = QtWidgets.QWidget()
+        self.page_system_drives_records.setObjectName("page_system_drives_records")
+        self.verticalLayout_49 = QtWidgets.QVBoxLayout(self.page_system_drives_records)
+        self.verticalLayout_49.setObjectName("verticalLayout_49")
+        self.frame_progress_18 = QtWidgets.QFrame(self.page_system_drives_records)
+        self.frame_progress_18.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_18.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_18.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_18.setObjectName("frame_progress_18")
+        self.horizontalLayout_36 = QtWidgets.QHBoxLayout(self.frame_progress_18)
+        self.horizontalLayout_36.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_36.setSpacing(5)
+        self.horizontalLayout_36.setObjectName("horizontalLayout_36")
+        self.label_progress_time_18 = QtWidgets.QLabel(self.frame_progress_18)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_18.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_18.setSizePolicy(sizePolicy)
+        self.label_progress_time_18.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_18.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_18.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_18.setObjectName("label_progress_time_18")
+        self.horizontalLayout_36.addWidget(self.label_progress_time_18)
+        self.progressBar_18 = QtWidgets.QProgressBar(self.frame_progress_18)
+        self.progressBar_18.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_18.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_18.setProperty("value", 24)
+        self.progressBar_18.setTextVisible(False)
+        self.progressBar_18.setObjectName("progressBar_18")
+        self.horizontalLayout_36.addWidget(self.progressBar_18)
+        self.label_66 = QtWidgets.QLabel(self.frame_progress_18)
+        self.label_66.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_66.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_66.setObjectName("label_66")
+        self.horizontalLayout_36.addWidget(self.label_66)
+        self.pushButton_pause_18 = QtWidgets.QPushButton(self.frame_progress_18)
+        self.pushButton_pause_18.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_18.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_18.setObjectName("pushButton_pause_18")
+        self.horizontalLayout_36.addWidget(self.pushButton_pause_18)
+        self.pushButton_stop_18 = QtWidgets.QPushButton(self.frame_progress_18)
+        self.pushButton_stop_18.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_18.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_18.setObjectName("pushButton_stop_18")
+        self.horizontalLayout_36.addWidget(self.pushButton_stop_18)
+        self.verticalLayout_49.addWidget(self.frame_progress_18)
+        self.tabWidget_16 = QtWidgets.QTabWidget(self.page_system_drives_records)
+        self.tabWidget_16.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_16.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_16.setObjectName("tabWidget_16")
+        self.tab_17 = QtWidgets.QWidget()
+        self.tab_17.setStyleSheet("")
+        self.tab_17.setObjectName("tab_17")
+        self.verticalLayout_48 = QtWidgets.QVBoxLayout(self.tab_17)
+        self.verticalLayout_48.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_48.setSpacing(0)
+        self.verticalLayout_48.setObjectName("verticalLayout_48")
+        self.tableWidget_16 = QtWidgets.QTableWidget(self.tab_17)
+        self.tableWidget_16.setStatusTip("")
+        self.tableWidget_16.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_16.setLineWidth(0)
+        self.tableWidget_16.setAutoScroll(True)
+        self.tableWidget_16.setAutoScrollMargin(3)
+        self.tableWidget_16.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_16.setShowGrid(False)
+        self.tableWidget_16.setWordWrap(True)
+        self.tableWidget_16.setObjectName("tableWidget_16")
+        self.tableWidget_16.setColumnCount(6)
+        self.tableWidget_16.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_16.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_16.setItem(2, 0, item)
+        self.tableWidget_16.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_16.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_16.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_16.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_16.verticalHeader().setVisible(False)
+        self.tableWidget_16.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_16.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_48.addWidget(self.tableWidget_16)
+        self.tabWidget_16.addTab(self.tab_17, "")
+        self.verticalLayout_49.addWidget(self.tabWidget_16)
+        self.stackedWidget.addWidget(self.page_system_drives_records)
+
+        self.page_hardware_records = QtWidgets.QWidget()
+        self.page_hardware_records.setObjectName("page_hardware_records")
+        self.verticalLayout_51 = QtWidgets.QVBoxLayout(self.page_hardware_records)
+        self.verticalLayout_51.setObjectName("verticalLayout_51")
+        self.frame_progress_19 = QtWidgets.QFrame(self.page_hardware_records)
+        self.frame_progress_19.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_progress_19.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_progress_19.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_progress_19.setObjectName("frame_progress_19")
+        self.horizontalLayout_37 = QtWidgets.QHBoxLayout(self.frame_progress_19)
+        self.horizontalLayout_37.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_37.setSpacing(5)
+        self.horizontalLayout_37.setObjectName("horizontalLayout_37")
+        self.label_progress_time_19 = QtWidgets.QLabel(self.frame_progress_19)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_progress_time_19.sizePolicy().hasHeightForWidth())
+        self.label_progress_time_19.setSizePolicy(sizePolicy)
+        self.label_progress_time_19.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_progress_time_19.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.label_progress_time_19.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_progress_time_19.setObjectName("label_progress_time_19")
+        self.horizontalLayout_37.addWidget(self.label_progress_time_19)
+        self.progressBar_19 = QtWidgets.QProgressBar(self.frame_progress_19)
+        self.progressBar_19.setMinimumSize(QtCore.QSize(0, 15))
+        self.progressBar_19.setStyleSheet("QProgressBar{\n"
+"\n"
+"background-color: #DEDEDE; \n"
+"height:12px;\n"
+"border-radius: 8px;\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk{\n"
+"background-color: #83C088; \n"
+"border-radius: 6px;\n"
+"\n"
+"}\n"
+"\n"
+" ")
+        self.progressBar_19.setProperty("value", 24)
+        self.progressBar_19.setTextVisible(False)
+        self.progressBar_19.setObjectName("progressBar_19")
+        self.horizontalLayout_37.addWidget(self.progressBar_19)
+        self.label_67 = QtWidgets.QLabel(self.frame_progress_19)
+        self.label_67.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_67.setStyleSheet("font-family: Metropolis;\n"
+"font-size: 18px;\n"
+"line-height: 28px;\n"
+"font-weight: 800;\n"
+"\n"
+"color: #565656;")
+        self.label_67.setObjectName("label_67")
+        self.horizontalLayout_37.addWidget(self.label_67)
+        self.pushButton_pause_19 = QtWidgets.QPushButton(self.frame_progress_19)
+        self.pushButton_pause_19.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_pause_19.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_pause_19.setObjectName("pushButton_pause_19")
+        self.horizontalLayout_37.addWidget(self.pushButton_pause_19)
+        self.pushButton_stop_19 = QtWidgets.QPushButton(self.frame_progress_19)
+        self.pushButton_stop_19.setMinimumSize(QtCore.QSize(100, 35))
+        self.pushButton_stop_19.setStyleSheet("background: #3A7FED;\n"
+"font-family: PingFang SC;\n"
+"font-style: normal;\n"
+"font-weight: normal;\n"
+"font-size: 14px;\n"
+"line-height: 20px;\n"
+"border-radius: 3px;\n"
+"\n"
+"color: #FFFFFF;")
+        self.pushButton_stop_19.setObjectName("pushButton_stop_19")
+        self.horizontalLayout_37.addWidget(self.pushButton_stop_19)
+        self.verticalLayout_51.addWidget(self.frame_progress_19)
+        self.tabWidget_17 = QtWidgets.QTabWidget(self.page_hardware_records)
+        self.tabWidget_17.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget_17.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    top: -0.01em;\n"
+"}\n"
+" \n"
+"QTabWidget::tab-bar {\n"
+"    alignment: left;\n"
+"    left: 2em;\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab {\n"
+"    border-top-left-radius: 10px;border-top-right-radius: 10px;\n"
+"    background-color: #4094da;\n"
+"    font: bold 12px \'Arial\';\n"
+"    color: white;\n"
+"    height:40px;\n"
+"    width:200px;\n"
+"    font-style: normal;\n"
+"    font-weight: 600;\n"
+"    font-size: 16px;\n"
+"    line-height: 22px;\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    color: white;\n"
+"    background: #213E75;\n"
+" }\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    background-color: white;\n"
+"    color: #565656;;\n"
+"}\n"
+"")
+        self.tabWidget_17.setObjectName("tabWidget_17")
+        self.tab_18 = QtWidgets.QWidget()
+        self.tab_18.setStyleSheet("")
+        self.tab_18.setObjectName("tab_18")
+        self.verticalLayout_50 = QtWidgets.QVBoxLayout(self.tab_18)
+        self.verticalLayout_50.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_50.setSpacing(0)
+        self.verticalLayout_50.setObjectName("verticalLayout_50")
+        self.tableWidget_17 = QtWidgets.QTableWidget(self.tab_18)
+        self.tableWidget_17.setStatusTip("")
+        self.tableWidget_17.setStyleSheet("        QTableView\n"
+"{\n"
+"    background-color: #FFFFFF;\n"
+"    alternate-background-color:#e3edf9;\n"
+"    font:14px \"微软雅黑\";\n"
+"    color:#677483;\n"
+"    gridline-color: #ccddf0;  \n"
+"\n"
+"border: 2px solid rgba(41, 43, 49, 0.2);\n"
+"border-top: 5px solid #213E75;\n"
+"border-bottom: 3px solid rgba(41, 43, 49, 0.2);\n"
+"\n"
+"border-radius:5px\n"
+"\n"
+"}\n"
+" \n"
+"QTableView::item\n"
+"{  \n"
+"    font:20px \"微软雅黑\";\n"
+"    color:#29414E; \n"
+"    border:0px;   \n"
+"    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n"
+"}\n"
+" \n"
+"QTableView::item:selected\n"
+"{  \n"
+"    color:green;\n"
+"}\n"
+" \n"
+"QHeaderView::section { \n"
+"    color: #565656;;\n"
+"    font:bold 14px \"微软雅黑\";\n"
+"    text-align:right;\n"
+"    height:43px;\n"
+"    \n"
+"    border:0px;\n"
+"\n"
+"    border-bottom: 2px solid rgba(0, 0, 0, 0.1);\n"
+"\n"
+"    background: #FFFFFF;\n"
+"\n"
+"    border-left:none;\n"
+"}\n"
+" \n"
+"// border-left:none;防止中间表头的border重叠\n"
+"QHeaderView::section:first\n"
+"{\n"
+"    border-left:1px solid #8faac9;\n"
+"border-radius: 3px;\n"
+"}")
+        self.tableWidget_17.setLineWidth(0)
+        self.tableWidget_17.setAutoScroll(True)
+        self.tableWidget_17.setAutoScrollMargin(3)
+        self.tableWidget_17.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.tableWidget_17.setShowGrid(False)
+        self.tableWidget_17.setWordWrap(True)
+        self.tableWidget_17.setObjectName("tableWidget_17")
+        self.tableWidget_17.setColumnCount(6)
+        self.tableWidget_17.setRowCount(9)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        item.setForeground(brush)
+        self.tableWidget_17.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_17.setItem(2, 0, item)
+        self.tableWidget_17.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_17.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_17.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_17.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_17.verticalHeader().setVisible(True)
+        self.tableWidget_17.verticalHeader().setSortIndicatorShown(False)
+        self.tableWidget_17.verticalHeader().setStretchLastSection(False)
+        self.verticalLayout_50.addWidget(self.tableWidget_17)
+        self.tabWidget_17.addTab(self.tab_18, "")
+        self.verticalLayout_51.addWidget(self.tabWidget_17)
+        self.stackedWidget.addWidget(self.page_hardware_records)
 
 
         self.horizontalLayout.addWidget(self.stackedWidget)
@@ -2890,7 +5334,7 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.frame_zhuangtai)
 
         self.retranslateUi(Form)
-        self.stackedWidget.setCurrentIndex(8)
+        self.stackedWidget.setCurrentIndex(18)
         self.tabWidget_2.setCurrentIndex(0)
         self.tabWidget_3.setCurrentIndex(0)
         self.tabWidget_4.setCurrentIndex(0)
@@ -2898,6 +5342,16 @@ class Ui_Form(object):
         self.tabWidget.setCurrentIndex(0)
         self.tabWidget_6.setCurrentIndex(0)
         self.tabWidget_7.setCurrentIndex(0)
+        self.tabWidget_8.setCurrentIndex(0)
+        self.tabWidget_9.setCurrentIndex(0)
+        self.tabWidget_10.setCurrentIndex(0)
+        self.tabWidget_11.setCurrentIndex(0)
+        self.tabWidget_12.setCurrentIndex(0)
+        self.tabWidget_13.setCurrentIndex(0)
+        self.tabWidget_14.setCurrentIndex(0)
+        self.tabWidget_15.setCurrentIndex(0)
+        self.tabWidget_16.setCurrentIndex(0)
+        self.tabWidget_17.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
@@ -3302,6 +5756,456 @@ class Ui_Form(object):
         item.setText(_translate("Form", "2"))
         self.tableWidget_7.setSortingEnabled(__sortingEnabled)
         self.tabWidget_7.setTabText(self.tabWidget_7.indexOf(self.tab_8), _translate("Form", "Tab 1"))
+        self.label_progress_time_10.setText(_translate("Form", "02:00"))
+        self.label_48.setText(_translate("Form", "100%"))
+        self.pushButton_pause_10.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_10.setText(_translate("Form", "停止检查"))
+        self.tableWidget_8.setSortingEnabled(True)
+        item = self.tableWidget_8.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_8.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_8.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_8.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_8.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_8.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_8.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_8.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_8.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_8.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_8.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_8.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_8.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_8.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_8.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_8.isSortingEnabled()
+        self.tableWidget_8.setSortingEnabled(False)
+        item = self.tableWidget_8.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_8.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_8.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_8.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_8.setTabText(self.tabWidget_8.indexOf(self.tab_9), _translate("Form", "Tab 1"))
+        self.label_progress_time_11.setText(_translate("Form", "02:00"))
+        self.label_49.setText(_translate("Form", "100%"))
+        self.pushButton_pause_11.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_11.setText(_translate("Form", "停止检查"))
+        self.tableWidget_9.setSortingEnabled(True)
+        item = self.tableWidget_9.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_9.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_9.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_9.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_9.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_9.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_9.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_9.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_9.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_9.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_9.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_9.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_9.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_9.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_9.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_9.isSortingEnabled()
+        self.tableWidget_9.setSortingEnabled(False)
+        item = self.tableWidget_9.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_9.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_9.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_9.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_9.setTabText(self.tabWidget_9.indexOf(self.tab_10), _translate("Form", "Tab 1"))
+        self.label_progress_time_12.setText(_translate("Form", "02:00"))
+        self.label_50.setText(_translate("Form", "100%"))
+        self.pushButton_pause_12.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_12.setText(_translate("Form", "停止检查"))
+        self.tableWidget_10.setSortingEnabled(True)
+        item = self.tableWidget_10.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_10.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_10.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_10.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_10.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_10.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_10.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_10.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_10.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_10.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_10.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_10.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_10.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_10.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_10.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_10.isSortingEnabled()
+        self.tableWidget_10.setSortingEnabled(False)
+        item = self.tableWidget_10.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_10.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_10.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_10.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_10.setTabText(self.tabWidget_10.indexOf(self.tab_11), _translate("Form", "Tab 1"))
+        self.label_progress_time_13.setText(_translate("Form", "02:00"))
+        self.label_51.setText(_translate("Form", "100%"))
+        self.pushButton_pause_13.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_13.setText(_translate("Form", "停止检查"))
+        self.tableWidget_11.setSortingEnabled(True)
+        item = self.tableWidget_11.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_11.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_11.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_11.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_11.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_11.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_11.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_11.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_11.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_11.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_11.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_11.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_11.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_11.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_11.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_11.isSortingEnabled()
+        self.tableWidget_11.setSortingEnabled(False)
+        item = self.tableWidget_11.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_11.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_11.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_11.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_11.setTabText(self.tabWidget_11.indexOf(self.tab_12), _translate("Form", "Tab 1"))
+        self.label_progress_time_14.setText(_translate("Form", "02:00"))
+        self.label_52.setText(_translate("Form", "100%"))
+        self.pushButton_pause_14.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_14.setText(_translate("Form", "停止检查"))
+        self.tableWidget_12.setSortingEnabled(True)
+        item = self.tableWidget_12.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_12.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_12.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_12.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_12.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_12.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_12.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_12.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_12.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_12.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_12.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_12.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_12.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_12.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_12.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_12.isSortingEnabled()
+        self.tableWidget_12.setSortingEnabled(False)
+        item = self.tableWidget_12.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_12.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_12.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_12.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_12.setTabText(self.tabWidget_12.indexOf(self.tab_13), _translate("Form", "Tab 1"))
+        self.label_progress_time_15.setText(_translate("Form", "02:00"))
+        self.label_53.setText(_translate("Form", "100%"))
+        self.pushButton_pause_15.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_15.setText(_translate("Form", "停止检查"))
+        self.tableWidget_13.setSortingEnabled(True)
+        item = self.tableWidget_13.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_13.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_13.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_13.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_13.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_13.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_13.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_13.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_13.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_13.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_13.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_13.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_13.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_13.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_13.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_13.isSortingEnabled()
+        self.tableWidget_13.setSortingEnabled(False)
+        item = self.tableWidget_13.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_13.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_13.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_13.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_13.setTabText(self.tabWidget_13.indexOf(self.tab_14), _translate("Form", "Tab 1"))
+        self.label_progress_time_16.setText(_translate("Form", "02:00"))
+        self.label_64.setText(_translate("Form", "100%"))
+        self.pushButton_pause_16.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_16.setText(_translate("Form", "停止检查"))
+        self.tableWidget_14.setSortingEnabled(True)
+        item = self.tableWidget_14.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_14.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_14.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_14.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_14.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_14.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_14.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_14.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_14.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_14.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_14.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_14.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_14.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_14.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_14.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_14.isSortingEnabled()
+        self.tableWidget_14.setSortingEnabled(False)
+        item = self.tableWidget_14.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_14.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_14.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_14.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_14.setTabText(self.tabWidget_14.indexOf(self.tab_15), _translate("Form", "Tab 1"))
+        self.label_progress_time_17.setText(_translate("Form", "02:00"))
+        self.label_65.setText(_translate("Form", "100%"))
+        self.pushButton_pause_17.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_17.setText(_translate("Form", "停止检查"))
+        self.tableWidget_15.setSortingEnabled(True)
+        item = self.tableWidget_15.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_15.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_15.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_15.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_15.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_15.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_15.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_15.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_15.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_15.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_15.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_15.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_15.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_15.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_15.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_15.isSortingEnabled()
+        self.tableWidget_15.setSortingEnabled(False)
+        item = self.tableWidget_15.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_15.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_15.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_15.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_15.setTabText(self.tabWidget_15.indexOf(self.tab_16), _translate("Form", "Tab 1"))
+        self.label_progress_time_18.setText(_translate("Form", "02:00"))
+        self.label_66.setText(_translate("Form", "100%"))
+        self.pushButton_pause_18.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_18.setText(_translate("Form", "停止检查"))
+        self.tableWidget_16.setSortingEnabled(True)
+        item = self.tableWidget_16.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_16.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_16.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_16.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_16.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_16.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_16.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_16.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_16.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_16.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_16.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_16.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_16.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_16.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_16.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_16.isSortingEnabled()
+        self.tableWidget_16.setSortingEnabled(False)
+        item = self.tableWidget_16.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_16.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_16.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_16.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_16.setTabText(self.tabWidget_16.indexOf(self.tab_17), _translate("Form", "Tab 1"))
+        self.label_progress_time_19.setText(_translate("Form", "02:00"))
+        self.label_67.setText(_translate("Form", "100%"))
+        self.pushButton_pause_19.setText(_translate("Form", "暂停检查"))
+        self.pushButton_stop_19.setText(_translate("Form", "停止检查"))
+        self.tableWidget_17.setSortingEnabled(True)
+        item = self.tableWidget_17.verticalHeaderItem(0)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_17.verticalHeaderItem(1)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_17.verticalHeaderItem(2)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_17.verticalHeaderItem(3)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_17.verticalHeaderItem(4)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_17.verticalHeaderItem(5)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_17.verticalHeaderItem(6)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_17.verticalHeaderItem(7)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_17.verticalHeaderItem(8)
+        item.setText(_translate("Form", "New Row"))
+        item = self.tableWidget_17.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_17.horizontalHeaderItem(1)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_17.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_17.horizontalHeaderItem(3)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_17.horizontalHeaderItem(4)
+        item.setText(_translate("Form", "New Column"))
+        item = self.tableWidget_17.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "New Column"))
+        __sortingEnabled = self.tableWidget_17.isSortingEnabled()
+        self.tableWidget_17.setSortingEnabled(False)
+        item = self.tableWidget_17.item(0, 0)
+        item.setText(_translate("Form", "1"))
+        item = self.tableWidget_17.item(1, 0)
+        item.setText(_translate("Form", "3"))
+        item = self.tableWidget_17.item(2, 0)
+        item.setText(_translate("Form", "2"))
+        self.tableWidget_17.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_17.setTabText(self.tabWidget_17.indexOf(self.tab_18), _translate("Form", "Tab 1"))
         self.label_2.setText(_translate("Form", "版权所有：帝岚科技计算机终端保密检查系统"))
         self.label_3.setText(_translate("Form", "电话：029-999987656"))
         self.label_5.setText(_translate("Form", "本机用户名：administration"))

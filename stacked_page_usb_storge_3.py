@@ -228,92 +228,92 @@ class Stacked_page_usb_storge_3(object):
         self.page_usb_storge.setObjectName("page_usb_storge")
         self.verticalLayout_21 = QtWidgets.QVBoxLayout(self.page_usb_storge)
         self.verticalLayout_21.setObjectName("verticalLayout_21")
-        self.frame_progress_4 = QtWidgets.QFrame(self.page_usb_storge)
-        self.frame_progress_4.setMinimumSize(QtCore.QSize(0, 0))
-        self.frame_progress_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_progress_4.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_progress_4.setObjectName("frame_progress_4")
-        self.horizontalLayout_13 = QtWidgets.QHBoxLayout(self.frame_progress_4)
-        self.horizontalLayout_13.setContentsMargins(5, 5, 5, 5)
-        self.horizontalLayout_13.setSpacing(5)
-        self.horizontalLayout_13.setObjectName("horizontalLayout_13")
-        self.label_progress_time_4 = QtWidgets.QLabel(self.frame_progress_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_progress_time_4.sizePolicy().hasHeightForWidth())
-        self.label_progress_time_4.setSizePolicy(sizePolicy)
-        self.label_progress_time_4.setMinimumSize(QtCore.QSize(60, 0))
-        self.label_progress_time_4.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.label_progress_time_4.setStyleSheet("font-family: Metropolis;\n"
-"font-size: 18px;\n"
-"line-height: 28px;\n"
-"font-weight: 800;\n"
-"\n"
-"color: #565656;")
-        self.label_progress_time_4.setObjectName("label_progress_time_4")
-        self.horizontalLayout_13.addWidget(self.label_progress_time_4)
-        self.progressBar_4 = QtWidgets.QProgressBar(self.frame_progress_4)
-        self.progressBar_4.setMinimumSize(QtCore.QSize(0, 15))
-        self.progressBar_4.setStyleSheet("QProgressBar{\n"
-"\n"
-"background-color: #DEDEDE; \n"
-"height:12px;\n"
-"border-radius: 8px;\n"
-"\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"QProgressBar::chunk{\n"
-"background-color: #83C088; \n"
-"border-radius: 6px;\n"
-"\n"
-"}\n"
-"\n"
-" ")
-        self.progressBar_4.setProperty("value", 24)
-        self.progressBar_4.setTextVisible(False)
-        self.progressBar_4.setObjectName("progressBar_4")
-        self.horizontalLayout_13.addWidget(self.progressBar_4)
-        self.label_42 = QtWidgets.QLabel(self.frame_progress_4)
-        self.label_42.setMinimumSize(QtCore.QSize(50, 0))
-        self.label_42.setStyleSheet("font-family: Metropolis;\n"
-"font-size: 18px;\n"
-"line-height: 28px;\n"
-"font-weight: 800;\n"
-"\n"
-"color: #565656;")
-        self.label_42.setObjectName("label_42")
-        self.horizontalLayout_13.addWidget(self.label_42)
-        self.pushButton_pause_4 = QtWidgets.QPushButton(self.frame_progress_4)
-        self.pushButton_pause_4.setMinimumSize(QtCore.QSize(100, 35))
-        self.pushButton_pause_4.setStyleSheet("background: #3A7FED;\n"
-"font-family: PingFang SC;\n"
-"font-style: normal;\n"
-"font-weight: normal;\n"
-"font-size: 14px;\n"
-"line-height: 20px;\n"
-"border-radius: 3px;\n"
-"\n"
-"color: #FFFFFF;")
-        self.pushButton_pause_4.setObjectName("pushButton_pause_4")
-        self.horizontalLayout_13.addWidget(self.pushButton_pause_4)
-        self.pushButton_stop_4 = QtWidgets.QPushButton(self.frame_progress_4)
-        self.pushButton_stop_4.setMinimumSize(QtCore.QSize(100, 35))
-        self.pushButton_stop_4.setStyleSheet("background: #3A7FED;\n"
-"font-family: PingFang SC;\n"
-"font-style: normal;\n"
-"font-weight: normal;\n"
-"font-size: 14px;\n"
-"line-height: 20px;\n"
-"border-radius: 3px;\n"
-"\n"
-"color: #FFFFFF;")
-        self.pushButton_stop_4.setObjectName("pushButton_stop_4")
-        self.horizontalLayout_13.addWidget(self.pushButton_stop_4)
-        self.verticalLayout_21.addWidget(self.frame_progress_4)
+#         self.frame_progress_4 = QtWidgets.QFrame(self.page_usb_storge)
+#         self.frame_progress_4.setMinimumSize(QtCore.QSize(0, 0))
+#         self.frame_progress_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+#         self.frame_progress_4.setFrameShadow(QtWidgets.QFrame.Raised)
+#         self.frame_progress_4.setObjectName("frame_progress_4")
+#         self.horizontalLayout_13 = QtWidgets.QHBoxLayout(self.frame_progress_4)
+#         self.horizontalLayout_13.setContentsMargins(5, 5, 5, 5)
+#         self.horizontalLayout_13.setSpacing(5)
+#         self.horizontalLayout_13.setObjectName("horizontalLayout_13")
+#         self.label_progress_time_4 = QtWidgets.QLabel(self.frame_progress_4)
+#         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+#         sizePolicy.setHorizontalStretch(0)
+#         sizePolicy.setVerticalStretch(0)
+#         sizePolicy.setHeightForWidth(self.label_progress_time_4.sizePolicy().hasHeightForWidth())
+#         self.label_progress_time_4.setSizePolicy(sizePolicy)
+#         self.label_progress_time_4.setMinimumSize(QtCore.QSize(60, 0))
+#         self.label_progress_time_4.setMaximumSize(QtCore.QSize(16777215, 16777215))
+#         self.label_progress_time_4.setStyleSheet("font-family: Metropolis;\n"
+# "font-size: 18px;\n"
+# "line-height: 28px;\n"
+# "font-weight: 800;\n"
+# "\n"
+# "color: #565656;")
+#         self.label_progress_time_4.setObjectName("label_progress_time_4")
+#         self.horizontalLayout_13.addWidget(self.label_progress_time_4)
+#         self.progressBar_4 = QtWidgets.QProgressBar(self.frame_progress_4)
+#         self.progressBar_4.setMinimumSize(QtCore.QSize(0, 15))
+#         self.progressBar_4.setStyleSheet("QProgressBar{\n"
+# "\n"
+# "background-color: #DEDEDE; \n"
+# "height:12px;\n"
+# "border-radius: 8px;\n"
+# "\n"
+# "\n"
+# "\n"
+# "}\n"
+# "\n"
+# "\n"
+# "QProgressBar::chunk{\n"
+# "background-color: #83C088; \n"
+# "border-radius: 6px;\n"
+# "\n"
+# "}\n"
+# "\n"
+# " ")
+#         self.progressBar_4.setProperty("value", 24)
+#         self.progressBar_4.setTextVisible(False)
+#         self.progressBar_4.setObjectName("progressBar_4")
+#         self.horizontalLayout_13.addWidget(self.progressBar_4)
+#         self.label_42 = QtWidgets.QLabel(self.frame_progress_4)
+#         self.label_42.setMinimumSize(QtCore.QSize(50, 0))
+#         self.label_42.setStyleSheet("font-family: Metropolis;\n"
+# "font-size: 18px;\n"
+# "line-height: 28px;\n"
+# "font-weight: 800;\n"
+# "\n"
+# "color: #565656;")
+#         self.label_42.setObjectName("label_42")
+#         self.horizontalLayout_13.addWidget(self.label_42)
+#         self.pushButton_pause_4 = QtWidgets.QPushButton(self.frame_progress_4)
+#         self.pushButton_pause_4.setMinimumSize(QtCore.QSize(100, 35))
+#         self.pushButton_pause_4.setStyleSheet("background: #3A7FED;\n"
+# "font-family: PingFang SC;\n"
+# "font-style: normal;\n"
+# "font-weight: normal;\n"
+# "font-size: 14px;\n"
+# "line-height: 20px;\n"
+# "border-radius: 3px;\n"
+# "\n"
+# "color: #FFFFFF;")
+#         self.pushButton_pause_4.setObjectName("pushButton_pause_4")
+#         self.horizontalLayout_13.addWidget(self.pushButton_pause_4)
+#         self.pushButton_stop_4 = QtWidgets.QPushButton(self.frame_progress_4)
+#         self.pushButton_stop_4.setMinimumSize(QtCore.QSize(100, 35))
+#         self.pushButton_stop_4.setStyleSheet("background: #3A7FED;\n"
+# "font-family: PingFang SC;\n"
+# "font-style: normal;\n"
+# "font-weight: normal;\n"
+# "font-size: 14px;\n"
+# "line-height: 20px;\n"
+# "border-radius: 3px;\n"
+# "\n"
+# "color: #FFFFFF;")
+#         self.pushButton_stop_4.setObjectName("pushButton_stop_4")
+#         self.horizontalLayout_13.addWidget(self.pushButton_stop_4)
+#         self.verticalLayout_21.addWidget(self.frame_progress_4)
 
         self.tabWidget_2 = QtWidgets.QTabWidget(self.page_usb_storge)
         self.tabWidget_2.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
@@ -357,21 +357,16 @@ class Stacked_page_usb_storge_3(object):
         self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName("verticalLayout_15")
-
-
-
-
         self.tableWidget_2 = QtWidgets.QTableWidget(self.tab_3)
         self.page_usb_storge_3()
-
 
         self.tabWidget_2.addTab(self.tab_3, "")
         self.verticalLayout_21.addWidget(self.tabWidget_2)
         self.stackedWidget.addWidget(self.page_usb_storge)
 
 
-        self.label_progress_time_4.setText( "02:00")
-        self.label_42.setText( "100%")
-        self.pushButton_pause_4.setText( "暂停检查")
-        self.pushButton_stop_4.setText( "停止检查")
+        # self.label_progress_time_4.setText( "02:00")
+        # self.label_42.setText( "100%")
+        # self.pushButton_pause_4.setText( "暂停检查")
+        # self.pushButton_stop_4.setText( "停止检查")
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_3),  "USB存储设备")
